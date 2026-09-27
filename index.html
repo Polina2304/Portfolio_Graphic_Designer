@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Портфолио - Графический дизайнер</title>
+
+    <!-- Подключаем шрифт Montserrat (веса 400, 500, 600) -->
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Подключаем наш файл стилей -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="portfolio-container">
+
+        <!-- ========================================================= -->
+        <!-- ЯЗЫКОВОЙ ПЕРЕКЛЮЧАТЕЛЬ -->
+        <!-- ========================================================= -->
+
+        <!-- ДЕСКТОП: текстовый (eng / рус) -->
+        <div class="lang-switch-container desktop-version">
+            <button
+                class="lang-btn"
+                id="lang-eng"
+                onclick="switchLang('en')"
+            >
+                eng
+            </button>
+
+            <span class="lang-divider">/</span>
+
+            <button
+                class="lang-btn active"
+                id="lang-rus"
+                onclick="switchLang('ru')"
+            >
+                рус
+            </button>
+        </div>
+
+
+        <!-- МОБИЛКА: кнопки-плашки (Русский / English) -->
+        <div class="lang-switch-mobile mobile-version">
+
+            <button
+                class="mobile-lang-btn active"
+                id="mobile-lang-rus"
+                onclick="switchLang('ru')"
+            >
+                Русский
+            </button>
+
+            <button
+                class="mobile-lang-btn"
+                id="mobile-lang-eng"
+                onclick="switchLang('en')"
+            >
+                English
+            </button>
+
+        </div>
+
+
+        <!-- ========================================================= -->
+        <!-- НАВИГАЦИЯ -->
+        <!-- ========================================================= -->
+
+        <nav class="main-menu">
+
+            <a href="#" class="menu-btn">Проекты</a>
+            <a href="#" class="menu-btn">Полиграфия</a>
+            <a href="#" class="menu-btn">Digital</a>
+            <a href="#" class="menu-btn">3D-графика</a>
+            <a href="#" class="menu-btn">Motion Design</a>
+            <a href="#" class="menu-btn">Соцсети</a>
+            <a href="#" class="menu-btn">Лендинги</a>
+
+        </nav>
+
+
+        <!-- ========================================================= -->
+        <!-- ГЛАВНЫЙ ЭКРАН -->
+        <!-- ========================================================= -->
+
+        <section class="hero">
+
+            <div class="hero-title">
+                <img
+                    src="1_Main/Desktop/title.svg"
+                    alt="Портфолио Графический дизайнер"
+                >
+            </div>
+
+            <div class="hero-photo">
+                <img
+                    src="1_Main/Desktop/photo.webp"
+                    alt="Мое фото"
+                >
+            </div>
+
+        </section>
+
+
+        <!-- ========================================================= -->
+        <!-- ИНФОРМАЦИЯ О ДИЗАЙНЕРЕ -->
+        <!-- ========================================================= -->
+
+        <section class="info-cards">
+
+
+            <!-- ===================================================== -->
+            <!-- КАРТОЧКА: КОНТАКТЫ -->
+            <!-- ===================================================== -->
+
+            <div class="card contacts-card">
+
+                <h2>Контакты</h2>
+
+                <div class="card-item">
+
+                    <span class="grey-text">/ Telegram</span>
+
+                    <img
+                        class="vector-dash"
+                        src="1_Main/Desktop/dash.svg"
+                        alt="—"
+                    >
+
+                    <a href="https://t.me/Avokadookan">
+                        https://t.me/Avokadookan
+                    </a>
+
+                </div>
+
+
+                <div class="card-item">
+
+                    <span class="grey-text">/ Почта</span>
+
+                    <img
+                        class="vector-dash"
+                        src="1_Main/Desktop/dash.svg"
+                        alt="—"
+                    >
+
+                    <a href="mailto:avokadookan@gmail.com">
+                        avokadookan@gmail.com
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- ===================================================== -->
+            <!-- КАРТОЧКА: ОБРАЗОВАНИЕ -->
+            <!-- ===================================================== -->
+
+            <div class="card education-card">
+
+                <h2>Образование</h2>
+
+
+                <!-- ДЕСКТОП -->
+                <div class="desktop-version">
+
+                    <h3>КузТАГиС (СПО)</h3>
+
+                    <div class="card-item">
+
+                        <span class="grey-text">
+                            2018 - 2022
+                        </span>
+
+                        <img
+                            class="vector-dash"
+                            src="1_Main/Desktop/dash.svg"
+                            alt="—"
+                        >
+
+                        <span class="grey-text">
+                            Графический дизайн
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- МОБИЛКА -->
+                <div class="mobile-version">
+
+                    <div class="mobile-top-row">
+
+                        <h3>
+                            КузТАГиС (СПО) 2018 - 2022
+                        </h3>
+
+                    </div>
+
+                    <p class="grey-text">
+                        Графический дизайн
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- ===================================================== -->
+            <!-- КАРТОЧКА: ОПЫТ РАБОТЫ -->
+            <!-- ===================================================== -->
+
+            <div class="card experience-card">
+
+                <h2>Опыт работы</h2>
+
+
+                <!-- ================================================= -->
+                <!-- ДЕСКТОП ВЕРСИЯ -->
+                <!-- ================================================= -->
+
+                <div class="desktop-version">
+
+                    <div class="card-item">
+
+                        <div class="grey-text">
+                            2024 - сейчас
+                        </div>
+
+                        <img
+                            class="vector-dash"
+                            src="1_Main/Desktop/dash.svg"
+                            alt="—"
+                        >
+
+                        <div class="job-info">
+
+                            <h4>
+                                Дизайнер в отделе маркетинга
+                            </h4>
+
+                            <p class="grey-text">
+                                Goodline
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="card-item">
+
+                        <div class="grey-text">
+                            2022 - 2024
+                        </div>
+
+                        <img
+                            class="vector-dash"
+                            src="1_Main/Desktop/dash.svg"
+                            alt="—"
+                        >
+
+                        <div class="job-info">
+
+                            <h4>
+                                Преподаватель направления
+                                «Компьютерная графика и дизайн»
+                            </h4>
+
+                            <p class="grey-text">
+                                Компьютерная академия «TOP»
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="card-item">
+
+                        <div class="grey-text">
+                            2021 - сейчас
+                        </div>
+
+                        <img
+                            class="vector-dash"
+                            src="1_Main/Desktop/dash.svg"
+                            alt="—"
+                        >
+
+                        <div class="job-info">
+
+                            <h4>
+                                Графический дизайнер
+                            </h4>
+
+                            <p class="grey-text">
+                                Различные фриланс заказы
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- ================================================= -->
+                <!-- МОБИЛЬНАЯ ВЕРСИЯ -->
+                <!-- ================================================= -->
+
+                <div class="mobile-version">
+
+                    <div class="experience-item">
+
+                        <h4>
+                            Дизайнер в отделе маркетинга
+                        </h4>
+
+                        <p class="grey-text">
+                            Goodline, 2024 - сейчас
+                        </p>
+
+                    </div>
+
+
+                    <div class="experience-item">
+
+                        <h4>
+                            Преподаватель направления
+                            «Компьютерная графика и дизайн»
+                        </h4>
+
+                        <p class="grey-text">
+                            Компьютерная академия «TOP»,
+                        </p>
+
+                        <p class="grey-text">
+                            2022 - 2024
+                        </p>
+
+                    </div>
+
+
+                    <div class="experience-item">
+
+                        <h4>
+                            Графический дизайнер
+                        </h4>
+
+                        <p class="grey-text">
+                            Различные фриланс заказы,
+                        </p>
+
+                        <p class="grey-text">
+                            2021 - сейчас
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+        <!-- ========================================================= -->
+        <!-- ИНФОРМАЦИЯ О ПРОЕКТАХ -->
+        <!-- ========================================================= -->
+
+        <!-- Проект 1 -->
+        <article class="project-card">
+
+            <!-- 1. Верхняя строка: Категория (слева) и Теги (справа) -->
+            <div class="project-top">
+                <div class="project-category category-marketing">
+                    Проекты
+                </div>
+
+                <div class="project-tags tags-goodline">
+                    <span class="tag-item">Концепции</span>
+                    <span class="tag-dot"></span>
+                    <span class="tag-item">Проектирование</span>
+                    <span class="tag-dot"></span>
+                    <span class="tag-item">Маркетинговый дизайн</span>
+                </div>
+            </div>
+
+            <!-- 2. Основной блок: Фото + Описание (отступ между ними 125px) -->
+            <div class="project-main">
+                <div class="project-cover">
+                    <!-- Сюда вставляем главное фото (размеры зададим отдельно) -->
+                    <img src="path-to-cover.jpg" alt="Весеннее оформление Goodline">
+                </div>
+
+                <div class="project-content">
+                    <h3 class="project-title">Весеннее оформление клиентского центра Goodline</h3>
+                    <div class="project-text">
+                        <p>Клиентский центр и коворкинг Goodline регулярно становятся частью сезонных маркетинговых кампаний.</p>
+                        <p>Для весеннего оформления была разработана концепция, передающая атмосферу тепла, нежности и начала нового сезона через композицию из цветущих деревьев, объемных цветов и светового арт-объекта в форме сердца.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Длинный разделитель 1200x6 со скруглением -->
+            <div class="project-delimiter"></div>
+
+            <!-- 4. Галерея дополнительных фото (расстояние между фото 24px) -->
+            <div class="project-gallery">
+                <img src="photo-1.jpg" alt="Фото 1">
+                <img src="photo-2.jpg" alt="Фото 2">
+            </div>
+
+            <!-- 5. Кнопка "Скрыть подробности" (по центру, 588x60) -->
+            <button class="project-toggle-btn">Скрыть подробности о проекте</button>
+
+        </article>
+
+
+</body>
+</html>
+

@@ -102,17 +102,23 @@
         <section class="hero">
 
             <div class="hero-title">
-                <img
-                    src="1_Main/Desktop/title.svg"
-                    alt="Портфолио Графический дизайнер"
-                >
+                <picture>
+                    <source media="(max-width: 768px)" srcset="images/0_graphics/title_rus.svg">
+                    <img
+                        src="images/0_graphics/title_rus.svg"
+                        alt="Портфолио Графический дизайнер"
+                    >
+                </picture>
             </div>
 
             <div class="hero-photo">
-                <img
-                    src="1_Main/Desktop/photo.webp"
-                    alt="Мое фото"
-                >
+                <picture>
+                    <source media="(max-width: 768px)" srcset="images/1_main/mobile/ava.webp">
+                    <img
+                        src="images/1_main/desktop/ava.webp"
+                        alt="Мое фото"
+                    >
+                </picture>
             </div>
 
         </section>
@@ -139,7 +145,7 @@
 
                     <img
                         class="vector-dash"
-                        src="1_Main/Desktop/dash.svg"
+                        src="images/1_main/desktop/dash.svg"
                         alt="—"
                     >
 
@@ -156,7 +162,7 @@
 
                     <img
                         class="vector-dash"
-                        src="1_Main/Desktop/dash.svg"
+                        src="images/1_main/desktop/dash.svg"
                         alt="—"
                     >
 
@@ -191,7 +197,7 @@
 
                         <img
                             class="vector-dash"
-                            src="1_Main/Desktop/dash.svg"
+                            src="images/1_main/desktop/dash.svg"
                             alt="—"
                         >
 
@@ -247,7 +253,7 @@
 
                         <img
                             class="vector-dash"
-                            src="1_Main/Desktop/dash.svg"
+                            src="images/1_main/desktop/dash.svg"
                             alt="—"
                         >
 
@@ -274,7 +280,7 @@
 
                         <img
                             class="vector-dash"
-                            src="1_Main/Desktop/dash.svg"
+                            src="images/1_main/desktop/dash.svg"
                             alt="—"
                         >
 
@@ -302,7 +308,7 @@
 
                         <img
                             class="vector-dash"
-                            src="1_Main/Desktop/dash.svg"
+                            src="images/1_main/desktop/dash.svg"
                             alt="—"
                         >
 
@@ -389,7 +395,7 @@
         <!-- ========================================================= -->
 
         <!-- Проект 1 -->
-        <article class="project-card">
+        <article class="project-card project-1">
 
             <!-- 1. Верхняя строка: Категория (слева) и Теги (справа) -->
             <div class="project-top">
@@ -410,7 +416,7 @@
             <div class="project-main">
                 <div class="project-cover">
                     <!-- Сюда вставляем главное фото (размеры зададим отдельно) -->
-                    <img src="path-to-cover.jpg" alt="Весеннее оформление Goodline">
+                    <img src="images/2_project 1/desktop/project_1_1.webp" alt="Весеннее оформление Goodline">
                 </div>
 
                 <div class="project-content">
@@ -427,8 +433,79 @@
 
             <!-- 4. Галерея дополнительных фото (расстояние между фото 24px) -->
             <div class="project-gallery">
-                <img src="photo-1.jpg" alt="Фото 1">
-                <img src="photo-2.jpg" alt="Фото 2">
+                <img src="images/2_project 1/desktop/project_1_2.webp" alt="Фото 1">
+                <img src="images/2_project 1/desktop/project_1_3.webp" alt="Фото 2">
+                <img src="images/2_project 1/desktop/project_1_4.webp" alt="Фото 3">
+                <img src="images/2_project 1/desktop/project_1_5.webp" alt="Фото 4">
+            </div>
+
+            <!-- 5. Кнопка "Скрыть подробности" (по центру, 588x60) -->
+            <button class="project-toggle-btn">Скрыть подробности о проекте</button>
+
+        </article>
+
+
+        <!-- Проект 2 -->
+        <article class="project-card project-2">
+
+            <!-- 1. Верхняя строка: Категория (слева) и Теги (справа) -->
+            <div class="project-top">
+                <div class="project-category category-marketing">
+                    Проекты
+                </div>
+
+                <div class="project-tags tags-project-2">
+                    <span class="tag-item">Концепции</span>
+                    <span class="tag-dot"></span>
+                    <span class="tag-item">Проектирование</span>
+                    <span class="tag-dot"></span>
+                    <span class="tag-item">Маркетинговый дизайн</span>
+                    <span class="tag-dot"></span>
+                    <span class="tag-item">Полиграфия</span>
+                </div>
+            </div>
+
+            <!-- 2. Основной блок: Фото + Описание (отступ между ними 125px) -->
+            <div class="project-main">
+                <div class="project-cover">
+                    <!-- Сюда вставляем главное фото (размеры зададим отдельно) -->
+                    <img src="images/3_project_2/desktop/project_2_1.webp" alt="Летний праздник для жителей города">
+                    <img src="images/3_project_2/desktop/project_2_2.webp" alt="Фото с лотереей">
+                    <img src="images/3_project_2/desktop/project_2_3.webp" alt="Фото с мороженым">
+
+                </div>
+
+                <div class="project-content">
+                    <h3 class="project-title">Летний праздник для жителей города</h3>
+                    <div class="project-text">
+                        <p>В честь 25-летия компании Goodline была организована серия открытых летних мероприятий — «Дофаминовые вечеринки».</p>
+                        <p>Каждую неделю возле клиентского центра проходили встречи для жителей города с бесплатными угощениями и интерактивными зонами.</p>
+                        <p>Для проекта была разработана яркая визуальная концепция в тропическом стиле.</p>
+                        <p>В рамках проекта были созданы оформление площадки, объемные декоративные конструкции, рекламная полиграфия, упаковка, наклейки на стаканы и другие элементы фирменного оформления.</p>
+                        <p>Мероприятия способствовали продвижению услуг компании, сбору обратной связи и органическому распространению бренда в социальных сетях.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 3. Длинный разделитель 1200x6 со скруглением -->
+            <div class="project-delimiter"></div>
+
+            <!-- 4. Галерея дополнительных фото (расстояние между фото 24px) -->
+            <div class="project-gallery project-2-gallery">
+                <!-- Верхнее левое фото: в длину х2 -->
+                <div class="gallery-column-full">
+                    <img src="images/3_project_2/desktop/project_2_4.webp" alt="Фото 1">
+                </div>
+                <!-- Остальные фото: в длину х1 каждое-->
+                <div class="gallery-column-half">
+                    <img src="images/3_project_2/desktop/project_2_5.webp" alt="Фото 2">
+                    <img src="images/3_project_2/desktop/project_2_6.webp" alt="Фото 3">
+                    <img src="images/3_project_2/desktop/project_2_7.webp" alt="Фото 4">
+                    <img src="images/3_project_2/desktop/project_2_8.webp" alt="Фото 5">
+                </div>
+                
+
+
             </div>
 
             <!-- 5. Кнопка "Скрыть подробности" (по центру, 588x60) -->

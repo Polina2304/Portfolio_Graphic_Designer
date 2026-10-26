@@ -491,8 +491,20 @@ body {
     min-width: 0;
 }
 
-/* Выравнивание текста по верхнему краю фотографии */
+
+/* ===== ВТОРОЙ ПРОЕКТ: СЕТКА ОСНОВНОГО БЛОКА ===== */
+
+.project-2 .project-main {
+    display: grid;
+    grid-template-columns: 588px minmax(0, 1fr);
+    column-gap: 125px;
+    align-items: start;
+    width: 1200px;
+}
+
 .project-2 .project-content {
+    width: 100%;
+    min-width: 0;
     padding-top: 0;
 }
 

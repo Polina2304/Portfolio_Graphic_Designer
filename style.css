@@ -586,7 +586,8 @@ body {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     align-items: center;
-    gap: 24px;
+    column-gap: 96px;
+    row-gap: 24px;
     width: 100%;
 }
 

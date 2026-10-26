@@ -508,6 +508,12 @@ body {
     padding-top: 0;
 }
 
+.project-2 .project-title {
+    line-height: 90%;
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
+}
+
 
 
 /* ============================================================

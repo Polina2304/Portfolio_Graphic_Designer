@@ -738,6 +738,346 @@ body {
 
 
 
+/* ===== ПРОЕКТ 4: ПЕРВЫЙ ЭКРАН ===== */
+
+.project-4 .project-main {
+    display: grid;
+    grid-template-columns: 588px 486px;
+    column-gap: 125px;
+    align-items: start;
+    width: 1199px;
+}
+
+/* Обложка: рамка 588 × 550 */
+.project-4 .project-cover {
+    position: relative;
+    width: 588px;
+    height: 550px;
+    flex-shrink: 0;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+/* Изображение внутри рамки */
+.project-4 .project-cover > img {
+    position: absolute;
+    width: 603.23px;
+    height: 562.2px;
+    max-width: none;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    border-radius: 0;
+}
+
+/* Текстовая колонка */
+.project-4 .project-main > .project-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 48px;
+    width: 486px;
+    height: 550px;
+    min-width: 0;
+    padding: 0;
+    flex: none;
+}
+
+/* Заголовок */
+.project-4 .project-main > .project-content > .project-title {
+    width: 486px;
+    height: 80px;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 90%;
+    letter-spacing: -0.01em;
+    color: #FFD685;
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
+}
+
+/* Описание */
+.project-4 .project-main > .project-content > .project-text {
+    width: 486px;
+    height: 422px;
+    min-width: 0;
+}
+
+.project-4 .project-main > .project-content > .project-text p {
+    margin: 0 0 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: normal;
+    color: #FFF5E0;
+}
+
+.project-4 .project-main > .project-content > .project-text p:last-child {
+    margin-bottom: 0;
+}
+
+
+
+/* ===== ПРОЕКТ 4: ВТОРОЙ БЛОК ===== */
+
+.project-4-section-app {
+    display: grid;
+    grid-template-columns: 384px 690px;
+    justify-content: space-between;
+    align-items: start;
+    width: 1200px;
+}
+
+/* Текстовая колонка */
+.project-4-section-app > .project-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    width: 384px;
+    min-width: 0;
+    padding: 0;
+}
+
+/* Заголовок второго блока — светлый */
+.project-4-section-app .project-title {
+    width: 384px;
+    margin: 0;
+    color: #FFF5E0;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 90%;
+    letter-spacing: -0.01em;
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
+}
+
+/* Описание */
+.project-4-section-app .project-text {
+    width: 384px;
+}
+
+.project-4-section-app .project-text p {
+    margin: 0 0 24px;
+    font-size: 20px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #FFF5E0;
+}
+
+.project-4-section-app .project-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Три изображения в одну строку */
+.project-4-section-app .project-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 220px);
+    gap: 15px;
+    width: 690px;
+    min-width: 0;
+}
+
+.project-4-section-app .project-gallery img {
+    display: block;
+    width: 220px;
+    height: 442px;
+    object-fit: contain;
+    border-radius: 0;
+}
+
+
+/* ===== ПРОЕКТ 4: БЛОК «АДАПТАЦИЯ ДЛЯ ВЕБ-ПЛАТФОРМ» ===== */
+
+/* Текстовый блок */
+.project-4-web-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    width: 1200px;
+    flex: none;
+    box-sizing: border-box;
+}
+
+/* Заголовок */
+.project-4-web-text .project-title {
+    width: 100%;
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 90%;
+    letter-spacing: -0.01em;
+    color: #FFF5E0;
+}
+
+/* Описание */
+.project-4-web-text .project-text {
+    width: 100%;
+}
+
+.project-4-web-text .project-text p {
+    margin: 0 0 24px 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: normal;
+    color: #FFF5E0;
+}
+
+.project-4-web-text .project-text p:last-child {
+    margin-bottom: 0;
+}
+
+/* Галерея: большое фото слева, два маленьких справа */
+.project-4-web-gallery {
+    display: grid;
+    grid-template-columns: 690px 486px;
+    grid-template-rows: 348px 348px;
+    gap: 24px;
+    width: 1200px;
+    height: 720px;
+    flex: none;
+}
+
+/* Все изображения галереи */
+.project-4-web-gallery img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    object-fit: cover;
+    border-radius: 24px;
+}
+
+/* Большое фото слева */
+.project-4-web-gallery img:first-child {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+}
+
+/* Два маленьких фото справа */
+.project-4-web-gallery img:nth-child(2) {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.project-4-web-gallery img:nth-child(3) {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+
+
+/* ===== ПРОЕКТ 4: ВИДЕО ЗАСТАВКИ ===== */
+
+.project-4-video {
+    position: relative;
+    display: block;
+    width: 1200px;
+    height: 672px;
+    overflow: hidden;
+    border-radius: 24px;
+    flex: none;
+    text-decoration: none;
+    background: #1F1E1D;
+}
+
+/* Стоп-кадр */
+.project-4-video-thumbnail {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+/* Круглая кнопка Play */
+.project-4-video-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 112px;
+    height: 112px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.project-4-video-play svg {
+    display: block;
+    width: 42px;
+    height: 45px;
+    margin-left: 5px;
+}
+
+.project-4-video:hover .project-4-video-play {
+    background: rgba(0, 0, 0, 0.7);
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* Мобильная адаптация */
+@media (max-width: 768px) {
+    .project-4-video {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1200 / 672;
+    }
+
+    .project-4-video-play {
+        width: 64px;
+        height: 64px;
+    }
+
+    .project-4-video-play svg {
+        width: 25px;
+        height: 27px;
+        margin-left: 3px;
+    }
+}
+
+
+/* Проект 4 — блок зоны ответственности */
+
+.project-4 .project-responsibility-title {
+    margin: 0 0 32px 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    letter-spacing: normal;
+    color: #FFF5E0;
+}
+
+.project-4 .project-responsibility-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.project-4 .project-responsibility-list p {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #FFF5E0;
+}
+
+
+
 
 /* ============================================================
    МОБИЛЬНАЯ АДАПТАЦИЯ

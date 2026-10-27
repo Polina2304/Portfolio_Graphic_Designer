@@ -705,27 +705,28 @@ body {
     margin-top: 72px;
 }
 
-/* Отступ от изображений до заголовков проекта 3 */
+
+/* Проект 3 — заголовки и описания карточек */
 .project-3 > .project-content {
-    padding-top: 48px;
+    min-width: 0;
+    width: 100%;
+    padding-top: 24px;
     box-sizing: border-box;
+    align-self: start;
 }
 
-/* Проект 3 — заголовки под фотографиями */
 .project-3 > .project-content .project-title {
+    margin: 0 0 24px 0;
+    min-height: 2.2em;
+    display: flex;
+    align-items: flex-start;
     font-size: 32px;
     line-height: 1;
     font-weight: 600;
     letter-spacing: -0.01em;
-    margin: 0 0 24px 0;
+    color: #FFF5E0;
 }
 
-/* Проект 3 — выравнивание заголовков карточек */
-.project-3 > .project-content {
-    padding-top: 48px;
-    box-sizing: border-box;
-    align-self: start;
-}
 
 .project-3 > .project-content .project-title {
     margin-top: 0;

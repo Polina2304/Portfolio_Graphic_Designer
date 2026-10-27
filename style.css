@@ -1057,14 +1057,19 @@ body {
     text-box-edge: cap alphabetic;
 }
 
-/* Описание */
+
+/* Описание финального блока */
 
 .project-4-final-text > .project-text {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
     width: 100%;
+    margin: 0 0 48px;
 }
 
 .project-4-final-text > .project-text p {
-    margin: 0 0 24px;
+    margin: 0;
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     font-weight: 400;
@@ -1072,13 +1077,7 @@ body {
     color: #FFF5E0;
 }
 
-/* 48 px до подзаголовка зоны ответственности */
-
-.project-4-final-text > .project-text p:last-child {
-    margin-bottom: 48px;
-}
-
-/* Подзаголовок */
+/* Заголовок зоны ответственности */
 
 .project-4-final-text > .project-responsibility-title {
     margin: 0 0 32px;
@@ -1089,35 +1088,42 @@ body {
     color: #FFF5E0;
 }
 
-/* Список — используем переименованные классы */
+/* Кастомный список зоны ответственности */
 
-.project-4-responsibility-list {
+.project-4-final-text > .project-4-responsibility-list {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    row-gap: 24px;
+    gap: 20px;
     margin: 0;
     padding: 0;
 }
 
-.project-4-responsibility-item {
+.project-4-final-text .project-4-responsibility-item {
     display: flex;
     align-items: center;
     gap: 12px;
     margin: 0;
     padding: 0;
     font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
+    font-size: 21px;
     font-weight: 400;
     line-height: 24px;
     color: #FFF5E0;
 }
 
-.project-4-responsibility-bullet {
+/* Точка настраивается отдельно от текста */
+
+.project-4-final-text .project-4-responsibility-bullet {
     display: block;
     flex: 0 0 6px;
     width: 6px;
+    margin: 0;
+    padding: 0;
+    line-height: 24px;
+    color: #FFF5E0;
 }
+
 
 
 

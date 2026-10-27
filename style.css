@@ -1411,6 +1411,109 @@ body {
 
 
 
+/* ============================================================
+   ПРОЕКТ 8 — 3D-ГРАФИКА
+   ============================================================ */
+
+/* Сетка карточек */
+.three-d-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 588px);
+    column-gap: 24px;
+    row-gap: 96px;
+    width: 1200px;
+    align-items: start;
+}
+
+/* Общая карточка */
+.three-d-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 48px;
+    width: 588px;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Широкие карточки на всю сетку */
+.three-d-item-wide {
+    grid-column: 1 / -1;
+    width: 1200px;
+}
+
+/* Изображение */
+.three-d-cover {
+    width: 100%;
+    height: 540px;
+    overflow: hidden;
+    border-radius: 24px;
+    flex: none;
+}
+
+.three-d-cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+/* Высоты широких изображений */
+.three-d-item-wide:nth-child(1) .three-d-cover {
+    height: 674px;
+}
+
+.three-d-item-wide:nth-child(4) .three-d-cover,
+.three-d-item-wide:nth-child(7) .three-d-cover {
+    height: 600px;
+}
+
+/* Текстовая часть */
+.three-d-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Заголовок */
+.three-d-title {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 90%;
+    letter-spacing: -0.01em;
+    color: #FFF5E0;
+}
+
+/* Описание */
+.three-d-text {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.three-d-text p {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: normal;
+    color: #FFF5E0;
+}
+
 
 
 /* ============================================================

@@ -893,7 +893,11 @@ body {
 
 /* ===== ПРОЕКТ 4: БЛОК «АДАПТАЦИЯ ДЛЯ ВЕБ-ПЛАТФОРМ» ===== */
 
-/* Текстовый блок */
+
+/* ============================================================
+   ПРОЕКТ 4 — АДАПТАЦИЯ ДЛЯ ВЕБ-ПЛАТФОРМ
+   ============================================================ */
+
 .project-4-web-text {
     display: flex;
     flex-direction: column;
@@ -904,7 +908,6 @@ body {
     box-sizing: border-box;
 }
 
-/* Заголовок */
 .project-4-web-text .project-title {
     width: 100%;
     margin: 0;
@@ -916,13 +919,12 @@ body {
     color: #FFF5E0;
 }
 
-/* Описание */
 .project-4-web-text .project-text {
     width: 100%;
 }
 
 .project-4-web-text .project-text p {
-    margin: 0 0 24px 0;
+    margin: 0 0 24px;
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     font-weight: 400;
@@ -935,7 +937,9 @@ body {
     margin-bottom: 0;
 }
 
-/* Галерея: большое фото слева, два маленьких справа */
+
+/* Галерея веб-платформ */
+
 .project-4-web-gallery {
     display: grid;
     grid-template-columns: 690px 486px;
@@ -946,7 +950,6 @@ body {
     flex: none;
 }
 
-/* Все изображения галереи */
 .project-4-web-gallery img {
     display: block;
     width: 100%;
@@ -957,13 +960,11 @@ body {
     border-radius: 24px;
 }
 
-/* Большое фото слева */
 .project-4-web-gallery img:first-child {
     grid-column: 1;
     grid-row: 1 / span 2;
 }
 
-/* Два маленьких фото справа */
 .project-4-web-gallery img:nth-child(2) {
     grid-column: 2;
     grid-row: 1;
@@ -975,8 +976,9 @@ body {
 }
 
 
-
-/* ===== ПРОЕКТ 4: ВИДЕО ЗАСТАВКИ ===== */
+/* ============================================================
+   ПРОЕКТ 4 — ВИДЕО ЗАСТАВКИ
+   ============================================================ */
 
 .project-4-video {
     position: relative;
@@ -990,7 +992,6 @@ body {
     background: #1F1E1D;
 }
 
-/* Стоп-кадр */
 .project-4-video-thumbnail {
     display: block;
     width: 100%;
@@ -999,7 +1000,6 @@ body {
     border-radius: inherit;
 }
 
-/* Круглая кнопка Play */
 .project-4-video-play {
     position: absolute;
     top: 50%;
@@ -1027,91 +1027,25 @@ body {
     transform: translate(-50%, -50%) scale(1.05);
 }
 
-/* Мобильная адаптация */
-@media (max-width: 768px) {
-    .project-4-video {
-        width: 100%;
-        height: auto;
-        aspect-ratio: 1200 / 672;
-    }
 
-    .project-4-video-play {
-        width: 64px;
-        height: 64px;
-    }
+/* ============================================================
+   ПРОЕКТ 4 — ФИНАЛЬНЫЙ ТЕКСТОВЫЙ БЛОК
+   ============================================================ */
 
-    .project-4-video-play svg {
-        width: 25px;
-        height: 27px;
-        margin-left: 3px;
-    }
-}
-
-
-/* Проект 4 — блок зоны ответственности */
-
-.project-4 .project-responsibility-title {
-    margin: 0 0 32px 0;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-    letter-spacing: normal;
-    color: #FFF5E0;
-}
-
-.project-4 .project-responsibility-list {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-}
-
-.project-4 .project-responsibility-title {
-    margin: 32px 0;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-    line-height: 24px;
-    color: #FFF5E0;
-}
-
-.project-4 .project-responsibility-list {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
-}
-
-.project-4 .project-responsibility-item {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 24px;
-    color: #FFF5E0;
-}
-
-.project-4 .project-bullet {
-    display: inline-block;
-    flex: 0 0 6px;
-    width: 6px;
-}
-
-/* Проект 4 — последний текстовый блок */
-.project-4 > .project-content {
+.project-4-final-text {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     width: 1200px;
+    flex: none;
     gap: 0;
+    box-sizing: border-box;
 }
 
-/* Заголовок — как у предыдущего блока */
-.project-4 > .project-content > .project-title {
-    width: 1200px;
+/* Заголовок */
+
+.project-4-final-text > .project-title {
+    width: 100%;
     margin: 0 0 32px;
     font-family: 'Montserrat', sans-serif;
     font-size: 32px;
@@ -1124,11 +1058,12 @@ body {
 }
 
 /* Описание */
-.project-4 > .project-content > .project-text {
-    width: 1200px;
+
+.project-4-final-text > .project-text {
+    width: 100%;
 }
 
-.project-4 > .project-content > .project-text p {
+.project-4-final-text > .project-text p {
     margin: 0 0 24px;
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
@@ -1137,12 +1072,15 @@ body {
     color: #FFF5E0;
 }
 
-.project-4 > .project-content > .project-text p:last-child {
-    margin-bottom: 32px;
+/* 48 px до подзаголовка зоны ответственности */
+
+.project-4-final-text > .project-text p:last-child {
+    margin-bottom: 48px;
 }
 
-/* Подзаголовок зоны ответственности */
-.project-4 > .project-content > .project-responsibility-title {
+/* Подзаголовок */
+
+.project-4-final-text > .project-responsibility-title {
     margin: 0 0 32px;
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
@@ -1151,24 +1089,39 @@ body {
     color: #FFF5E0;
 }
 
-/* Список с точками */
-.project-4 > .project-content > .project-responsibility-list {
+/* Список — используем переименованные классы */
+
+.project-4-responsibility-list {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 24px;
+    row-gap: 24px;
+    margin: 0;
+    padding: 0;
 }
 
-.project-4 > .project-content .project-responsibility-item {
+.project-4-responsibility-item {
     display: flex;
     align-items: center;
     gap: 12px;
+    margin: 0;
+    padding: 0;
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     font-weight: 400;
     line-height: 24px;
     color: #FFF5E0;
 }
+
+.project-4-responsibility-bullet {
+    display: block;
+    flex: 0 0 6px;
+    width: 6px;
+}
+
+
+
+
 
 
 /* ============================================================

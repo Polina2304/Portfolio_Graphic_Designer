@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <title>Портфолио - Графический дизайнер</title>
 
@@ -742,26 +743,47 @@
                 </div>
 
             
-                <!-- Видео заставки подкаста -->
-                <a
-                    class="project-4-video"
-                    href="https://www.youtube.com/watch?v=xxtzmj3kpOI"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Смотреть заставку подкаста на YouTube"
-                >
+                <div class="project-4-video" id="podcast-video">
                     <img
                         class="project-4-video-thumbnail"
                         src="https://img.youtube.com/vi/xxtzmj3kpOI/maxresdefault.jpg"
                         alt="Стоп-кадр заставки подкаста"
                     >
 
-                    <span class="project-4-video-play" aria-hidden="true">
-                        <svg viewBox="0 0 42 45" fill="white">
+                    <button
+                        class="project-4-video-play"
+                        type="button"
+                        aria-label="Воспроизвести видео"
+                    >
+                        <svg viewBox="0 0 42 45" fill="white" aria-hidden="true">
                             <path d="M5 3.5C5 1.1 7.6-.4 9.7.8L37 17.3C39.1 18.6 39.1 21.6 37 22.9L9.7 39.4C7.6 40.6 5 39.1 5 36.7V3.5Z"/>
                         </svg>
-                    </span>
-                </a>
+                    </button>
+                </div>
+
+
+                <script>
+                    document.querySelectorAll('.project-4-video').forEach(video => {
+                        const playButton = video.querySelector('.project-4-video-play');
+
+                        playButton.addEventListener('click', () => {
+                            const iframe = document.createElement('iframe');
+
+                            iframe.referrerPolicy = 'strict-origin-when-cross-origin';
+                            iframe.src =
+                                'https://www.youtube.com/embed/xxtzmj3kpOI?autoplay=1&rel=0';
+
+                            iframe.title = 'Заставка для подкаста «О деле»';
+                            iframe.allow =
+                                'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+                            iframe.allowFullscreen = true;
+                            iframe.style.cssText =
+                                'position:absolute;inset:0;width:100%;height:100%;border:0;';
+
+                            video.replaceChildren(iframe);
+                        });
+                    });
+                </script>
 
 
 

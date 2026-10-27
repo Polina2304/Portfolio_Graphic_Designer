@@ -1067,8 +1067,26 @@ body {
     gap: 24px;
 }
 
-.project-4 .project-responsibility-list p {
-    margin: 0;
+.project-4 .project-responsibility-title {
+    margin: 32px 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #FFF5E0;
+}
+
+.project-4 .project-responsibility-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.project-4 .project-responsibility-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
     font-weight: 400;
@@ -1076,7 +1094,81 @@ body {
     color: #FFF5E0;
 }
 
+.project-4 .project-bullet {
+    display: inline-block;
+    flex: 0 0 6px;
+    width: 6px;
+}
 
+/* Проект 4 — последний текстовый блок */
+.project-4 > .project-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 1200px;
+    gap: 0;
+}
+
+/* Заголовок — как у предыдущего блока */
+.project-4 > .project-content > .project-title {
+    width: 1200px;
+    margin: 0 0 32px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 90%;
+    letter-spacing: -0.01em;
+    color: #FFF5E0;
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
+}
+
+/* Описание */
+.project-4 > .project-content > .project-text {
+    width: 1200px;
+}
+
+.project-4 > .project-content > .project-text p {
+    margin: 0 0 24px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #FFF5E0;
+}
+
+.project-4 > .project-content > .project-text p:last-child {
+    margin-bottom: 32px;
+}
+
+/* Подзаголовок зоны ответственности */
+.project-4 > .project-content > .project-responsibility-title {
+    margin: 0 0 32px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    color: #FFF5E0;
+}
+
+/* Список с точками */
+.project-4 > .project-content > .project-responsibility-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.project-4 > .project-content .project-responsibility-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    color: #FFF5E0;
+}
 
 
 /* ============================================================

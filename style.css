@@ -720,6 +720,19 @@ body {
     margin: 0 0 24px 0;
 }
 
+/* Проект 3 — выравнивание заголовков карточек */
+.project-3 > .project-content {
+    padding-top: 48px;
+    box-sizing: border-box;
+    align-self: start;
+}
+
+.project-3 > .project-content .project-title {
+    margin-top: 0;
+    min-height: 2.2em;
+    display: flex;
+    align-items: flex-start;
+}
 
 
 

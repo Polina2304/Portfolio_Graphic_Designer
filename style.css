@@ -452,6 +452,147 @@ body {
 }
 
 
+/* ============================================================
+   ПОЛИГРАФИЯ — ДЕСКТОП
+   ============================================================ */
+
+.project-card.printing {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 96px;
+    width: 1200px;
+    margin: 0 auto 160px;
+    box-sizing: border-box;
+}
+
+/* Верхняя строка категории и тегов */
+.printing > .project-top {
+    width: 100%;
+}
+
+/* Сетка карточек: 588 + 24 + 588 = 1200 px */
+.printing-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 588px);
+    column-gap: 24px;
+    row-gap: 98px;
+    width: 1200px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    align-items: start;
+}
+
+/* Отдельная работа */
+.printing-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 48px;
+    width: 588px;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Изображение 588 × 680 */
+.printing-cover {
+    width: 588px;
+    height: 680px;
+    overflow: hidden;
+    border-radius: 24px;
+    flex: none;
+}
+
+.printing-cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+/* Описание: заголовок + текст, расстояние 32 px */
+.printing-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    width: 588px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Заголовок */
+.printing-title {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 90%;
+    letter-spacing: -0.01em;
+    color: #FFF5E0;
+}
+
+/* Описание */
+.printing-text {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.printing-text p {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: normal;
+    color: #FFF5E0;
+}
+
+/* Две работы, занимающие всю ширину сетки */
+.printing-item-wide {
+    grid-column: 1 / -1;
+    width: 1200px;
+}
+
+/* Две фотографии внутри широкой карточки */
+.printing-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 588px);
+    gap: 24px;
+    width: 1200px;
+    margin: 0;
+    padding: 0;
+}
+
+.printing-gallery img {
+    display: block;
+    width: 588px;
+    height: 680px;
+    object-fit: cover;
+    border-radius: 24px;
+}
+
+/* Широкое описание под парой фотографий */
+.printing-item-wide .printing-content {
+    width: 1200px;
+}
+
+/* Кнопка под сеткой, а не внутри неё */
+.printing > .printing-toggle-btn {
+    align-self: center;
+    margin: 0;
+}
+
+
 
 /* ===== ВТОРОЙ ПРОЕКТ: ВЕРХНЯЯ ГАЛЕРЕЯ ===== */
 

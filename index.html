@@ -1504,6 +1504,22 @@
     });
     </script>
 
+    <!-- КНОПКА ПРОКРУТКИ НАВЕРХ -->
+    <button class="button-up" type="button" aria-label="Прокрутить наверх">
+        <svg viewBox="0 0 42 24" aria-hidden="true">
+            <path d="M3 21 L21 3 L39 21"/>
+        </svg>
+    </button>
+
+    <script>
+    document.querySelector('.button-up').addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+    </script>
+
 </body>
 </html>
 

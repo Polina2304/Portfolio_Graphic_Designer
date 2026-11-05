@@ -398,7 +398,6 @@
         <!-- Проект 1 -->
         <article class="project-card project-1">
 
-            <!-- 1. Верхняя строка: Категория (слева) и Теги (справа) -->
             <div class="project-top">
                 <div class="project-category category-marketing">
                     Проекты
@@ -413,10 +412,9 @@
                 </div>
             </div>
 
-            <!-- 2. Основной блок: Фото + Описание (отступ между ними 125px) -->
+            <!-- Первая страница проекта — всегда видна -->
             <div class="project-main">
                 <div class="project-cover">
-                    <!-- Сюда вставляем главное фото (размеры зададим отдельно) -->
                     <img src="images/2_project 1/desktop/project_1_1.webp" alt="Весеннее оформление Goodline">
                 </div>
 
@@ -429,19 +427,28 @@
                 </div>
             </div>
 
-            <!-- 3. Длинный разделитель 1200x6 со скруглением -->
-            <div class="project-delimiter"></div>
+            <!-- Кнопка раскрытия -->
+            <button class="project-expand-btn" type="button">
+                Подробнее о проекте
+            </button>
 
-            <!-- 4. Галерея дополнительных фото (расстояние между фото 24px) -->
-            <div class="project-gallery">
-                <img src="images/2_project 1/desktop/project_1_2.webp" alt="Фото 1">
-                <img src="images/2_project 1/desktop/project_1_3.webp" alt="Фото 2">
-                <img src="images/2_project 1/desktop/project_1_4.webp" alt="Фото 3">
-                <img src="images/2_project 1/desktop/project_1_5.webp" alt="Фото 4">
+            <!-- Скрываемое содержимое -->
+            <div class="project-hidden-content">
+
+                <div class="project-delimiter"></div>
+
+                <div class="project-gallery">
+                    <img src="images/2_project 1/desktop/project_1_2.webp" alt="Фото 1">
+                    <img src="images/2_project 1/desktop/project_1_3.webp" alt="Фото 2">
+                    <img src="images/2_project 1/desktop/project_1_4.webp" alt="Фото 3">
+                    <img src="images/2_project 1/desktop/project_1_5.webp" alt="Фото 4">
+                </div>
+
+                <button class="project-collapse-btn" type="button">
+                    Скрыть подробности о проекте
+                </button>
+
             </div>
-
-            <!-- 5. Кнопка "Скрыть подробности" (по центру, 588x60) -->
-            <button class="project-toggle-btn">Скрыть подробности о проекте</button>
 
         </article>
 
@@ -1305,11 +1312,38 @@
 
     </article>
 
+    <script>
+    document.querySelectorAll('.project-card').forEach(project => {
 
+        const expandButton = project.querySelector('.project-expand-btn');
+        const collapseButton = project.querySelector('.project-collapse-btn');
+        const content = project.querySelector('.project-hidden-content');
 
+        if (!expandButton || !collapseButton || !content) return;
 
+        expandButton.addEventListener('click', () => {
+            content.classList.add('is-visible');
 
+            expandButton.style.display = 'none';
 
+            collapseButton.style.display = 'flex';
+        });
+
+        collapseButton.addEventListener('click', () => {
+            content.classList.remove('is-visible');
+
+            expandButton.style.display = 'flex';
+
+            collapseButton.style.display = 'none';
+
+            project.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        });
+
+    });
+    </script>
 </body>
 </html>
 

@@ -451,6 +451,84 @@ body {
     opacity: 0.9;
 }
 
+/* NEW! Кнопка раскрытия проекта */
+/* Общие стили кнопок проекта */
+.project-expand-btn,
+.project-collapse-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+    width: 588px;
+    height: 60px;
+
+    margin: 0;
+    padding: 12px 24px;
+
+    background: #FFD685;
+    color: #1F1E1D;
+
+    border: none;
+    border-radius: 36px;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    align-self: flex-start;
+}
+
+/* Наведение */
+.project-expand-btn:hover,
+.project-collapse-btn:hover {
+    background: #FFC85C;
+}
+
+/* Фокус с клавиатуры */
+.project-expand-btn:focus-visible,
+.project-collapse-btn:focus-visible {
+    outline: 2px solid #FFD685;
+    outline-offset: 4px;
+}
+
+/* Кнопка сворачивания изначально скрыта */
+.project-collapse-btn {
+    display: none;
+}
+
+
+/* Скрытые материалы проекта */
+.project-hidden-content {
+    display: flex;
+    flex-direction: column;
+    gap: 96px;
+
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+
+    transition:
+        max-height 0.7s ease,
+        opacity 0.5s ease;
+}
+
+/* Раскрытое состояние */
+.project-hidden-content.is-visible {
+    max-height: 5000px;
+    opacity: 1;
+}
+
+/* Убираем лишний gap у скрытого блока */
+.project-hidden-content:not(.is-visible) {
+    margin-top: -96px;
+}
+
+
 /* ===== ВТОРОЙ ПРОЕКТ: ВЕРХНЯЯ ГАЛЕРЕЯ ===== */
 
 .project-2 .project-cover {
@@ -1513,6 +1591,7 @@ body {
     letter-spacing: normal;
     color: #FFF5E0;
 }
+
 
 
 

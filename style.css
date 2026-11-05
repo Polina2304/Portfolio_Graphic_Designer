@@ -448,8 +448,9 @@ body {
 }
 
 .project-toggle-btn:hover {
-    opacity: 0.9;
+    opacity: 0.5;
 }
+
 
 /* NEW! Кнопка раскрытия проекта */
 /* Общие стили кнопок проекта */
@@ -483,10 +484,11 @@ body {
     align-self: flex-start;
 }
 
-/* Наведение */
+/* Наведение на кнопки проектов */
+.project-toggle-btn:hover,
 .project-expand-btn:hover,
 .project-collapse-btn:hover {
-    background: #FFC85C;
+    opacity: 0.5;
 }
 
 /* Фокус с клавиатуры */
@@ -1651,6 +1653,9 @@ body {
     color: #FFF5E0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
 
 
 

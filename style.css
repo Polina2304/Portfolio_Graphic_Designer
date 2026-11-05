@@ -700,6 +700,7 @@ body {
     column-gap: 24px;
     row-gap: 24px;
     width: 1200px;
+    margin-bottom: 160px;
 }
 
 /* Шапка проекта на всю ширину */
@@ -754,6 +755,11 @@ body {
     row-gap: 24px;
 }
 
+/* Сетка появляется только при раскрытии */
+.project-3 .project-hidden-content.is-visible {
+    display: grid;
+}
+
 .project-3 .project-gallery img {
     display: block;
     width: 100%;
@@ -772,7 +778,7 @@ body {
 .project-3 > .project-content .project-title {
     margin: 0 0 24px 0;
     font-size: 24px;
-    line-height: 1,1;
+    line-height: 1.1;
     letter-spacing: -0.01em;
     font-weight: 600;
     color: #FFF5E0;
@@ -800,8 +806,10 @@ body {
     align-self: start;
 }
 
+/* Заголовки трёх концепций */
 .project-3 .project-hidden-content > .project-content .project-title {
     margin: 0 0 24px 0;
+    margin-top: 0;
     min-height: 2.2em;
     display: flex;
     align-items: flex-start;
@@ -810,14 +818,6 @@ body {
     font-weight: 600;
     letter-spacing: -0.01em;
     color: #FFF5E0;
-}
-
-
-.project-3 .project-hidden-content > .project-content .project-title {
-    margin-top: 0;
-    min-height: 2.2em;
-    display: flex;
-    align-items: flex-start;
 }
 
 /* Кнопка сворачивания проекта 3 */

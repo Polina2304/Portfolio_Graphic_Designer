@@ -745,6 +745,15 @@ body {
     display: contents;
 }
 
+/* Сохраняем трёхколоночную сетку внутри скрытого блока */
+.project-3 .project-hidden-content {
+    display: grid;
+    grid-column: 1 / -1;
+    grid-template-columns: subgrid;
+    column-gap: 24px;
+    row-gap: 24px;
+}
+
 .project-3 .project-gallery img {
     display: block;
     width: 100%;
@@ -755,7 +764,7 @@ body {
 }
 
 /* Три описания под соответствующими изображениями */
-.project-3 > .project-content {
+.project-3 .project-hidden-content > .project-content {
     min-width: 0;
     width: 100%;
 }
@@ -769,7 +778,7 @@ body {
     color: #FFF5E0;
 }
 
-.project-3 > .project-content .project-text p {
+.project-3 .project-hidden-content > .project-content .project-text p {
     margin: 0;
     font-size: 20px;
     line-height: 24px;
@@ -791,7 +800,7 @@ body {
     align-self: start;
 }
 
-.project-3 > .project-content .project-title {
+.project-3 .project-hidden-content > .project-content .project-title {
     margin: 0 0 24px 0;
     min-height: 2.2em;
     display: flex;
@@ -804,14 +813,18 @@ body {
 }
 
 
-.project-3 > .project-content .project-title {
+.project-3 .project-hidden-content > .project-content .project-title {
     margin-top: 0;
     min-height: 2.2em;
     display: flex;
     align-items: flex-start;
 }
 
-
+/* Кнопка сворачивания проекта 3 */
+.project-3 .project-collapse-btn {
+    grid-column: 1 / span 2;
+    margin-top: 72px;
+}
 
 
 /* ===== ПРОЕКТ 4: ПЕРВЫЙ ЭКРАН ===== */

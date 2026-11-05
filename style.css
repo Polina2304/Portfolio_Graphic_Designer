@@ -747,7 +747,7 @@ body {
 
 /* Сохраняем трёхколоночную сетку внутри скрытого блока */
 .project-3 .project-hidden-content {
-    display: grid;
+    display: none;
     grid-column: 1 / -1;
     grid-template-columns: subgrid;
     column-gap: 24px;

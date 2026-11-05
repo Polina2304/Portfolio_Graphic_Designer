@@ -1435,73 +1435,73 @@
 
 
     <script>
-    document.querySelectorAll('.project-card').forEach(project => {
+        document.querySelectorAll('.project-card').forEach(project => {
 
-        const expandButton = project.querySelector('.project-expand-btn');
-        const collapseButton = project.querySelector('.project-collapse-btn');
-        const content = project.querySelector('.project-hidden-content');
+            const expandButton = project.querySelector('.project-expand-btn');
+            const collapseButton = project.querySelector('.project-collapse-btn');
+            const content = project.querySelector('.project-hidden-content');
 
-        if (!expandButton || !collapseButton || !content) return;
-
-
-        // РАСКРЫТИЕ ПРОЕКТА
-        expandButton.addEventListener('click', () => {
-
-            // Начальная высота — 0
-            content.style.maxHeight = '0px';
-
-            // Показываем содержимое
-            content.classList.add('is-visible');
-
-            // Показываем кнопку сворачивания
-            expandButton.style.display = 'none';
-            collapseButton.style.display = 'flex';
-
-            // Даём браузеру применить начальное состояние
-            content.offsetHeight;
-
-            // Запускаем анимацию до реальной высоты
-            content.style.maxHeight = content.scrollHeight + 'px';
-
-            // После завершения анимации снимаем ограничение высоты
-            const onExpandEnd = (event) => {
-                if (event.propertyName !== 'max-height') return;
-
-                content.style.maxHeight = 'none';
-                content.removeEventListener('transitionend', onExpandEnd);
-            };
-
-            content.addEventListener('transitionend', onExpandEnd);
-
-        });
+            if (!expandButton || !collapseButton || !content) return;
 
 
-        // СВОРАЧИВАНИЕ ПРОЕКТА
-        collapseButton.addEventListener('click', () => {
+            // РАСКРЫТИЕ ПРОЕКТА
+            expandButton.addEventListener('click', () => {
 
-            // Фиксируем текущую высоту
-            content.style.maxHeight = content.scrollHeight + 'px';
+                // Начальная высота — 0
+                content.style.maxHeight = '0px';
 
-            // Применяем её до начала анимации
-            content.offsetHeight;
+                // Показываем содержимое
+                content.classList.add('is-visible');
 
-            // Запускаем сворачивание
-            content.classList.remove('is-visible');
-            content.style.maxHeight = '0px';
+                // Показываем кнопку сворачивания
+                expandButton.style.display = 'none';
+                collapseButton.style.display = 'flex';
 
-            // Возвращаем первую кнопку
-            expandButton.style.display = 'flex';
-            collapseButton.style.display = 'none';
+                // Даём браузеру применить начальное состояние
+                content.offsetHeight;
 
-            // Возвращаемся к началу проекта
-            project.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
+                // Запускаем анимацию до реальной высоты
+                content.style.maxHeight = content.scrollHeight + 'px';
+
+                // После завершения анимации снимаем ограничение высоты
+                const onExpandEnd = (event) => {
+                    if (event.propertyName !== 'max-height') return;
+
+                    content.style.maxHeight = 'none';
+                    content.removeEventListener('transitionend', onExpandEnd);
+                };
+
+                content.addEventListener('transitionend', onExpandEnd);
+
+            });
+
+
+            // СВОРАЧИВАНИЕ ПРОЕКТА
+            collapseButton.addEventListener('click', () => {
+
+                // Фиксируем текущую высоту
+                content.style.maxHeight = content.scrollHeight + 'px';
+
+                // Применяем её до начала анимации
+                content.offsetHeight;
+
+                // Запускаем сворачивание
+                content.classList.remove('is-visible');
+                content.style.maxHeight = '0px';
+
+                // Возвращаем первую кнопку
+                expandButton.style.display = 'flex';
+                collapseButton.style.display = 'none';
+
+                // Возвращаемся к началу проекта
+                project.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+
             });
 
         });
-
-    });
     </script>
 
     <!-- КНОПКА ПРОКРУТКИ НАВЕРХ -->
@@ -1512,12 +1512,24 @@
     </button>
 
     <script>
-    document.querySelector('.button-up').addEventListener('click', () => {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
+        const buttonUp = document.querySelector('.button-up');
+
+        // Показываем кнопку после прокрутки до проектов
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                buttonUp.style.display = 'flex';
+            } else {
+                buttonUp.style.display = 'none';
+            }
         });
-    });
+
+        // Плавная прокрутка наверх
+        buttonUp.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
     </script>
 
 </body>

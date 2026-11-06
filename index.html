@@ -2490,6 +2490,49 @@
         </div>
 
     </article>
+    
+    
+    <!-- ============================================================
+         ПОДВАЛ САЙТА
+         ============================================================ -->
+
+    <footer class="portfolio-footer">
+
+        <div class="footer-copy">
+            портфолио by Avokadookan
+        </div>
+
+        <div class="footer-contacts">
+
+            <a
+                href="https://t.me/Avokadookan"
+                class="footer-contact-btn"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                <img
+                    src="images/0_graphics/icon_tg.svg"
+                    alt=""
+                    class="footer-contact-icon"
+                >
+                Телеграм
+            </a>
+
+            <a
+                href="mailto:avokadookan@gmail.com"
+                class="footer-contact-btn"
+            >
+                <img
+                    src="images/0_graphics/icon_email.svg"
+                    alt=""
+                    class="footer-contact-icon"
+                >
+                Почта
+            </a>
+
+        </div>
+
+    </footer>
 
 
 
@@ -2672,26 +2715,7 @@
 
 
     <script>
-        document.querySelectorAll('.landing-full-btn').forEach(button => {
-
-            button.addEventListener('click', () => {
-
-                const imageBlock = button.closest('.landing-image-block');
-                const viewport = imageBlock.querySelector('.landing-image-viewport');
-
-                const isExpanded = viewport.classList.toggle('is-expanded');
-
-                button.textContent = isExpanded
-                    ? 'Скрыть лендинг'
-                    : 'Посмотреть лендинг целиком';
-
-                button.setAttribute('aria-expanded', isExpanded);
-
-            });
-
-        });
-
-
+        
         document.querySelectorAll('.landing-projects').forEach(project => {
 
             const expandButton = project.querySelector('.landing-expand-projects-btn');
@@ -2715,6 +2739,7 @@
             });
 
         });
+
     </script>
 
     <!-- ====================================================

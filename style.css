@@ -2239,7 +2239,7 @@ body {
 /* Проект 5 — Переход на 1С:Фреш */
 
 .landing-hidden-projects > .landing-project:nth-of-type(3) {
-    --preview-height: 680px;
+    --preview-height: 700px;
     --image-offset: -15.57px;
 }
 

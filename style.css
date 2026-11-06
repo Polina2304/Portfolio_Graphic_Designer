@@ -1872,6 +1872,270 @@ body {
 
 
 
+/* ============================================================
+   ПРОЕКТ: СОЦСЕТИ — DESKTOP
+   ============================================================ */
+
+.project-card.social-media {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 96px;
+    width: 1200px;
+    margin: 0 auto 160px;
+    box-sizing: border-box;
+}
+
+.social-media > .project-top {
+    width: 100%;
+}
+
+/* Общая карточка проекта */
+
+.social-project {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 48px;
+    width: 588px;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+.social-project-wide {
+    width: 1200px;
+}
+
+/* Сетка из двух самостоятельных проектов */
+
+.social-project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 588px);
+    column-gap: 24px;
+    row-gap: 96px;
+    width: 1200px;
+    align-items: start;
+    box-sizing: border-box;
+}
+
+/* Одиночные изображения проектов 2, 3, 7 и 8 */
+
+.social-media .social-single-cover {
+    width: 588px;
+    height: 735px;
+    min-width: 588px;
+    min-height: 735px;
+    max-width: none;
+    overflow: hidden;
+    border-radius: 24px;
+    flex: 0 0 588px;
+    box-sizing: border-box;
+}
+
+.social-media .social-single-cover img {
+    display: block;
+    width: 588px;
+    height: 735px;
+    min-width: 588px;
+    max-width: none;
+    object-fit: cover;
+    border-radius: 24px;
+    flex: none;
+}
+
+
+/* ============================================================
+   ГОРИЗОНТАЛЬНЫЙ СЛАЙДЕР
+   ============================================================ */
+
+.social-slider {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    width: 1200px;
+    height: 394px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Видимая область с изображениями */
+
+.social-slider-viewport {
+    width: 996px;
+    height: 394px;
+    overflow: hidden;
+    flex: 0 0 996px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Движущаяся лента */
+
+.social-slider-track {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 24px;
+    width: max-content;
+    height: 394px;
+    transition: transform 0.45s ease;
+}
+
+/* Карточки с изображениями */
+
+.social-slider-track img {
+    display: block;
+    width: 316px;
+    height: 394px;
+    flex: 0 0 316px;
+    object-fit: cover;
+    border-radius: 24px;
+}
+
+/* ============================================================
+   СТРЕЛКИ СЛАЙДЕРА
+   ============================================================ */
+
+.social-arrow {
+    position: relative;
+    top: auto;
+    left: auto;
+    right: auto;
+    transform: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 78px;
+    height: 78px;
+    padding: 0;
+
+    background: #1F1E1D;
+    border: none;
+    border-radius: 100px;
+
+    flex: 0 0 78px;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    z-index: 2;
+}
+
+.social-arrow-left {
+    order: 0;
+}
+
+.social-slider-viewport {
+    order: 1;
+}
+
+.social-arrow-right {
+    order: 2;
+}
+
+.social-arrow svg {
+    display: block;
+    width: 34.45px;
+    height: 22.09px;
+    overflow: visible;
+}
+
+.social-arrow svg path {
+    fill: none;
+    stroke: #FFF5E0;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.social-arrow:hover {
+    opacity: 0.5;
+}
+
+.social-arrow:disabled {
+    opacity: 0.2;
+    cursor: default;
+}
+
+
+/* Состояние кнопок при наведении */
+
+.social-arrow:not(:disabled):hover {
+    background: #FFD685;
+    opacity: 1;
+}
+
+/* Цвет стрелки при наведении */
+
+.social-arrow:not(:disabled):hover svg path {
+    stroke: #1F1E1D;
+}
+
+/* Неактивные кнопки в конце слайдера */
+
+.social-arrow:disabled {
+    opacity: 0.2;
+    cursor: default;
+}
+
+
+
+/* ============================================================
+   ТЕКСТ ПРОЕКТА
+   ============================================================ */
+
+.social-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.social-title {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 90%;
+    letter-spacing: -0.01em;
+    color: #FFF5E0;
+}
+
+.social-text {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.social-text p {
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: normal;
+    color: #FFF5E0;
+}
+
+/* Скрытые проекты */
+
+.social-media .project-hidden-content {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
 
 /* ============================================================
    Плавная прокрутка

@@ -2436,6 +2436,13 @@
 
             window.addEventListener('resize', updateSlider);
 
+            // Пересчитываем слайдеры при изменении размера видимой области
+            const resizeObserver = new ResizeObserver(() => {
+                updateSlider();
+            });
+
+            resizeObserver.observe(viewport);
+
             updateSlider();
 
         });

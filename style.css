@@ -2434,11 +2434,10 @@ body {
     align-items: center;
 
     width: 1200px;
-    margin: 96px auto 0;
-    padding: 24px 0;
+    margin: 0 auto;
+    padding-bottom: 48px;
     box-sizing: border-box;
 }
-
 /* Подпись слева */
 
 .footer-copy {

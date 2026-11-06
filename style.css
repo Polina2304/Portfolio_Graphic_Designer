@@ -1653,6 +1653,229 @@ body {
     color: #FFF5E0;
 }
 
+
+
+/* ============================================================
+   MOTION DESIGN — DESKTOP
+   ============================================================ */
+
+.project-card.motion-design {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 96px;
+    width: 1200px;
+    margin: 0 auto 160px;
+    box-sizing: border-box;
+}
+
+.motion-design > .project-top {
+    width: 100%;
+}
+
+/* Сетка работ */
+
+.motion-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 588px);
+    column-gap: 24px;
+    row-gap: 96px;
+    width: 1200px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    align-items: start;
+}
+
+/* Карточка */
+
+.motion-item {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 32px;
+    width: 588px;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Видео */
+
+.motion-cover {
+    position: relative;
+    width: 588px;
+    height: 588px;
+    overflow: hidden;
+    border-radius: 24px;
+    flex: none;
+    background: #1F1E1D;
+}
+
+.motion-cover img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+/* Кнопка воспроизведения */
+
+.motion-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 112px;
+    height: 112px;
+    padding: 0;
+
+    border: none;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.5);
+
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.motion-play svg {
+    display: block;
+    width: 42px;
+    height: 45px;
+    margin-left: 5px;
+}
+
+.motion-cover:hover .motion-play {
+    background: rgba(0, 0, 0, 0.7);
+    transform: translate(-50%, -50%) scale(1.05);
+}
+
+/* Встроенный видеоплеер */
+
+.motion-cover iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Текст */
+
+.motion-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.motion-title {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 90%;
+    letter-spacing: -0.01em;
+    color: #FFF5E0;
+}
+
+.motion-text {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.motion-text p {
+    margin: 0;
+    padding: 0;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: normal;
+    color: #FFF5E0;
+}
+
+
+/* ============================================================
+   СКРЫТАЯ СЕТКА MOTION DESIGN
+   ============================================================ */
+
+.motion-hidden-content > .motion-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 588px);
+    column-gap: 24px;
+    row-gap: 96px;
+    width: 1200px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    align-items: start;
+}
+
+
+/* ============================================================
+   ПОСЛЕДНЯЯ РАБОТА — ШИРОКАЯ КАРТОЧКА
+   Работает и в основной, и в скрытой сетке
+   ============================================================ */
+
+.motion-grid > .motion-item-wide {
+    grid-column: 1 / -1;
+    width: 1200px;
+    max-width: none;
+    min-width: 0;
+}
+
+/* Широкое видео */
+
+.motion-grid > .motion-item-wide > .motion-cover {
+    width: 1200px;
+    height: 675px;
+    max-width: none;
+}
+
+/* Широкий текстовый блок */
+
+.motion-grid > .motion-item-wide > .motion-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 1200px;
+    max-width: none;
+    min-width: 0;
+    box-sizing: border-box;
+}
+
+/* Заголовок и описание */
+
+.motion-grid > .motion-item-wide .motion-title,
+.motion-grid > .motion-item-wide .motion-text,
+.motion-grid > .motion-item-wide .motion-text p {
+    width: 100%;
+    max-width: none;
+    box-sizing: border-box;
+}
+
+
+
+
+/* ============================================================
+   Плавная прокрутка
+   ============================================================ */
 html {
     scroll-behavior: smooth;
 }

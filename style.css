@@ -635,10 +635,6 @@ body {
     width: 100%;
 }
 
-.project-2-app-gallery {
-    margin-top: 96px;
-}
-
 /* Текст без заголовка */
 .project-2-details-text {
     width: 792.91px;
@@ -667,6 +663,7 @@ body {
     column-gap: 96px;
     row-gap: 24px;
     width: 100%;
+    margin-top: 96px;
 }
 
 .project-2-app-gallery > img {
@@ -2073,13 +2070,6 @@ body {
     stroke: #1F1E1D;
 }
 
-/* Неактивные кнопки в конце слайдера */
-
-.social-arrow:disabled {
-    opacity: 0.2;
-    cursor: default;
-}
-
 
 
 /* ============================================================
@@ -2522,7 +2512,6 @@ html {
     bottom: 32px;
     z-index: 1000;
 
-    display: flex;
     justify-content: center;
     align-items: center;
 

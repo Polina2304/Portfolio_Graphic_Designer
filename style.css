@@ -422,38 +422,11 @@ body {
     display: block;
 }
 
-/* --- 5. КНОПКА "СКРЫТЬ ПОДРОБНОСТИ" --- */
-.project-toggle-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
-    width: 588px;
-    height: 60px;
-    margin: 0; 
-    align-self: flex-start;
-    padding: 12px 24px;
-    
-    background: #FFD685;
-    color: #1F1E1D;
-    border: none;
-    border-radius: 36px;
-    
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-    cursor: pointer;
-    transition: 0.2s ease;
-}
+/* ============================================================
+   КНОПКИ ПРОЕКТОВ
+   ============================================================ */
 
-.project-toggle-btn:hover {
-    opacity: 0.5;
-}
-
-
-/* NEW! Кнопка раскрытия проекта */
-/* Общие стили кнопок проекта */
+.project-toggle-btn,
 .project-expand-btn,
 .project-collapse-btn {
     display: flex;
@@ -466,10 +439,10 @@ body {
 
     margin: 0;
     padding: 12px 24px;
+    align-self: flex-start;
 
     background: #FFD685;
     color: #1F1E1D;
-
     border: none;
     border-radius: 36px;
 
@@ -479,12 +452,21 @@ body {
     letter-spacing: -0.01em;
 
     cursor: pointer;
-    transition: background 0.2s ease;
-
-    align-self: flex-start;
 }
 
-/* Наведение на кнопки проектов */
+/* Индивидуальные настройки анимации */
+
+.project-toggle-btn {
+    transition: 0.2s ease;
+}
+
+.project-expand-btn,
+.project-collapse-btn {
+    transition: background 0.2s ease;
+}
+
+/* Наведение */
+
 .project-toggle-btn:hover,
 .project-expand-btn:hover,
 .project-collapse-btn:hover {
@@ -492,6 +474,7 @@ body {
 }
 
 /* Фокус с клавиатуры */
+
 .project-expand-btn:focus-visible,
 .project-collapse-btn:focus-visible {
     outline: 2px solid #FFD685;
@@ -499,10 +482,10 @@ body {
 }
 
 /* Кнопка сворачивания изначально скрыта */
+
 .project-collapse-btn {
     display: none;
 }
-
 
 /* Скрытые материалы проекта */
 .project-hidden-content {

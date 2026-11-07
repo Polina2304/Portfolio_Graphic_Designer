@@ -2853,4 +2853,171 @@ html {
     }
 
 
+    
+
+/* ========================================================
+   ПРОЕКТ 2 — МОБИЛЬНАЯ ВЕРСИЯ
+   ======================================================== */
+
+
+/* ========================================================
+   1. ОСНОВНОЙ БЛОК: ТЕКСТ И ОБЛОЖКА
+   ======================================================== */
+
+/* Сначала текст, затем фотография */
+.project-2 .project-main {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    gap: 56px;
+}
+
+/* Контейнер обложки */
+.project-2 .project-cover {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Главное фото — 343 × 243 */
+.project-2 .project-cover > img {
+    display: block;
+    width: 100%;
+    max-width: 343px;
+    height: 243px;
+    flex-shrink: 0;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 16px;
+}
+
+/* Два дополнительных фото в верхней обложке скрываем */
+.project-2 .project-cover-bottom {
+    display: none;
+}
+
+
+/* ========================================================
+   2. ДОПОЛНИТЕЛЬНАЯ ГАЛЕРЕЯ
+   ======================================================== */
+
+/* Общий контейнер галереи */
+.project-2 .project-2-gallery {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 343px;
+    gap: 16px;
+}
+
+/* Убираем отдельное отображение вложенных колонок */
+.project-2 .project-2-gallery .gallery-column-full,
+.project-2 .project-2-gallery .gallery-column-half {
+    display: contents;
+}
+
+/* Все фотографии — 343 × 243 */
+.project-2 .project-2-gallery img {
+    display: block;
+    width: 100%;
+    max-width: 343px;
+    height: 243px;
+    flex-shrink: 0;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 16px;
+}
+
+
+/* ========================================================
+   3. ТЕКСТ, ЛЕНДИНГ И МОБИЛЬНОЕ ПРИЛОЖЕНИЕ
+   ======================================================== */
+
+/* Общий контейнер текстового блока и галереи */
+.project-2 .project-2-details {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 64px;
+}
+
+/* Текстовый блок */
+.project-2 .project-2-details-text {
+    width: 100%;
+    max-width: 343px;
+}
+
+/* Абзацы */
+.project-2 .project-2-details-text p {
+    font-size: 16px;
+    line-height: 24px;
+    margin: 0 0 24px 0;
+}
+
+.project-2 .project-2-details-text p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ========================================================
+   4. ГАЛЕРЕЯ ЛЕНДИНГА И ПРИЛОЖЕНИЯ
+   ======================================================== */
+
+/* Контейнер трёх изображений */
+.project-2 .project-2-app-gallery {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 343px;
+    gap: 64px;
+    margin-top: 0;
+}
+
+/* Лендинг — 343 × 197 */
+.project-2 .project-2-app-gallery > img {
+    display: block;
+    width: 100%;
+    max-width: 343px;
+    height: 197px;
+    flex-shrink: 0;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 16px;
+}
+
+/* Два экрана приложения располагаются в один ряд */
+.project-2 .project-2-app-gallery-right {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    gap: 15px;
+}
+
+/* Каждый экран — 164 × 330 */
+.project-2 .project-2-app-gallery-right img {
+    display: block;
+    width: calc((100% - 15px) / 2);
+    max-width: 164px;
+    height: 330px;
+    flex-shrink: 0;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 16px;
+}
+
+.project-2 .project-2-gallery .gallery-column-full img {
+    height: 447px;
+}
+
+/* ========================================================
+   5. РАСКРЫТЫЙ БЛОК ПРОЕКТА
+   ======================================================== */
+
+/* Расстояние между разделителями, галереями и блоками */
+.project-2 .project-hidden-content {
+    gap: 64px;
+}
+
+
 }

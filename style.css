@@ -2743,115 +2743,113 @@ html {
     }
 
 
-    /* ==========================================================================
-        СЕКЦИЯ ПРОЕКТОВ (МОБИЛКА)
-        ========================================================================== */
-    @media (max-width: 768px) {
+/* ==========================================================================
+    СЕКЦИЯ ПРОЕКТОВ (МОБИЛКА)
+    ========================================================================== */
 
-        /* 1. Общий контейнер проекта */
-        .project-card {
-            width: 100%;
-            max-width: 343px;          /* 375px экрана минус отступы по 16px с краёв */
-            margin: 0 auto 128px auto; /* 128px между проектами */
-            gap: 64px;                 /* 64px между блоками внутри одного проекта */
-        }
 
-        .project-card:last-child {
-            margin-bottom: 0;
-        }
-
-        /* 2. Шапка: скрываем теги, оставляем только категорию */
-        .project-top {
-            justify-content: flex-start; /* категория прижата влево */
-        }
-
-        .project-tags {
-            display: none;             /* на мобилке тегов нет */
-        }
-
-        .project-category {
-            width: 164px;              /* параметры из Фигмы */
-            height: 50px;
-            box-sizing: border-box;
-            padding: 12px 24px;
-            font-size: 16px;
-            line-height: 20px;
-        }
-
-        /* 3. Основной блок: фото и текст встают друг под друга */
-        .project-main {
-            flex-direction: column;    /* фото сверху, текст под ним */
-            gap: 24px;                 /* отступ от обложки до заголовка */
-        }
-
-        .project-cover {
-            width: 100%;
-        }
-
-        .project-cover img {
-            width: 100%;
-            height: auto;
-            border-radius: 16px;       /* скругление под мобилку */
-        }
-
-        /* Заголовок проекта (24px) */
-        .project-title {
-            font-size: 24px;
-            line-height: 1.25;
-            margin: 0 0 24px 0;        /* 24px до первого абзаца */
-        }
-
-        /* Текст описания (16px) */
-        .project-text p {
-            font-size: 16px;
-            line-height: 1.5;
-            margin: 0 0 24px 0;        /* 24px между абзацами */
-        }
-
-        .project-text p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* 4. Разделитель: высота 3px */
-        .project-delimiter {
-            width: 100%;
-            max-width: 343px;
-            height: 3px;               /* 3px на мобилке */
-        }
-
-        /* 5. Галерея фото: расстояние между фото 16px */
-        .project-gallery {
-            grid-template-columns: 1fr;
-            gap: 16px;
-        }
-
-        .project-gallery img {
-            width: 100%;
-            max-width: 343px;
-            height: 243px;
-            border-radius: 16px;
-        }
-
-        /* Обложка проекта 1 на мобилке: 343×243 */
-        .project-1 .project-cover img {
-            width: 100%;
-            max-width: 343px;
-            height: 243px;
-            border-radius: 16px;
-        }
-        
-
-        /* 6. Кнопка "Скрыть подробности" (343x50) */
-        .project-toggle-btn {
-            width: 100%;
-            max-width: 343px;          /* 343px на 50px из Фигмы */
-            height: 50px;
-            font-size: 16px;
-            line-height: 20px;
-            padding: 12px 24px;
-        }
-
-        
+    /* 1. Общий контейнер проекта */
+    .project-card {
+        width: 100%;
+        max-width: 343px;          /* 375px экрана минус отступы по 16px с краёв */
+        margin: 0 auto 128px auto; /* 128px между проектами */
+        gap: 64px;                 /* 64px между блоками внутри одного проекта */
     }
+
+    .project-card:last-child {
+        margin-bottom: 0;
+    }
+
+    /* 2. Шапка: скрываем теги, оставляем только категорию */
+    .project-top {
+        justify-content: flex-start; /* категория прижата влево */
+    }
+
+    .project-tags {
+        display: none;             /* на мобилке тегов нет */
+    }
+
+    .project-category {
+        width: 164px;              /* параметры из Фигмы */
+        height: 50px;
+        box-sizing: border-box;
+        padding: 12px 24px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    /* 3. Основной блок: фото и текст встают друг под друга */
+    .project-main {
+        flex-direction: column;    /* фото сверху, текст под ним */
+        gap: 24px;                 /* отступ от обложки до заголовка */
+    }
+
+    .project-cover {
+        width: 100%;
+    }
+
+    .project-cover img {
+        width: 100%;
+        height: auto;
+        border-radius: 16px;       /* скругление под мобилку */
+    }
+
+    /* Заголовок проекта (24px) */
+    .project-title {
+        font-size: 24px;
+        line-height: 1.25;
+        margin: 0 0 24px 0;        /* 24px до первого абзаца */
+    }
+
+    /* Текст описания (16px) */
+    .project-text p {
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 0 0 24px 0;        /* 24px между абзацами */
+    }
+
+    .project-text p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* 4. Разделитель: высота 3px */
+    .project-delimiter {
+        width: 100%;
+        max-width: 343px;
+        height: 3px;               /* 3px на мобилке */
+    }
+
+    /* 5. Галерея фото: расстояние между фото 16px */
+    .project-gallery {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .project-gallery img {
+        width: 100%;
+        max-width: 343px;
+        height: 243px;
+        border-radius: 16px;
+    }
+
+    /* Обложка проекта 1 на мобилке: 343×243 */
+    .project-1 .project-cover img {
+        width: 100%;
+        max-width: 343px;
+        height: 243px;
+        border-radius: 16px;
+    }
+    
+
+    /* 6. Кнопка "Скрыть подробности" (343x50) */
+    .project-toggle-btn {
+        width: 100%;
+        max-width: 343px;          /* 343px на 50px из Фигмы */
+        height: 50px;
+        font-size: 16px;
+        line-height: 20px;
+        padding: 12px 24px;
+    }
+
 
 }

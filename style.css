@@ -423,12 +423,14 @@ body {
 }
 
 /* ============================================================
-   КНОПКИ ПРОЕКТОВ
+   ОБЩИЕ СТИЛИ КНОПОК ПРОЕКТОВ И ЛЕНДИНГОВ
    ============================================================ */
 
 .project-toggle-btn,
 .project-expand-btn,
-.project-collapse-btn {
+.project-collapse-btn,
+.landing-expand-projects-btn,
+.landing-collapse-projects-btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -465,11 +467,18 @@ body {
     transition: background 0.2s ease;
 }
 
+.landing-expand-projects-btn,
+.landing-collapse-projects-btn {
+    transition: opacity 0.2s ease;
+}
+
 /* Наведение */
 
 .project-toggle-btn:hover,
 .project-expand-btn:hover,
-.project-collapse-btn:hover {
+.project-collapse-btn:hover,
+.landing-expand-projects-btn:hover,
+.landing-collapse-projects-btn:hover {
     opacity: 0.5;
 }
 
@@ -481,9 +490,10 @@ body {
     outline-offset: 4px;
 }
 
-/* Кнопка сворачивания изначально скрыта */
+/* Кнопки сворачивания изначально скрыты */
 
-.project-collapse-btn {
+.project-collapse-btn,
+.landing-collapse-projects-btn {
     display: none;
 }
 
@@ -1948,6 +1958,7 @@ body {
     overflow: hidden;
     flex: 0 0 996px;
     padding: 0;
+    order: 1;
     box-sizing: border-box;
 }
 
@@ -2005,10 +2016,6 @@ body {
 
 .social-arrow-left {
     order: 0;
-}
-
-.social-slider-viewport {
-    order: 1;
 }
 
 .social-arrow-right {
@@ -2306,44 +2313,6 @@ body {
     opacity: 0.5;
 }
 
-
-/* ============================================================
-   КНОПКИ РАСКРЫТИЯ И СВОРАЧИВАНИЯ ПРОЕКТОВ
-   ============================================================ */
-
-.landing-expand-projects-btn,
-.landing-collapse-projects-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 588px;
-    height: 60px;
-    margin: 0;
-    padding: 12px 24px;
-    box-sizing: border-box;
-
-    background: #FFD685;
-    color: #1F1E1D;
-    border: none;
-    border-radius: 36px;
-
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: -0.01em;
-
-    cursor: pointer;
-    transition: opacity 0.2s ease;
-    align-self: flex-start;
-}
-
-/* Наведение */
-
-.landing-expand-projects-btn:hover,
-.landing-collapse-projects-btn:hover {
-    opacity: 0.5;
-}
 
 
 /* ============================================================

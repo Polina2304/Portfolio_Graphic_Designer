@@ -2841,10 +2841,11 @@ html {
     }
     
 
-    /* 6. Кнопка "Скрыть подробности" (343x50) */
-    .project-toggle-btn {
+    /* 6. Кнопки раскрытия и сворачивания проекта */
+    .project-expand-btn,
+    .project-collapse-btn {
         width: 100%;
-        max-width: 343px;          /* 343px на 50px из Фигмы */
+        max-width: 343px;
         height: 50px;
         font-size: 16px;
         line-height: 20px;

@@ -2733,6 +2733,17 @@ html {
         gap: 64px;
     }
 
+    /* Скрытый блок: корректируем отрицательный отступ для мобильной версии */
+    .project-hidden-content:not(.is-visible) {
+        margin-top: -64px;
+    }
+
+    /* Единый отступ между шапкой и содержимым всех проектов */
+    .project-card > .project-top,
+    .project-card > .project-main {
+        margin-bottom: 0;
+    }
+
     .project-card:last-child {
         margin-bottom: 0;
     }
@@ -2880,6 +2891,15 @@ html {
         display: none;
     }
 
+    /* Переносы строк для разных версий */
+    .desktop-only {
+        display: none;
+    }
+
+    .mobile-only {
+        display: inline;
+    }
+
     /* Дополнительная галерея */
 
     .project-2 .project-2-gallery {
@@ -2976,5 +2996,252 @@ html {
         object-position: center;
         border-radius: 16px;
     }
+
+
+    
+    
+    /* ========================================================
+    12. ПРОЕКТ 3 — WI-FI 7
+    ======================================================== */
+
+    /* Карточка проекта */
+    .project-3 {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 343px;
+        gap: 64px;
+        margin-bottom: 128px;
+    }
+
+    /* Основной блок: сначала текст, затем главное фото */
+    .project-3 .project-main {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+        gap: 64px;
+        margin-bottom: 0;
+    }
+
+    /* Главное фото */
+    .project-3 .project-cover {
+        width: 100%;
+        flex-shrink: 0;
+    }
+
+    .project-3 .project-cover img {
+        display: block;
+        width: 100%;
+        max-width: 343px;
+        height: 243px;
+        object-fit: cover;
+        border-radius: 16px;
+    }
+
+    /* Заголовок и описание основного блока */
+    .project-3 .project-main .project-title {
+        margin: 0 0 24px;
+        font-size: 24px;
+        line-height: 1.25;
+    }
+
+    .project-3 .project-main .project-text p {
+        margin: 0 0 24px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .project-3 .project-main .project-text p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Кнопка раскрытия */
+    .project-3 .project-expand-btn {
+        width: 100%;
+        max-width: 343px;
+    }
+
+
+    /* ========================================================
+    РАСКРЫТЫЙ БЛОК — ТРИ КОНЦЕПЦИИ
+    ======================================================== */
+
+    /* Общая структура раскрытого блока */
+    .project-3 .project-hidden-content.is-visible {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 64px;
+    }
+
+    /* Разделитель */
+    .project-3 .project-hidden-content > .project-delimiter {
+        order: 1;
+        width: 100%;
+        max-width: 343px;
+        margin: 0;
+    }
+
+    /* Убираем отдельную сетку галереи */
+    .project-3 .project-hidden-content .project-gallery {
+        display: contents;
+    }
+
+    /* Порядок фотографий */
+    .project-3 .project-hidden-content .project-gallery img:nth-child(1) {
+        order: 2;
+    }
+
+    .project-3 .project-hidden-content .project-gallery img:nth-child(2) {
+        order: 4;
+    }
+
+    .project-3 .project-hidden-content .project-gallery img:nth-child(3) {
+        order: 6;
+    }
+
+    /* Общие параметры фотографий */
+    .project-3 .project-hidden-content .project-gallery img {
+        display: block;
+        width: 100%;
+        max-width: 343px;
+        height: 243px;
+        object-fit: cover;
+        border-radius: 16px;
+        margin-bottom: -40px;
+    }
+
+    /* Порядок текстовых блоков */
+    .project-3 .project-hidden-content > .project-content:nth-child(3) {
+        order: 3;
+    }
+
+    .project-3 .project-hidden-content > .project-content:nth-child(4) {
+        order: 5;
+    }
+
+    .project-3 .project-hidden-content > .project-content:nth-child(5) {
+        order: 7;
+    }
+
+    /* Заголовки концепций */
+    .project-3 .project-hidden-content > .project-content .project-title {
+        display: block;
+        min-height: 0;
+        margin: 0 0 16px;
+        font-size: 24px;
+        line-height: 1.15;
+    }
+
+    /* Описания концепций */
+    .project-3 .project-hidden-content > .project-content .project-text p {
+        margin: 0;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    /* Кнопка сворачивания */
+    .project-3 .project-collapse-btn {
+        order: 8;
+        width: 100%;
+        max-width: 343px;
+        margin-top: 0;
+    }
+
+    
+    /* ========================================================
+    ПРОЕКТ 3 — МОБИЛЬНАЯ СТРУКТУРА
+    ======================================================== */
+
+    /* Скрываем десктопные блоки */
+    .project-3 .desktop-version {
+        display: none !important;
+    }
+
+    /* Основной мобильный текст */
+    .project-3 .mobile-version {
+        display: block !important;
+    }
+
+    /* Раскрытое содержимое */
+    .project-3 .project-hidden-content.is-visible {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 64px;
+    }
+
+    /* Мобильная галерея */
+    .project-3 .project-3-mobile-gallery {
+        display: flex !important;
+        flex-direction: column;
+        width: 100%;
+        gap: 64px;
+    }
+
+    /* Разделитель */
+    .project-3 .project-3-mobile-gallery > .project-delimiter {
+        width: 100%;
+        max-width: 343px;
+        margin: 0;
+    }
+
+    /* Каждый блок концепции */
+    .project-3 .project-3-mobile-concept {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 24px;
+    }
+
+    /* Фотографии концепций */
+    .project-3 .project-3-mobile-concept > img {
+        display: block;
+        width: 100%;
+        max-width: 343px;
+        height: 243px;
+        object-fit: cover;
+        border-radius: 16px;
+    }
+
+    /* Заголовки концепций */
+    .project-3 .project-3-mobile-concept .project-title {
+        margin: 0 0 16px;
+        font-size: 24px;
+        line-height: 1.15;
+    }
+
+    /* Описания концепций */
+    .project-3 .project-3-mobile-concept .project-text p {
+        margin: 0;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    /* Кнопка сворачивания */
+    .project-3 .project-collapse-btn {
+        width: 100%;
+        max-width: 343px;
+        margin: 0;
+    }
+
+    /* Проект 3 — мобильная версия */
+    .project-3 .desktop-version {
+        display: none !important;
+    }
+
+    .project-3 .mobile-version {
+        display: block !important;
+    }
+
+    /* Мобильная галерея */
+    .project-3 .project-3-mobile-gallery {
+        display: flex !important;
+        flex-direction: column;
+        width: 100%;
+        gap: 64px;
+    }
+
+
 
 }

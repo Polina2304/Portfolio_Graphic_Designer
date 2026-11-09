@@ -610,10 +610,12 @@
 
         </article>
         
+        
+        
         <!-- Проект 3 -->
         <article class="project-card project-3">
 
-            <!-- 1. Верхняя строка: Категория (слева) и Теги (справа) -->
+            <!-- 1. Верхняя строка -->
             <div class="project-top">
                 <div class="project-category category-marketing">
                     Проекты
@@ -630,68 +632,206 @@
                 </div>
             </div>
 
-            <!-- 2. Основной блок: Фото + Описание (отступ между ними 125px) -->
+
+            <!-- 2. Основной блок -->
             <div class="project-main">
+
                 <div class="project-cover">
-                    <!-- Сюда вставляем главное фото (размеры зададим отдельно) -->
-                    <img src="images/4_ptoject_3/desktop/project_3_1.webp" alt="Баннер для рекламной кампании Goodline">
+                    <img
+                        src="images/4_ptoject_3/desktop/project_3_1.webp"
+                        alt="Баннер для рекламной кампании Goodline"
+                    >
                 </div>
 
                 <div class="project-content">
-                    <h3 class="project-title">Разработка концепции рекламной кампании<br>Wi-Fi 7</h3>
-                    <div class="project-text">
-                        <p>Компания Goodline первой в Кузбассе запустила технологию Wi-Fi 7. Для анонса нового оффера команда маркетинга разрабатывала рекламную кампанию, первым этапом которой стала наружная реклама.</p>
-                        <p>В рамках проекта была проведена серия концептуальных поисков, целью которых было не только сообщить о запуске новой технологии, но и подчеркнуть лидерство компании как первого оператора, внедрившего Wi-Fi 7 в регионе.</p>
+
+                    <!-- Десктопный текст -->
+                    <div class="desktop-version">
+                        <h3 class="project-title">Разработка концепции рекламной кампании<br>Wi-Fi 7</h3>
+
+                        <div class="project-text">
+                            <p>Компания Goodline первой в Кузбассе запустила технологию Wi-Fi 7. Для анонса нового оффера команда маркетинга разрабатывала рекламную кампанию, первым этапом которой стала наружная реклама.</p>
+
+                            <p>В рамках проекта была проведена серия концептуальных поисков, целью которых было не только сообщить о запуске новой технологии, но и подчеркнуть лидерство компании как первого оператора, внедрившего Wi-Fi 7 в регионе.</p>
+                        </div>
                     </div>
+
+                    <!-- Мобильный текст -->
+                    <div class="mobile-version">
+                        <h3 class="project-title">Разработка концепции<br>рекламной кампании<br>Wi-Fi 7</h3>
+
+                        <div class="project-text">
+                            <p>Компания Goodline первой в Кузбассе<br>
+                            запустила технологию Wi-Fi 7.<br>
+                            Для анонса нового оффера команда<br>
+                            маркетинга разрабатывала рекламную<br>
+                            кампанию, первым этапом которой<br>
+                            стала наружная реклама.</p>
+
+                            <p>В рамках проекта была проведена<br>
+                            серия концептуальных поисков, целью<br>
+                            которых было не только сообщить<br>
+                            о запуске новой технологии,<br>
+                            но и подчеркнуть лидерство компании<br>
+                            как первого оператора, внедрившего<br>
+                            Wi-Fi 7 в регионе.</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+
 
             <!-- Кнопка раскрытия -->
             <button class="project-expand-btn" type="button">
                 Подробнее о проекте
             </button>
 
-            <!-- Скрываемое содержимое -->
-            <div class="project-hidden-content">   
 
-                <!-- 3. Длинный разделитель 1200x6 со скруглением -->
-                <div class="project-delimiter"></div>
+            <!-- 3. Скрываемое содержимое -->
+            <div class="project-hidden-content">
 
-                <!-- 4. Галерея дополнительных фото (расстояние между фото 24px) -->
-                <div class="project-gallery">
-                    <img src="images/4_ptoject_3/desktop/project_3_2.webp" alt="Фото 1">
-                    <img src="images/4_ptoject_3/desktop/project_3_3.webp" alt="Фото 2">
-                    <img src="images/4_ptoject_3/desktop/project_3_4.webp" alt="Фото 3">
+                <!-- ДЕСКТОПНЫЙ РАЗДЕЛИТЕЛЬ -->
+                <div class="project-delimiter desktop-version"></div>
+
+
+                <!-- ДЕСКТОПНАЯ ГАЛЕРЕЯ -->
+                <!-- Важно: все элементы остаются непосредственными
+                    дочерними элементами project-hidden-content -->
+
+                <div class="project-gallery desktop-version">
+                    <img
+                        src="images/4_ptoject_3/desktop/project_3_2.webp"
+                        alt="Концепция модульного символа Wi-Fi"
+                    >
+                    <img
+                        src="images/4_ptoject_3/desktop/project_3_3.webp"
+                        alt="Типографическая концепция Wi-Fi 7"
+                    >
+                    <img
+                        src="images/4_ptoject_3/desktop/project_3_4.webp"
+                        alt="Концепция Первый в Кузбассе"
+                    >
                 </div>
 
 
-                    <div class="project-content">
-                        <h3 class="project-title">Модульный<br>символ Wi-Fi</h3>
-                        <div class="project-text">
-                            <p>Минималистичная концепция<br>с акцентом на узнаваемом<br>символе Wi-Fi в футуристичной<br>модульной стилистике. Решение<br>позволяет быстро считывать<br>главный посыл в городской среде.</p>
+                <!-- ПЕРВОЕ ОПИСАНИЕ — ДЕСКТОП -->
+                <div class="project-content desktop-version">
+                    <h3 class="project-title">Модульный<br>символ Wi-Fi</h3>
+
+                    <div class="project-text">
+                        <p>Минималистичная концепция<br>с акцентом на узнаваемом<br>символе Wi-Fi в футуристичной<br>модульной стилистике. Решение<br>позволяет быстро считывать<br>главный посыл в городской среде.</p>
+                    </div>
+                </div>
+
+
+                <!-- ВТОРОЕ ОПИСАНИЕ — ДЕСКТОП -->
+                <div class="project-content desktop-version">
+                    <h3 class="project-title">Типографическая концепция</h3>
+
+                    <div class="project-text">
+                        <p>Объемное исполнение названия<br>Wi-Fi 7 превращает саму<br>технологию в главный визуальный<br>образ, усиливая узнаваемость<br>нового стандарта связи.</p>
+                    </div>
+                </div>
+
+
+                <!-- ТРЕТЬЕ ОПИСАНИЕ — ДЕСКТОП -->
+                <div class="project-content desktop-version">
+                    <h3 class="project-title">Первый<br>в Кузбассе</h3>
+
+                    <div class="project-text">
+                        <p>Концепция построена<br>на ассоциации с первым полетом<br>в космос. Образ ракеты<br>подчеркивает идею лидерства<br>и запуска новой технологии,<br>усиливая сообщение<br>«первый в Кузбассе».</p>
+                    </div>
+                </div>
+
+
+                <!-- МОБИЛЬНАЯ ВЕРСИЯ -->
+                <div class="mobile-version project-3-mobile-gallery">
+
+                    <div class="project-delimiter"></div>
+
+
+                    <!-- Первая концепция -->
+                    <div class="project-3-mobile-concept">
+
+                        <img
+                            src="images/4_ptoject_3/desktop/project_3_2.webp"
+                            alt="Концепция модульного символа Wi-Fi"
+                        >
+
+                        <div class="project-content">
+                            <h3 class="project-title">Модульный символ Wi-Fi</h3>
+
+                            <div class="project-text">
+                                <p>Минималистичная концепция с<br>
+                                акцентом на узнаваемом символе Wi-Fi<br>
+                                в футуристичной модульной стилистике.<br>
+                                Решение позволяет быстро считывать<br>
+                                главный посыл в городской среде.</p>
+                            </div>
                         </div>
+
                     </div>
 
-                    <div class="project-content">
-                        <h3 class="project-title">Типографическая концепция</h3>
-                        <div class="project-text">
-                            <p>Объемное исполнение названия<br>Wi-Fi 7 превращает саму<br>технологию в главный визуальный<br>образ, усиливая узнаваемость<br>нового стандарта связи.</p>
+
+                    <!-- Вторая концепция -->
+                    <div class="project-3-mobile-concept">
+
+                        <img
+                            src="images/4_ptoject_3/desktop/project_3_3.webp"
+                            alt="Типографическая концепция Wi-Fi 7"
+                        >
+
+                        <div class="project-content">
+                            <h3 class="project-title">Типографическая<br>концепция</h3>
+
+                            <div class="project-text">
+                                <p>Объемное исполнение названия Wi-Fi 7<br>
+                                превращает саму технологию в главный<br>
+                                визуальный образ, усиливая<br>
+                                узнаваемость нового стандарта связи.</p>
+                            </div>
                         </div>
+
                     </div>
 
-                    <div class="project-content">
-                        <h3 class="project-title">Первый<br>в Кузбассе</h3>
-                        <div class="project-text">
-                            <p>Концепция построена<br>на ассоциации с первым полетом<br>в космос. Образ ракеты<br>подчеркивает идею лидерства<br>и запуска новой технологии,<br>усиливая сообщение<br>«первый в Кузбассе».</p>
+
+                    <!-- Третья концепция -->
+                    <div class="project-3-mobile-concept">
+
+                        <img
+                            src="images/4_ptoject_3/desktop/project_3_4.webp"
+                            alt="Концепция Первый в Кузбассе"
+                        >
+
+                        <div class="project-content">
+                            <h3 class="project-title">Первый в Кузбассе</h3>
+
+                            <div class="project-text">
+                                <p>Концепция построена<br>
+                                на ассоциации с первым полетом<br>
+                                в космос. Образ ракеты подчеркивает<br>
+                                идею лидерства и запуска новой<br>
+                                технологии, усиливая сообщение<br>
+                                «первый в Кузбассе».</p>
+                            </div>
                         </div>
+
                     </div>
 
+                </div>
+
+
+                <!-- Общая кнопка сворачивания -->
                 <button class="project-collapse-btn" type="button">
                     Скрыть подробности о проекте
                 </button>
+
             </div>
 
         </article>
+
+
 
 
         <!-- ПРОЕКТ 4 -->

@@ -2489,27 +2489,21 @@ html {
     opacity: 0.8;
 }
 
+
 /* ============================================================
-   МОБИЛЬНАЯ АДАПТАЦИЯ
-   Экраны до 768px
+   МОБИЛЬНАЯ АДАПТАЦИЯ — ЭКРАНЫ ДО 768 PX
    ============================================================ */
 
 @media (max-width: 768px) {
 
-
     /* ========================================================
-       КОНТЕЙНЕР
+       1. ОСНОВНОЙ КОНТЕЙНЕР И НАВИГАЦИЯ
        ======================================================== */
 
     .portfolio-container {
-        width: 343px; 
-        margin: 24px auto; 
+        width: 343px;
+        margin: 24px auto;
     }
-
-
-    /* ========================================================
-       НАВИГАЦИЯ
-       ======================================================== */
 
     .main-menu {
         display: none;
@@ -2517,7 +2511,7 @@ html {
 
 
     /* ========================================================
-       ГЛАВНЫЙ ЭКРАН
+       2. ГЛАВНЫЙ ЭКРАН
        ======================================================== */
 
     .hero {
@@ -2525,45 +2519,45 @@ html {
         flex-direction: column;
         align-items: flex-start;
         gap: 32px;
-        margin-bottom: 64px; 
+        margin-bottom: 64px;
     }
 
     .hero-title img {
-    width: 343px;
-    height: 140px;
+        width: 343px;
+        height: 140px;
     }
 
     .hero-photo img {
         width: 343px;
         height: 227px;
-        border-radius: 16px; 
+        border-radius: 16px;
     }
 
 
     /* ========================================================
-       КАРТОЧКИ
+       3. ИНФОРМАЦИОННЫЕ КАРТОЧКИ
        ======================================================== */
 
     .info-cards {
         display: flex;
         flex-direction: column;
-        gap: 16px; 
+        gap: 16px;
         margin-bottom: 128px;
     }
 
     .card {
-        width: 343px;
-        box-sizing: border-box;
-        padding: 16px 15px; 
-        border-radius: 16px; 
         display: flex;
         flex-direction: column;
-        gap: 10px; 
+        width: 343px;
+        box-sizing: border-box;
+        padding: 16px 15px;
+        border-radius: 16px;
+        gap: 10px;
     }
 
     .card h2 {
         font-size: 24px;
-        margin: 0 0 14px 0; 
+        margin: 0 0 14px;
     }
 
     .card h3 {
@@ -2573,24 +2567,19 @@ html {
     }
 
     .vector-dash {
-        display: none; 
+        display: none;
     }
 
     .grey-text {
         color: #807E7A;
-        font-weight: 500;
         font-size: 16px;
+        font-weight: 500;
     }
 
 
     /* ========================================================
-       DESKTOP / MOBILE
+       4. ПЕРЕКЛЮЧЕНИЕ DESKTOP / MOBILE
        ======================================================== */
-
-    /* 1. Прячем десктоп, включаем мобилку */
-    .mobile-version p.grey-text {
-        margin-bottom: 0; /* убирает оранжевую полосу отступа браузера */
-    }
 
     .desktop-version {
         display: none !important;
@@ -2600,37 +2589,35 @@ html {
         display: block !important;
     }
 
+    .mobile-version p.grey-text {
+        margin-bottom: 0;
+    }
+
 
     /* ========================================================
-       ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКА (МОБИЛКА)
+       5. ПЕРЕКЛЮЧАТЕЛЬ ЯЗЫКА
        ======================================================== */
 
     .lang-switch-mobile {
-        display: flex !important; /* важно чтобы не сбился во flex-колонку */
+        display: flex !important;
         justify-content: center;
         gap: 12px;
         margin-bottom: 64px;
     }
 
     .mobile-lang-btn {
-        /* Точные фиксированные размеры */
-        width: 164px;
-        height: 50px;
-        box-sizing: border-box;
-        padding: 0;            /* сбрасываем паддинг, чтобы текст ровно центрировался */
-        flex-shrink: 0;        /* запрещаем сжиматься на узких экранах */
-        
-        /* Центрирование текста внутри кнопки */
         display: inline-flex;
         align-items: center;
         justify-content: center;
-        
-        /* Стилизация */
+        width: 164px;
+        height: 50px;
+        box-sizing: border-box;
+        padding: 0;
+        flex-shrink: 0;
         background-color: #1F1E1D;
         color: #FFF5E0;
         border: none;
-        border-radius: 40px;   /* или 25px (половина высоты для идеального скругления) */
-        
+        border-radius: 40px;
         font-family: 'Montserrat', sans-serif;
         font-size: 20px;
         font-weight: 600;
@@ -2639,7 +2626,6 @@ html {
         transition: 0.2s ease;
     }
 
-    /* Активная кнопка */
     .mobile-lang-btn.active {
         background-color: #FFD685;
         color: #1F1E1D;
@@ -2647,80 +2633,73 @@ html {
 
 
     /* ========================================================
-       ОБРАЗОВАНИЕ (Мобилка)
-       1. КузТАГиС
-       2. Графический дизайн
-       3. Годы
+       6. ОБРАЗОВАНИЕ
        ======================================================== */
-
 
     .education-card .card-item {
         display: flex;
         flex-direction: row;
         gap: 4px;
-        margin-bottom: 0; 
-    }
-    
-    .education-card h3:nth-child(1) {
-        font-size: 16px;
-        font-weight: 700;
-        color: #FFF5E0;
-        margin: 0;
-        order: 1; /* Название сверху */
+        margin-bottom: 0;
     }
 
-    /* Графический дизайн идет вторым */
+    .education-card h3:nth-child(1) {
+        order: 1;
+        margin: 0;
+        color: #FFF5E0;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
     .education-card .card-item .grey-text {
         order: 3;
+        color: #807E7A;
         font-size: 16px;
         font-weight: 500;
-        color: #807E7A;
     }
 
 
     /* ========================================================
-       ОПЫТ РАБОТЫ (Мобилка)
+       7. ОПЫТ РАБОТЫ
        ======================================================== */
 
     .experience-card .experience-item {
-        margin-bottom: 24px; /* отступ между местами работы */
+        margin-bottom: 24px;
     }
 
     .experience-card .experience-item:last-child {
-        margin-bottom: 0;    /* у последнего убираем лишний отступ */
+        margin-bottom: 0;
     }
 
-    /* Должность */
     .experience-card .experience-item h4 {
+        margin: 0 0 6px;
+        color: #FFF5E0;
         font-size: 16px;
         font-weight: 700;
-        color: #FFF5E0;
-        margin: 0 0 6px 0;   /* отступ снизу до компании */
         line-height: 1.3;
     }
 
-    /* Компания и годы (вместе) */
     .experience-card .experience-item p {
+        margin: 0;
+        color: #807E7A;
         font-size: 16px;
         font-weight: 500;
-        color: #807E7A;
-        margin: 0;
         line-height: 1.4;
     }
 
 
     /* ========================================================
-       КОНТАКТЫ (Мобилка)
+       8. КОНТАКТЫ
        ======================================================== */
 
     .contacts-card {
-        gap: 16px; 
+        gap: 16px;
     }
 
     .contacts-card .card-item {
         display: flex;
         flex-direction: row;
-        justify-content: space-between; 
+        justify-content: space-between;
         align-items: center;
         width: 312px;
         height: 20px;
@@ -2729,48 +2708,47 @@ html {
     }
 
     .contacts-card .card-item .grey-text {
+        width: auto;
+        color: #807E7A;
         font-size: 16px;
         font-weight: 500;
-        color: #807E7A;
-        width: auto;
     }
 
     .contacts-card .card-item a {
+        color: #FFF5E0;
         font-size: 16px;
         font-weight: 600;
-        color: #FFF5E0;
         text-decoration: underline;
     }
 
 
-/* ==========================================================================
-    СЕКЦИЯ ПРОЕКТОВ (МОБИЛКА)
-    ========================================================================== */
+    /* ========================================================
+       9. ОБЩИЕ СТИЛИ ПРОЕКТОВ
+       ======================================================== */
 
-
-    /* 1. Общий контейнер проекта */
     .project-card {
         width: 100%;
-        max-width: 343px;          /* 375px экрана минус отступы по 16px с краёв */
-        margin: 0 auto 128px auto; /* 128px между проектами */
-        gap: 64px;                 /* 64px между блоками внутри одного проекта */
+        max-width: 343px;
+        margin: 0 auto 128px;
+        gap: 64px;
     }
 
     .project-card:last-child {
         margin-bottom: 0;
     }
 
-    /* 2. Шапка: скрываем теги, оставляем только категорию */
+    /* Шапка проекта */
+
     .project-top {
-        justify-content: flex-start; /* категория прижата влево */
+        justify-content: flex-start;
     }
 
     .project-tags {
-        display: none;             /* на мобилке тегов нет */
+        display: none;
     }
 
     .project-category {
-        width: 164px;              /* параметры из Фигмы */
+        width: 164px;
         height: 50px;
         box-sizing: border-box;
         padding: 12px 24px;
@@ -2778,10 +2756,11 @@ html {
         line-height: 20px;
     }
 
-    /* 3. Основной блок: фото и текст встают друг под друга */
+    /* Основной блок */
+
     .project-main {
-        flex-direction: column;    /* фото сверху, текст под ним */
-        gap: 24px;                 /* отступ от обложки до заголовка */
+        flex-direction: column;
+        gap: 24px;
     }
 
     .project-cover {
@@ -2791,35 +2770,37 @@ html {
     .project-cover img {
         width: 100%;
         height: auto;
-        border-radius: 16px;       /* скругление под мобилку */
+        border-radius: 16px;
     }
 
-    /* Заголовок проекта (24px) */
+    /* Заголовки и текст */
+
     .project-title {
+        margin: 0 0 24px;
         font-size: 24px;
         line-height: 1.25;
-        margin: 0 0 24px 0;        /* 24px до первого абзаца */
     }
 
-    /* Текст описания (16px) */
     .project-text p {
+        margin: 0 0 24px;
         font-size: 16px;
         line-height: 1.5;
-        margin: 0 0 24px 0;        /* 24px между абзацами */
     }
 
     .project-text p:last-child {
         margin-bottom: 0;
     }
 
-    /* 4. Разделитель: высота 3px */
+    /* Разделители */
+
     .project-delimiter {
         width: 100%;
         max-width: 343px;
-        height: 3px;               /* 3px на мобилке */
+        height: 3px;
     }
 
-    /* 5. Галерея фото: расстояние между фото 16px */
+    /* Галереи */
+
     .project-gallery {
         grid-template-columns: 1fr;
         gap: 16px;
@@ -2832,193 +2813,168 @@ html {
         border-radius: 16px;
     }
 
-    /* Обложка проекта 1 на мобилке: 343×243 */
+    /* Кнопки */
+
+    .project-expand-btn,
+    .project-collapse-btn {
+        width: 100%;
+        max-width: 343px;
+        height: 50px;
+        padding: 12px 24px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    /* Расстояния внутри раскрытых проектов */
+
+    .project-hidden-content {
+        gap: 64px;
+    }
+
+
+    /* ========================================================
+       10. ПРОЕКТ 1
+       ======================================================== */
+
     .project-1 .project-cover img {
         width: 100%;
         max-width: 343px;
         height: 243px;
         border-radius: 16px;
     }
-    
 
-    /* 6. Кнопки раскрытия и сворачивания проекта */
-    .project-expand-btn,
-    .project-collapse-btn {
+
+    /* ========================================================
+       11. ПРОЕКТ 2
+       ======================================================== */
+
+    /* Сначала текст, затем главное фото */
+
+    .project-2 .project-main {
+        display: flex;
+        flex-direction: column-reverse;
         width: 100%;
-        max-width: 343px;
-        height: 50px;
-        font-size: 16px;
-        line-height: 20px;
-        padding: 12px 24px;
+        gap: 56px;
     }
 
+    .project-2 .project-cover {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
 
-    
+    .project-2 .project-cover > img {
+        display: block;
+        width: 100%;
+        max-width: 343px;
+        height: 243px;
+        flex-shrink: 0;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 16px;
+    }
 
-/* ========================================================
-   ПРОЕКТ 2 — МОБИЛЬНАЯ ВЕРСИЯ
-   ======================================================== */
+    /* Скрываем два дополнительных фото обложки */
 
+    .project-2 .project-cover-bottom {
+        display: none;
+    }
 
-/* ========================================================
-   1. ОСНОВНОЙ БЛОК: ТЕКСТ И ОБЛОЖКА
-   ======================================================== */
+    /* Дополнительная галерея */
 
-/* Сначала текст, затем фотография */
-.project-2 .project-main {
-    display: flex;
-    flex-direction: column-reverse;
-    width: 100%;
-    gap: 56px;
-}
+    .project-2 .project-2-gallery {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 343px;
+        gap: 16px;
+    }
 
-/* Контейнер обложки */
-.project-2 .project-cover {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-}
+    .project-2 .project-2-gallery .gallery-column-full,
+    .project-2 .project-2-gallery .gallery-column-half {
+        display: contents;
+    }
 
-/* Главное фото — 343 × 243 */
-.project-2 .project-cover > img {
-    display: block;
-    width: 100%;
-    max-width: 343px;
-    height: 243px;
-    flex-shrink: 0;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 16px;
-}
+    .project-2 .project-2-gallery img {
+        display: block;
+        width: 100%;
+        max-width: 343px;
+        height: 243px;
+        flex-shrink: 0;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 16px;
+    }
 
-/* Два дополнительных фото в верхней обложке скрываем */
-.project-2 .project-cover-bottom {
-    display: none;
-}
+    /* Первое фото дополнительной галереи */
 
+    .project-2 .project-2-gallery .gallery-column-full img {
+        height: 447px;
+    }
 
-/* ========================================================
-   2. ДОПОЛНИТЕЛЬНАЯ ГАЛЕРЕЯ
-   ======================================================== */
+    /* Текстовый блок и галерея */
 
-/* Общий контейнер галереи */
-.project-2 .project-2-gallery {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 343px;
-    gap: 16px;
-}
+    .project-2 .project-2-details {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 64px;
+    }
 
-/* Убираем отдельное отображение вложенных колонок */
-.project-2 .project-2-gallery .gallery-column-full,
-.project-2 .project-2-gallery .gallery-column-half {
-    display: contents;
-}
+    .project-2 .project-2-details-text {
+        width: 100%;
+        max-width: 343px;
+    }
 
-/* Все фотографии — 343 × 243 */
-.project-2 .project-2-gallery img {
-    display: block;
-    width: 100%;
-    max-width: 343px;
-    height: 243px;
-    flex-shrink: 0;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 16px;
-}
+    .project-2 .project-2-details-text p {
+        margin: 0 0 24px;
+        font-size: 16px;
+        line-height: 24px;
+    }
 
+    .project-2 .project-2-details-text p:last-child {
+        margin-bottom: 0;
+    }
 
-/* ========================================================
-   3. ТЕКСТ, ЛЕНДИНГ И МОБИЛЬНОЕ ПРИЛОЖЕНИЕ
-   ======================================================== */
+    /* Лендинг и экраны приложения */
 
-/* Общий контейнер текстового блока и галереи */
-.project-2 .project-2-details {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    gap: 64px;
-}
+    .project-2 .project-2-app-gallery {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 343px;
+        gap: 64px;
+        margin-top: 0;
+    }
 
-/* Текстовый блок */
-.project-2 .project-2-details-text {
-    width: 100%;
-    max-width: 343px;
-}
+    .project-2 .project-2-app-gallery > img {
+        display: block;
+        width: 100%;
+        max-width: 343px;
+        height: 197px;
+        flex-shrink: 0;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 16px;
+    }
 
-/* Абзацы */
-.project-2 .project-2-details-text p {
-    font-size: 16px;
-    line-height: 24px;
-    margin: 0 0 24px 0;
-}
+    .project-2 .project-2-app-gallery-right {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        gap: 15px;
+    }
 
-.project-2 .project-2-details-text p:last-child {
-    margin-bottom: 0;
-}
-
-
-/* ========================================================
-   4. ГАЛЕРЕЯ ЛЕНДИНГА И ПРИЛОЖЕНИЯ
-   ======================================================== */
-
-/* Контейнер трёх изображений */
-.project-2 .project-2-app-gallery {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    max-width: 343px;
-    gap: 64px;
-    margin-top: 0;
-}
-
-/* Лендинг — 343 × 197 */
-.project-2 .project-2-app-gallery > img {
-    display: block;
-    width: 100%;
-    max-width: 343px;
-    height: 197px;
-    flex-shrink: 0;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 16px;
-}
-
-/* Два экрана приложения располагаются в один ряд */
-.project-2 .project-2-app-gallery-right {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    gap: 15px;
-}
-
-/* Каждый экран — 164 × 330 */
-.project-2 .project-2-app-gallery-right img {
-    display: block;
-    width: calc((100% - 15px) / 2);
-    max-width: 164px;
-    height: 330px;
-    flex-shrink: 0;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 16px;
-}
-
-.project-2 .project-2-gallery .gallery-column-full img {
-    height: 447px;
-}
-
-
-/* ========================================================
-   5. РАСКРЫТЫЙ БЛОК ПРОЕКТА
-   ======================================================== */
-
-/* Расстояние между разделителями, галереями и блоками */
-.project-2 .project-hidden-content {
-    gap: 64px;
-}
-
+    .project-2 .project-2-app-gallery-right img {
+        display: block;
+        width: calc((100% - 15px) / 2);
+        max-width: 164px;
+        height: 330px;
+        flex-shrink: 0;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 16px;
+    }
 
 }

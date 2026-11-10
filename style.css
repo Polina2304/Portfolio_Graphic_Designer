@@ -2923,6 +2923,27 @@ html {
         max-width: 343px;
         height: 243px;
         border-radius: 16px;
+
+    }
+    .project-1 > .project-main {
+        flex-direction: column-reverse;
+    }
+
+    .project-1 > .project-main {
+    flex-direction: column-reverse;
+    gap: 64px;
+    }
+
+    .project-1 .project-main .project-title {
+        margin-bottom: 24px;
+    }
+
+    .project-1 .project-main .project-text p {
+        margin-bottom: 24px;
+    }
+
+    .project-1 .project-main .project-text p:last-child {
+        margin-bottom: 0;
     }
 
 
@@ -3411,6 +3432,10 @@ html {
         flex-direction: column;
         width: 100%;
         gap: 64px;
+    }
+
+    .project-3 .project-title-no-br br {
+        display: none;
     }
 
 

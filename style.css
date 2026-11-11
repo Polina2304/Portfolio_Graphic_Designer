@@ -3526,11 +3526,11 @@ html {
     }
 
     .project-4-final-text > .project-text {
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        width: 100%;
-        margin: 0 0 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    margin: 0 0 24px;
     }
 
     .project-4-final-text > .project-text p {

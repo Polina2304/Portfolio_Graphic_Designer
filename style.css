@@ -1782,24 +1782,10 @@ body {
     border-radius: inherit;
 }
 
-/* ============================================================
-   PLAY BUTTON — FIGMA
-   ============================================================ */
+/* Кнопка воспроизведения */
 
-.motion-cover,
-.project-4-video {
-    position: relative;
-}
-
-.motion-play,
-.video-play-button,
-.project-4-video-play {
+.motion-play {
     position: absolute;
-    z-index: 10;
-
-    width: 124.23px;
-    height: 124.23px;
-
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -1808,61 +1794,29 @@ body {
     align-items: center;
     justify-content: center;
 
-    box-sizing: border-box;
+    width: 112px;
+    height: 112px;
     padding: 0;
+
     border: none;
     border-radius: 50%;
-
     background: rgba(0, 0, 0, 0.5);
-    background-blend-mode: multiply;
 
     cursor: pointer;
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.motion-play svg,
-.video-play-button svg,
-.project-4-video-play svg {
+.motion-play svg {
     display: block;
-    width: 45.78px;
-    height: 49.38px;
-    flex-shrink: 0;
-    margin-left: 2.19px;
-    margin-top: -0.15px;
-    fill: #FFFFFF;
+    width: 42px;
+    height: 45px;
+    margin-left: 5px;
 }
 
-.motion-play:hover,
-.video-play-button:hover,
-.project-4-video-play:hover {
+.motion-cover:hover .motion-play {
     background: rgba(0, 0, 0, 0.7);
     transform: translate(-50%, -50%) scale(1.05);
 }
-
-.motion-play[hidden],
-.video-play-button[hidden],
-.project-4-video-play[hidden] {
-    display: none !important;
-}
-
-@media (max-width: 768px) {
-    .motion-play,
-    .video-play-button,
-    .project-4-video-play {
-        width: 64px;
-        height: 64px;
-    }
-
-    .motion-play svg,
-    .video-play-button svg,
-    .project-4-video-play svg {
-        width: 24px;
-        height: 26px;
-        margin: 0 0 0 1px;
-    }
-}
-
-
 
 /* Встроенный видеоплеер */
 
@@ -3281,280 +3235,7 @@ html {
     .project-3 .project-title-no-br br {
         display: none;
     }
-
-
-
-    /* ========================================================
-    ПРОЕКТ 4 — МОБИЛЬНАЯ ВЕРСИЯ
-    ======================================================== */
-
-    /* Общая карточка проекта */
-
-    .project-4 {
-        display: flex;
-        flex-direction: column;
-        align-items: stretch;
-        width: 100%;
-        max-width: 343px;
-        margin: 0 auto 128px;
-        gap: 40px;
-    }
-
-    /* Первый экран: текст, затем изображение project_4_1 */
-
-    .project-4 > .project-main {
-        display: flex;
-        flex-direction: column-reverse;
-        width: 100%;
-        gap: 32px;
-        margin: 0;
-    }
-
-    .project-4 > .project-main > .project-content {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        height: auto;
-        gap: 24px;
-    }
-
-    .project-4 > .project-main .project-title {
-        width: 100%;
-        height: auto;
-        margin: 0;
-        font-size: 24px;
-        line-height: 1.25;
-    }
-
-    .project-4 > .project-main .project-text {
-        width: 100%;
-        height: auto;
-    }
-
-    .project-4 > .project-main .project-text p {
-        font-size: 16px;
-        line-height: 24px;
-        margin: 0 0 24px;
-    }
-
-    .project-4 > .project-main .project-text p:last-child {
-        margin-bottom: 0;
-    }
-
-    /* Главное изображение */
-
-    .project-4 > .project-main .project-cover {
-        width: 100%;
-        height: 243px;
-        flex-shrink: 0;
-    }
-
-    .project-4 > .project-main .project-cover > img {
-        width: 100%;
-        height: 100%;
-        max-width: none;
-        object-fit: cover;
-        border-radius: 16px;
-    }
-
-    /* Кнопка раскрытия */
-
-    .project-4 > .project-expand-btn {
-        width: 100%;
-        max-width: 343px;
-        height: 50px;
-        margin: 0;
-    }
-
-    /* ========================================================
-    РАСКРЫВАЕМОЕ СОДЕРЖИМОЕ — GRID
-    ======================================================== */
-
-    .project-4 > .project-hidden-content.is-visible {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr);
-        width: 100%;
-        gap: 40px;
-        margin: 0;
-    }
-
-    /* Позволяем вложенным контейнерам передавать
-    свои элементы непосредственно родительской сетке */
-
-    .project-4 .project-4-section-app,
-    .project-4 .project-4-section-app > .project-gallery,
-    .project-4 .project-4-web-gallery {
-        display: contents;
-    }
-
-    /* Разделители */
-
-    .project-4 > .project-hidden-content > .project-delimiter {
-        width: 100%;
-        max-width: 343px;
-        height: 3px;
-        margin: 0;
-    }
-
-    /* Первый текстовый блок — приложение */
-
-    .project-4 .project-4-section-app > .project-content {
-        order: 2;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        gap: 24px;
-    }
-
-    .project-4 .project-4-section-app .project-title {
-        width: 100%;
-        height: auto;
-        margin: 0;
-        font-size: 24px;
-        line-height: 1.25;
-    }
-
-    .project-4 .project-4-section-app .project-text {
-        width: 100%;
-    }
-
-    .project-4 .project-4-section-app .project-text p {
-        font-size: 16px;
-        line-height: 24px;
-        margin: 0 0 24px;
-    }
-
-    .project-4 .project-4-section-app .project-text p:last-child {
-        margin-bottom: 0;
-    }
-
-    /* Изображения мобильного приложения */
-
-    .project-4 .project-4-section-app .project-gallery img {
-        display: block;
-        order: 3;
-        width: 100%;
-        max-width: 343px;
-        height: auto;
-        object-fit: contain;
-        border-radius: 16px;
-    }
-
-    /* Веб-платформы — текст */
-
-    .project-4 .project-4-web-text {
-        order: 7;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        gap: 24px;
-    }
-
-    .project-4 .project-4-web-text .project-title {
-        width: 100%;
-        margin: 0;
-        font-size: 24px;
-        line-height: 1.25;
-    }
-
-    .project-4 .project-4-web-text .project-text {
-        width: 100%;
-    }
-
-    .project-4 .project-4-web-text .project-text p {
-        font-size: 16px;
-        line-height: 24px;
-        margin: 0 0 24px;
-    }
-
-    .project-4 .project-4-web-text .project-text p:last-child {
-        margin-bottom: 0;
-    }
-
-    /* Изображения веб-платформ */
-
-    .project-4 .project-4-web-gallery img {
-        display: block;
-        width: 100%;
-        max-width: 343px;
-        height: auto;
-        object-fit: cover;
-        border-radius: 16px;
-    }
-
-    /* Финальный текст */
-
-    .project-4 .project-4-final-text {
-        order: 12;
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        gap: 0;
-    }
-
-    .project-4 .project-4-final-text > .project-title {
-        width: 100%;
-        margin: 0 0 24px;
-        font-size: 24px;
-        line-height: 1.25;
-    }
-
-    .project-4 .project-4-final-text > .project-text {
-        width: 100%;
-        gap: 24px;
-        margin: 0 0 32px;
-    }
-
-    .project-4 .project-4-final-text > .project-text p {
-        font-size: 16px;
-        line-height: 24px;
-    }
-
-    .project-4 .project-4-final-text > .project-responsibility-title {
-        margin: 0 0 24px;
-        font-size: 18px;
-        line-height: 24px;
-    }
-
-    .project-4 .project-4-final-text .project-4-responsibility-list {
-        gap: 16px;
-    }
-
-    .project-4 .project-4-final-text .project-4-responsibility-item {
-        font-size: 16px;
-        line-height: 24px;
-    }
-
-    /* Видео */
-
-    .project-4 .project-4-video {
-        order: 13;
-        width: 100%;
-        height: auto;
-        aspect-ratio: 16 / 9;
-        border-radius: 16px;
-    }
-
-    .project-4 .project-4-video-play {
-        width: 64px;
-        height: 64px;
-    }
-
-    .project-4 .project-4-video-play svg {
-        width: 24px;
-        height: 26px;
-    }
-
-    /* Кнопка сворачивания */
-
-    .project-4 > .project-hidden-content > .project-collapse-btn {
-        order: 14;
-        width: 100%;
-        max-width: 343px;
-        height: 50px;
-        margin: 0;
-    }
-
+    
 
 
 }

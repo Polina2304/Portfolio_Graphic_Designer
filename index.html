@@ -2995,6 +2995,7 @@
                      СЛАЙДЕРЫ РАЗДЕЛА СОЦСЕТИ
     ==================================================== --> 
     <script>
+        
         document.querySelectorAll('.social-slider').forEach(slider => {
 
             const viewport = slider.querySelector('.social-slider-viewport');
@@ -3003,31 +3004,81 @@
             const nextButton = slider.querySelector('.social-arrow-right');
 
             const slides = Array.from(track.children);
+            const mobileQuery = window.matchMedia('(max-width: 768px)');
 
             let currentIndex = 0;
 
-            function getVisibleWidth() {
-                return viewport.clientWidth;
+            // Если карточек нет — скрываем весь слайдер
+            if (slides.length === 0) {
+                slider.style.display = 'none';
+                return;
             }
 
+            // Если карточка только одна — стрелки и точки не нужны
+            const hasNavigation = slides.length > 1;
+
+            if (!hasNavigation) {
+                prevButton.style.display = 'none';
+                nextButton.style.display = 'none';
+            }
+
+            // Создаём точки переключения
+            const dotsContainer = document.createElement('div');
+            dotsContainer.className = 'social-slider-dots';
+
+            const dots = slides.map((slide, index) => {
+
+                const dot = document.createElement('button');
+
+                dot.type = 'button';
+                dot.className = 'social-slider-dot';
+                dot.setAttribute('aria-label', `Карточка ${index + 1}`);
+
+                dot.addEventListener('click', () => {
+                    if (!mobileQuery.matches || !hasNavigation) return;
+
+                    currentIndex = index;
+                    updateSlider();
+                });
+
+                dotsContainer.appendChild(dot);
+
+                return dot;
+            });
+
+            slider.appendChild(dotsContainer);
+
+            if (!hasNavigation) {
+                dotsContainer.style.display = 'none';
+            }
+
+            // Ширина карточки + расстояние между карточками
             function getStep() {
-                const slide = slides[0];
+
+                const slideWidth = slides[0].getBoundingClientRect().width;
                 const gap = parseFloat(getComputedStyle(track).gap) || 0;
 
-                return slide.getBoundingClientRect().width + gap;
+                return slideWidth + gap;
             }
 
+            // Максимальный индекс карточки
             function getMaxIndex() {
-                const totalWidth = track.scrollWidth;
-                const visibleWidth = getVisibleWidth();
+
+                if (mobileQuery.matches) {
+                    return slides.length - 1;
+                }
 
                 return Math.max(
                     0,
-                    Math.ceil((totalWidth - visibleWidth) / getStep())
+                    Math.ceil(
+                        (track.scrollWidth - viewport.clientWidth) / getStep()
+                    )
                 );
             }
 
+            // Обновление слайдера
             function updateSlider() {
+
                 const maxIndex = getMaxIndex();
 
                 currentIndex = Math.min(currentIndex, maxIndex);
@@ -3035,37 +3086,187 @@
                 track.style.transform =
                     `translateX(-${currentIndex * getStep()}px)`;
 
-                prevButton.disabled = currentIndex === 0;
-                nextButton.disabled = currentIndex >= maxIndex;
+                if (hasNavigation) {
+                    prevButton.disabled = currentIndex === 0;
+                    nextButton.disabled = currentIndex >= maxIndex;
+                }
+
+                dotsContainer.style.display =
+                    mobileQuery.matches && hasNavigation ? 'flex' : 'none';
+
+                dots.forEach((dot, index) => {
+
+                    dot.classList.toggle('is-active', index === currentIndex);
+
+                    dot.setAttribute(
+                        'aria-current',
+                        index === currentIndex ? 'true' : 'false'
+                    );
+
+                });
             }
 
+            // Предыдущая карточка
             prevButton.addEventListener('click', () => {
+
                 if (currentIndex > 0) {
                     currentIndex--;
                     updateSlider();
                 }
+
             });
 
+            // Следующая карточка
             nextButton.addEventListener('click', () => {
+
                 if (currentIndex < getMaxIndex()) {
                     currentIndex++;
                     updateSlider();
                 }
+
             });
 
+            // Пересчёт при изменении размера окна
             window.addEventListener('resize', updateSlider);
 
-            // Пересчитываем слайдеры при изменении размера видимой области
             const resizeObserver = new ResizeObserver(() => {
                 updateSlider();
             });
 
             resizeObserver.observe(viewport);
 
+            mobileQuery.addEventListener('change', () => {
+                currentIndex = 0;
+                updateSlider();
+            });
+
             updateSlider();
 
         });
+
+
     </script>
+
+
+
+    /* ========================================================
+    МОБИЛЬНЫЙ ПОРЯДОК РАБОТ В БЛОКЕ СОЦСЕТЕЙ
+    ======================================================== */
+
+    <script>
+        (() => {
+            const social = document.querySelector('.project-card.social-media');
+            if (!social) return;
+
+            const visibleGrid = social.querySelector(':scope > .social-project-grid');
+            const hidden = social.querySelector(':scope > .project-hidden-content');
+
+            if (!visibleGrid || !hidden) return;
+
+            // Карточки из исходной HTML-структуры
+            const city = visibleGrid.querySelectorAll(':scope > .social-project')[0];
+            const podcast = visibleGrid.querySelectorAll(':scope > .social-project')[1];
+
+            const hiddenProjects = Array.from(hidden.children);
+
+            const history = hiddenProjects.find(el =>
+                el.querySelector('.social-slider') &&
+                el.querySelector('.social-title')?.textContent.includes('История долгосрочного')
+            );
+
+            const automation = hiddenProjects.find(el =>
+                el.querySelector('.social-title')?.textContent.includes('автоматизации бизнеса')
+            );
+
+            const mafia = hiddenProjects.find(el =>
+                el.querySelector('.social-title')?.textContent.includes('Бизнес-мафия')
+            );
+
+            const mayAndAiGrid = hiddenProjects.find(el =>
+                el.classList.contains('social-project-grid')
+            );
+
+            const expert = hiddenProjects.find(el =>
+                el.querySelector('.social-title')?.textContent.includes('экспертного поста')
+            );
+
+            if (!city || !podcast || !history || !automation || !mafia || !mayAndAiGrid || !expert) {
+                console.warn('Не удалось найти все карточки блока соцсетей');
+                return;
+            }
+
+            const may = mayAndAiGrid.querySelectorAll(':scope > .social-project')[0];
+            const ai = mayAndAiGrid.querySelectorAll(':scope > .social-project')[1];
+
+            if (!may || !ai) return;
+
+            // Запоминаем первоначальные места карточек,
+            // чтобы восстановить десктопную структуру
+            const movedItems = [podcast, may, ai];
+
+            movedItems.forEach(item => {
+                const placeholder = document.createComment('social-card-position');
+                item.parentNode.insertBefore(placeholder, item);
+                item.dataset.socialOriginalPosition = 'saved';
+                item._socialPlaceholder = placeholder;
+            });
+
+            const mobileQuery = window.matchMedia('(max-width: 768px)');
+
+            function applyMobileOrder() {
+                const collapseButton = hidden.querySelector('.project-collapse-btn');
+
+                // Открытая часть — две первые работы
+                visibleGrid.appendChild(city);
+
+                // Скрытая часть — работы в нужном порядке
+                hidden.appendChild(history);
+                hidden.appendChild(podcast);
+                hidden.appendChild(automation);
+                hidden.appendChild(may);
+                hidden.appendChild(mafia);
+                hidden.appendChild(ai);
+                hidden.appendChild(expert);
+
+                // Кнопка сворачивания всегда последняя
+                if (collapseButton) {
+                    hidden.appendChild(collapseButton);
+                }
+
+                // Пустая исходная сетка больше не нужна
+                mayAndAiGrid.style.display = 'none';
+            }
+
+            function restoreDesktopOrder() {
+                // Возвращаем карточки на исходные места
+                movedItems.forEach(item => {
+                    const placeholder = item._socialPlaceholder;
+
+                    if (placeholder?.parentNode) {
+                        placeholder.parentNode.insertBefore(item, placeholder);
+                        placeholder.remove();
+                    }
+
+                    delete item._socialPlaceholder;
+                    delete item.dataset.socialOriginalPosition;
+                });
+
+                mayAndAiGrid.style.display = '';
+            }
+
+            function updateLayout() {
+                if (mobileQuery.matches) {
+                    applyMobileOrder();
+                } else {
+                    restoreDesktopOrder();
+                }
+            }
+
+            mobileQuery.addEventListener('change', updateLayout);
+            updateLayout();
+        })();
+    </script>
+
 
 
     <script>

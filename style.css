@@ -2223,11 +2223,12 @@ body {
 
 
 
+
 /* ============================================================
    ИЗОБРАЖЕНИЯ ЛЕНДИНГОВ
    ============================================================ */
 
-/* Общие настройки области изображения */
+/* Область просмотра */
 
 .landing-image-viewport {
     width: 1200px;
@@ -2239,24 +2240,14 @@ body {
     transition: max-height 0.7s ease;
 }
 
-/* Изображение предпросмотра */
+/* Полное изображение лендинга */
 
-.landing-preview-picture {
+.landing-full-picture {
     display: block;
     width: 1200px;
-    height: auto;
+    margin: 0;
+    padding: 0;
 }
-
-.landing-preview-image {
-    display: block;
-    width: 1200px;
-    height: auto;
-    max-width: none;
-    object-fit: contain;
-    object-position: top;
-}
-
-/* Полное изображение */
 
 .landing-full-image {
     display: block;

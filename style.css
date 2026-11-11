@@ -524,6 +524,7 @@ body {
 }
 
 
+
 /* ===== ВТОРОЙ ПРОЕКТ: ВЕРХНЯЯ ГАЛЕРЕЯ ===== */
 
 .project-2 .project-cover {
@@ -534,17 +535,27 @@ body {
     flex-shrink: 0;
 }
 
-/* Главная фотография */
-.project-2 .project-cover > img {
+/* Главное фото */
+
+.project-2 .project-cover > picture {
     display: block;
     width: 100%;
     height: 330px;
-    object-fit: cover;
-    border-radius: 24px;
     min-width: 0;
+    overflow: hidden;
+    border-radius: 24px;
 }
 
-/* Контейнер двух нижних фотографий */
+.project-2 .project-cover > picture img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 24px;
+}
+
+/* Два нижних фото */
+
 .project-2 .project-cover-bottom {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -552,7 +563,6 @@ body {
     width: 100%;
 }
 
-/* Нижние фотографии */
 .project-2 .project-cover-bottom img {
     display: block;
     width: 100%;
@@ -586,7 +596,8 @@ body {
 }
 
 
-/* Галерея проекта 2 */
+/* ===== ВТОРОЙ ПРОЕКТ: ДОПОЛНИТЕЛЬНАЯ ГАЛЕРЕЯ ===== */
+
 .project-2-gallery {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -595,24 +606,35 @@ body {
     width: 100%;
 }
 
-/* Позволяем фотографиям участвовать в общей сетке */
+/* Обёртки не должны создавать дополнительные ячейки */
+
 .project-2-gallery .gallery-column-full,
 .project-2-gallery .gallery-column-half {
     display: contents;
 }
 
-/* Общие параметры фотографий */
-.project-2-gallery img {
+/* Каждая фотография — отдельный элемент сетки */
+
+.project-2-gallery picture {
     display: block;
     width: 100%;
     height: 380px;
     min-width: 0;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+.project-2-gallery picture img {
+    display: block;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     border-radius: 24px;
 }
 
-/* Большое фото слева занимает два ряда */
-.project-2-gallery .gallery-column-full img {
+/* Большое фото занимает два ряда */
+
+.project-2-gallery .gallery-column-full picture {
     grid-column: 1;
     grid-row: 1 / span 2;
     height: 784px;
@@ -628,7 +650,8 @@ body {
     width: 100%;
 }
 
-/* Текст без заголовка */
+/* Текст */
+
 .project-2-details-text {
     width: 792.91px;
     max-width: 100%;
@@ -648,7 +671,9 @@ body {
     margin-bottom: 0;
 }
 
+
 /* Три изображения */
+
 .project-2-app-gallery {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -659,12 +684,22 @@ body {
     margin-top: 96px;
 }
 
-.project-2-app-gallery > img {
+/* Большое изображение ноутбука */
+
+.project-2-app-gallery > picture {
+    display: block;
+    width: 100%;
+    min-width: 0;
+}
+
+.project-2-app-gallery > picture img {
     display: block;
     width: 100%;
     height: auto;
     object-fit: contain;
 }
+
+/* Два изображения телефонов */
 
 .project-2-app-gallery-right {
     display: flex;
@@ -674,13 +709,19 @@ body {
     min-width: 0;
 }
 
-.project-2-app-gallery-right img {
+.project-2-app-gallery-right picture {
     display: block;
     width: calc(50% - 12px);
-    height: auto;
-    object-fit: contain;
     min-width: 0;
 }
+
+.project-2-app-gallery-right picture img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
 
 
 /* ===== ПРОЕКТ 3: WI-FI 7 ===== */

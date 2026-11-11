@@ -3001,16 +3001,26 @@ html {
         width: 100%;
     }
 
-    .project-2 .project-cover > img {
+    
+    .project-2 .project-cover > picture {
         display: block;
         width: 100%;
         max-width: 343px;
         height: 243px;
-        flex-shrink: 0;
+        flex: 0 0 243px;
+        overflow: hidden;
+        border-radius: 16px;
+    }
+
+    .project-2 .project-cover > picture img {
+        display: block;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
         object-position: center;
         border-radius: 16px;
     }
+
 
     /* Скрываем два дополнительных фото обложки */
 
@@ -3027,6 +3037,8 @@ html {
         display: inline;
     }
 
+
+    
     /* Дополнительная галерея */
 
     .project-2 .project-2-gallery {
@@ -3042,24 +3054,35 @@ html {
         display: contents;
     }
 
-    .project-2 .project-2-gallery img {
+    /* Обычные фотографии */
+
+    .project-2 .project-2-gallery picture {
         display: block;
         width: 100%;
         max-width: 343px;
         height: 243px;
-        flex-shrink: 0;
+        flex: 0 0 243px;
+        overflow: hidden;
+        border-radius: 16px;
+    }
+
+    .project-2 .project-2-gallery picture img {
+        display: block;
+        width: 100%;
+        height: 100%;
         object-fit: cover;
         object-position: center;
         border-radius: 16px;
     }
 
-    /* Первое фото дополнительной галереи */
+    /* Первое большое фото */
 
-    .project-2 .project-2-gallery .gallery-column-full img {
+    .project-2 .project-2-gallery .gallery-column-full picture {
         height: 447px;
+        flex: 0 0 447px;
     }
 
-    /* Текстовый блок и галерея */
+    /* Контейнер текста и галереи лендинга */
 
     .project-2 .project-2-details {
         display: flex;
@@ -3068,19 +3091,20 @@ html {
         gap: 64px;
     }
 
+    /* Текстовое описание */
+
     .project-2 .project-2-details-text {
+        display: flex;
+        flex-direction: column;
         width: 100%;
         max-width: 343px;
+        gap: 24px;
     }
 
     .project-2 .project-2-details-text p {
-        margin: 0 0 24px;
+        margin: 0;
         font-size: 16px;
         line-height: 24px;
-    }
-
-    .project-2 .project-2-details-text p:last-child {
-        margin-bottom: 0;
     }
 
     /* Лендинг и экраны приложения */

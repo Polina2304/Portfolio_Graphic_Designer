@@ -3100,10 +3100,6 @@ html {
         gap: 64px;
     }
 
-    .project-hidden-content:not(.is-visible) {
-        margin-top: -64px;
-    }
-
     .project-card > .project-top,
     .project-card > .project-main {
         margin-bottom: 0;
@@ -3345,69 +3341,12 @@ html {
     ПРОЕКТ 3 — МОБИЛЬНАЯ СТРУКТУРА
     ======================================================== */
 
-    /* Скрываем десктопные блоки */
-    .project-3 .desktop-version {
-        display: none !important;
-    }
-
-    /* Основной мобильный текст */
-    .project-3 .mobile-version {
-        display: block !important;
-    }
-
     /* Раскрытое содержимое */
     .project-3 .project-hidden-content.is-visible {
         display: flex;
         flex-direction: column;
         width: 100%;
         gap: 64px;
-    }
-
-    /* Мобильная галерея */
-    .project-3 .project-3-mobile-gallery {
-        display: flex !important;
-        flex-direction: column;
-        width: 100%;
-        gap: 64px;
-    }
-
-    /* Разделитель */
-    .project-3 .project-3-mobile-gallery > .project-delimiter {
-        width: 100%;
-        max-width: 343px;
-        margin: 0;
-    }
-
-    /* Каждый блок концепции */
-    .project-3 .project-3-mobile-concept {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        gap: 24px;
-    }
-
-    /* Фотографии концепций */
-    .project-3 .project-3-mobile-concept > img {
-        display: block;
-        width: 100%;
-        max-width: 343px;
-        height: 243px;
-        object-fit: cover;
-        border-radius: 16px;
-    }
-
-    /* Заголовки концепций */
-    .project-3 .project-3-mobile-concept .project-title {
-        margin: 0 0 16px;
-        font-size: 24px;
-        line-height: 1.15;
-    }
-
-    /* Описания концепций */
-    .project-3 .project-3-mobile-concept .project-text p {
-        margin: 0;
-        font-size: 16px;
-        line-height: 24px;
     }
 
     /* Кнопка сворачивания */
@@ -3417,28 +3356,9 @@ html {
         margin: 0;
     }
 
-    /* Проект 3 — мобильная версия */
-    .project-3 .desktop-version {
-        display: none !important;
-    }
-
-    .project-3 .mobile-version {
-        display: block !important;
-    }
-
-    /* Мобильная галерея */
-    .project-3 .project-3-mobile-gallery {
-        display: flex !important;
-        flex-direction: column;
-        width: 100%;
-        gap: 64px;
-    }
-
     .project-3 .project-title-no-br br {
         display: none;
     }
-
-
 
 
 }

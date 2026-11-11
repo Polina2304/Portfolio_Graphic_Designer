@@ -2239,6 +2239,23 @@ body {
     transition: max-height 0.7s ease;
 }
 
+/* Изображение предпросмотра */
+
+.landing-preview-picture {
+    display: block;
+    width: 1200px;
+    height: auto;
+}
+
+.landing-preview-image {
+    display: block;
+    width: 1200px;
+    height: auto;
+    max-width: none;
+    object-fit: contain;
+    object-position: top;
+}
+
 /* Полное изображение */
 
 .landing-full-image {

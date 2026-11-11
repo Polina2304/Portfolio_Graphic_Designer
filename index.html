@@ -8,6 +8,10 @@
 
     <title>Портфолио - Графический дизайнер</title>
 
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" sizes="48x48" href="images/0_graphics/Favicon_48x48.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/0_graphics/Favicon_180x180.svg">
+
     <!-- Подключаем шрифт Montserrat (веса 400, 500, 600) -->
     <link
         rel="preconnect"
@@ -3340,14 +3344,22 @@
         });
     </script>
 
-    
 
+
+    
     <script>
-        // Кастомный курсор
+        // Кастомный курсор — только для устройств с мышью
         if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
             const cursor = document.createElement('div');
             cursor.className = 'custom-cursor';
+            cursor.setAttribute('aria-hidden', 'true');
 
+            const cursorImage = document.createElement('img');
+            cursorImage.src = 'images/0_graphics/Cursor%20white.svg';
+            cursorImage.alt = '';
+            cursorImage.draggable = false;
+
+            cursor.appendChild(cursorImage);
             document.body.appendChild(cursor);
             document.body.classList.add('custom-cursor-active');
 
@@ -3366,6 +3378,7 @@
             });
         }
     </script>
+
 
 
 

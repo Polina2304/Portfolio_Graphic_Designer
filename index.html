@@ -3340,6 +3340,37 @@
         });
     </script>
 
+    
+
+    <script>
+        // Кастомный курсор
+        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            const cursor = document.createElement('div');
+            cursor.className = 'custom-cursor';
+
+            document.body.appendChild(cursor);
+            document.body.classList.add('custom-cursor-active');
+
+            document.addEventListener('mousemove', (event) => {
+                cursor.style.left = `${event.clientX}px`;
+                cursor.style.top = `${event.clientY}px`;
+                cursor.classList.add('is-visible');
+            });
+
+            document.addEventListener('mouseleave', () => {
+                cursor.classList.remove('is-visible');
+            });
+
+            document.addEventListener('mouseenter', () => {
+                cursor.classList.add('is-visible');
+            });
+        }
+    </script>
+
+
+
+
+
 </body>
 </html>
 

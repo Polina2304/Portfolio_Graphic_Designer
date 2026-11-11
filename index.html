@@ -3265,6 +3265,7 @@
      ЛЕНДИНГИ — РАСКРЫТИЕ ПОЛНОЙ ВЕРСИИ ИЗОБРАЖЕНИЯ
     ==================================================== -->
     <script>
+        
         document.querySelectorAll('.landing-full-btn').forEach(button => {
 
             button.addEventListener('click', () => {
@@ -3276,19 +3277,15 @@
 
                 if (isExpanded) {
 
+                    // Сворачиваем изображение
                     viewport.classList.remove('is-expanded');
 
                     button.textContent = 'Посмотреть лендинг целиком';
                     button.setAttribute('aria-expanded', 'false');
 
-                    // Плавная прокрутка к началу проекта
-                    project.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-
                 } else {
 
+                    // Раскрываем изображение
                     viewport.classList.add('is-expanded');
 
                     button.textContent = 'Скрыть лендинг';
@@ -3296,9 +3293,16 @@
 
                 }
 
+                // Плавно прокручиваем к началу изображения
+                viewport.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+
             });
 
         });
+
     </script>
 
 

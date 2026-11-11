@@ -1652,12 +1652,19 @@ body {
 }
 
 /* Высоты широких изображений */
-.three-d-item-wide:nth-child(1) .three-d-cover {
+
+/* 1. Реклама бизнес-форума */
+.three-d-grid > .three-d-item-wide:first-child .three-d-cover {
     height: 674px;
 }
 
-.three-d-item-wide:nth-child(4) .three-d-cover,
-.three-d-item-wide:nth-child(7) .three-d-cover {
+/* 4. Городской арт-объект */
+.three-d-hidden-content .three-d-item-wide:first-child .three-d-cover {
+    height: 600px;
+}
+
+/* 7. Хэллоуинское промо */
+.three-d-hidden-content .three-d-item-wide:last-child .three-d-cover {
     height: 600px;
 }
 

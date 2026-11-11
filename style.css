@@ -3336,26 +3336,6 @@ html {
         margin-top: 0;
     }
 
-
-    /* ========================================================
-    ПРОЕКТ 3 — МОБИЛЬНАЯ СТРУКТУРА
-    ======================================================== */
-
-    /* Раскрытое содержимое */
-    .project-3 .project-hidden-content.is-visible {
-        display: flex;
-        flex-direction: column;
-        width: 100%;
-        gap: 64px;
-    }
-
-    /* Кнопка сворачивания */
-    .project-3 .project-collapse-btn {
-        width: 100%;
-        max-width: 343px;
-        margin: 0;
-    }
-
     .project-3 .project-title-no-br br {
         display: none;
     }

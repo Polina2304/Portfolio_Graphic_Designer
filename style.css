@@ -3725,7 +3725,7 @@ html {
         flex-direction: column;
         align-items: flex-start;
         width: 100%;
-        gap: 16px;
+        gap: 24px;
         margin: 0;
         padding: 0;
     }
@@ -3941,7 +3941,7 @@ html {
         width: 100%;
         max-width: 343px;
         min-width: 0;
-        gap: 16px;
+        gap: 24px;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -4104,7 +4104,7 @@ html {
         width: 100%;
         max-width: 343px;
         min-width: 0;
-        gap: 16px;
+        gap: 24px;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -4298,7 +4298,7 @@ html {
         width: 100%;
         max-width: 343px;
         min-width: 0;
-        gap: 16px;
+        gap: 24px;
         margin: 0;
         padding: 0;
         box-sizing: border-box;

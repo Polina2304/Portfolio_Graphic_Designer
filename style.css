@@ -4170,6 +4170,236 @@ html {
         height: auto;
     }
 
+
+
+    /* ========================================================
+    MOTION DESIGN — МОБИЛЬНАЯ ВЕРСИЯ
+    ======================================================== */
+
+    /* Общий контейнер */
+
+    .project-card.motion-design {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 343px;
+        gap: 64px;
+        margin: 0 auto 128px;
+        box-sizing: border-box;
+    }
+
+    /* Плашка с названием категории */
+
+    .motion-design > .project-top .project-category {
+        width: 200px;
+        min-width: 200px;
+        height: 50px;
+        padding: 12px 24px;
+        font-size: 16px;
+        line-height: 20px;
+        white-space: nowrap;
+        box-sizing: border-box;
+    }
+
+    /* Сетка работ — одна колонка */
+
+    .motion-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 343px;
+        gap: 64px;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Карточка работы */
+
+    .motion-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        max-width: 343px;
+        min-width: 0;
+        gap: 24px;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Видеопревью */
+
+    .motion-cover {
+        position: relative;
+        width: 100%;
+        max-width: 343px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        border-radius: 16px;
+        flex: none;
+        background: #1F1E1D;
+    }
+
+    .motion-cover img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: inherit;
+    }
+
+    /* Кнопка воспроизведения */
+
+    .motion-play {
+        width: 64px;
+        height: 64px;
+    }
+
+    .motion-play svg {
+        width: 24px;
+        height: 26px;
+        margin-left: 3px;
+    }
+
+    /* Встроенный видеоплеер */
+
+    .motion-cover iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+    /* Текстовая часть */
+
+    .motion-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        max-width: 343px;
+        min-width: 0;
+        gap: 16px;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Заголовок */
+
+    .motion-title {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        font-size: 24px;
+        line-height: 1.2;
+        box-sizing: border-box;
+    }
+
+    /* Описание */
+
+    .motion-text {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .motion-text p {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        line-height: 24px;
+        box-sizing: border-box;
+    }
+
+    /* Скрытые работы */
+
+    .motion-design .project-hidden-content {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 343px;
+        gap: 64px;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Сетка внутри раскрытого блока */
+
+    .motion-design .project-hidden-content .motion-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 343px;
+        gap: 64px;
+    }
+
+    /* Кнопки раскрытия и сворачивания */
+
+    .motion-design > .project-expand-btn,
+    .motion-design .project-collapse-btn {
+        width: 100%;
+        max-width: 343px;
+        height: 50px;
+        margin: 0;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    /* Убираем принудительные переносы в заголовках */
+    .motion-design .motion-title br {
+        display: none;
+    }
+
+    /* ========================================================
+    ПОСЛЕДНЯЯ РАБОТА — АДАПТАЦИЯ ШИРОКОЙ КАРТОЧКИ
+    ======================================================== */
+
+    /* Контейнер карточки */
+    .motion-design .motion-grid > .motion-item-wide {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        max-width: 343px;
+        min-width: 0;
+    }
+
+    /* Видео — сохраняем пропорции 16:9 */
+    .motion-design .motion-grid > .motion-item-wide > .motion-cover {
+        width: 100%;
+        max-width: 343px;
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+
+    /* Текстовая часть */
+    .motion-design .motion-grid > .motion-item-wide > .motion-content {
+        width: 100%;
+        max-width: 343px;
+        min-width: 0;
+    }
+
+    /* Заголовок и описание */
+    .motion-design .motion-grid > .motion-item-wide .motion-title,
+    .motion-design .motion-grid > .motion-item-wide .motion-text,
+    .motion-design .motion-grid > .motion-item-wide .motion-text p {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+
     
 
 

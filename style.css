@@ -860,7 +860,12 @@ body {
 }
 
 
-/* ===== ПРОЕКТ 4: ПЕРВЫЙ ЭКРАН ===== */
+/* ============================================================
+   ПРОЕКТ 4 — DESKTOP
+   ============================================================ */
+
+
+/* ===== ПЕРВЫЙ ЭКРАН ===== */
 
 .project-4 .project-main {
     display: grid;
@@ -870,7 +875,8 @@ body {
     width: 1199px;
 }
 
-/* Обложка: рамка 588 × 550 */
+/* Обложка */
+
 .project-4 .project-cover {
     position: relative;
     width: 588px;
@@ -880,8 +886,16 @@ body {
     border-radius: 24px;
 }
 
-/* Изображение внутри рамки */
-.project-4 .project-cover > img {
+.project-4 .project-cover > picture {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.project-4 .project-cover > picture img {
+    display: block;
     position: absolute;
     width: 603.23px;
     height: 562.2px;
@@ -894,6 +908,7 @@ body {
 }
 
 /* Текстовая колонка */
+
 .project-4 .project-main > .project-content {
     display: flex;
     flex-direction: column;
@@ -906,7 +921,6 @@ body {
     flex: none;
 }
 
-/* Заголовок */
 .project-4 .project-main > .project-content > .project-title {
     width: 486px;
     height: 80px;
@@ -921,7 +935,6 @@ body {
     text-box-edge: cap alphabetic;
 }
 
-/* Описание */
 .project-4 .project-main > .project-content > .project-text {
     width: 486px;
     height: 422px;
@@ -943,90 +956,7 @@ body {
 }
 
 
-/* ===== ПРОЕКТ 4: ПЕРВЫЙ ЭКРАН ===== */
-
-.project-4 .project-main {
-    display: grid;
-    grid-template-columns: 588px 486px;
-    column-gap: 125px;
-    align-items: start;
-    width: 1199px;
-}
-
-/* Обложка: рамка 588 × 550 */
-.project-4 .project-cover {
-    position: relative;
-    width: 588px;
-    height: 550px;
-    flex-shrink: 0;
-    overflow: hidden;
-    border-radius: 24px;
-}
-
-/* Изображение внутри рамки */
-.project-4 .project-cover > img {
-    position: absolute;
-    width: 603.23px;
-    height: 562.2px;
-    max-width: none;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    object-fit: cover;
-    border-radius: 0;
-}
-
-/* Текстовая колонка */
-.project-4 .project-main > .project-content {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 48px;
-    width: 486px;
-    height: 550px;
-    min-width: 0;
-    padding: 0;
-    flex: none;
-}
-
-/* Заголовок */
-.project-4 .project-main > .project-content > .project-title {
-    width: 486px;
-    height: 80px;
-    margin: 0;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 32px;
-    font-weight: 600;
-    line-height: 90%;
-    letter-spacing: -0.01em;
-    color: #FFD685;
-    text-box-trim: trim-both;
-    text-box-edge: cap alphabetic;
-}
-
-/* Описание */
-.project-4 .project-main > .project-content > .project-text {
-    width: 486px;
-    height: 422px;
-    min-width: 0;
-}
-
-.project-4 .project-main > .project-content > .project-text p {
-    margin: 0 0 24px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-    line-height: 24px;
-    letter-spacing: normal;
-    color: #FFF5E0;
-}
-
-.project-4 .project-main > .project-content > .project-text p:last-child {
-    margin-bottom: 0;
-}
-
-
-/* ===== ПРОЕКТ 4: ВТОРОЙ БЛОК ===== */
+/* ===== ВТОРОЙ БЛОК — GOODLINE ГОРОД ===== */
 
 .project-4-section-app {
     display: grid;
@@ -1037,6 +967,7 @@ body {
 }
 
 /* Текстовая колонка */
+
 .project-4-section-app > .project-content {
     display: flex;
     flex-direction: column;
@@ -1047,7 +978,6 @@ body {
     padding: 0;
 }
 
-/* Заголовок второго блока — светлый */
 .project-4-section-app .project-title {
     width: 384px;
     margin: 0;
@@ -1060,7 +990,6 @@ body {
     text-box-edge: cap alphabetic;
 }
 
-/* Описание */
 .project-4-section-app .project-text {
     width: 384px;
 }
@@ -1077,7 +1006,8 @@ body {
     margin-bottom: 0;
 }
 
-/* Три изображения в одну строку */
+/* Три изображения */
+
 .project-4-section-app .project-gallery {
     display: grid;
     grid-template-columns: repeat(3, 220px);
@@ -1086,16 +1016,22 @@ body {
     min-width: 0;
 }
 
-.project-4-section-app .project-gallery img {
+.project-4-section-app .project-gallery > picture {
     display: block;
     width: 220px;
     height: 442px;
+}
+
+.project-4-section-app .project-gallery > picture img {
+    display: block;
+    width: 100%;
+    height: 100%;
     object-fit: contain;
     border-radius: 0;
 }
 
 
-/* ===== ПРОЕКТ 4: АДАПТАЦИЯ ДЛЯ ВЕБ-ПЛАТФОРМ ===== */
+/* ===== АДАПТАЦИЯ ДЛЯ ВЕБ-ПЛАТФОРМ ===== */
 
 .project-4-web-text {
     display: flex;
@@ -1149,33 +1085,39 @@ body {
     flex: none;
 }
 
-.project-4-web-gallery img {
+.project-4-web-gallery > picture {
+    display: block;
+    min-width: 0;
+    min-height: 0;
+    overflow: hidden;
+    border-radius: 24px;
+}
+
+.project-4-web-gallery > picture img {
     display: block;
     width: 100%;
     height: 100%;
-    min-width: 0;
-    min-height: 0;
     object-fit: cover;
     border-radius: 24px;
 }
 
-.project-4-web-gallery img:first-child {
+.project-4-web-gallery > picture:nth-child(1) {
     grid-column: 1;
     grid-row: 1 / span 2;
 }
 
-.project-4-web-gallery img:nth-child(2) {
+.project-4-web-gallery > picture:nth-child(2) {
     grid-column: 2;
     grid-row: 1;
 }
 
-.project-4-web-gallery img:nth-child(3) {
+.project-4-web-gallery > picture:nth-child(3) {
     grid-column: 2;
     grid-row: 2;
 }
 
 
-/* ===== ПРОЕКТ 4: ВИДЕО ЗАСТАВКИ ===== */
+/* ===== ВИДЕО ЗАСТАВКИ ===== */
 
 .project-4-video {
     position: relative;
@@ -1225,7 +1167,7 @@ body {
 }
 
 
-/* ===== ПРОЕКТ 4: ФИНАЛЬНЫЙ ТЕКСТОВЫЙ БЛОК ===== */
+/* ===== ФИНАЛЬНЫЙ ТЕКСТОВЫЙ БЛОК ===== */
 
 .project-4-final-text {
     display: flex;
@@ -1236,8 +1178,6 @@ body {
     gap: 0;
     box-sizing: border-box;
 }
-
-/* Заголовок */
 
 .project-4-final-text > .project-title {
     width: 100%;
@@ -1251,9 +1191,6 @@ body {
     text-box-trim: trim-both;
     text-box-edge: cap alphabetic;
 }
-
-
-/* Описание финального блока */
 
 .project-4-final-text > .project-text {
     display: flex;
@@ -1272,8 +1209,6 @@ body {
     color: #FFF5E0;
 }
 
-/* Заголовок зоны ответственности */
-
 .project-4-final-text > .project-responsibility-title {
     margin: 0 0 32px;
     font-family: 'Montserrat', sans-serif;
@@ -1282,8 +1217,6 @@ body {
     line-height: 24px;
     color: #FFF5E0;
 }
-
-/* Кастомный список зоны ответственности */
 
 .project-4-final-text > .project-4-responsibility-list {
     display: flex;
@@ -1316,6 +1249,7 @@ body {
     line-height: 24px;
     color: #FFF5E0;
 }
+
 
 /* ============================================================
    ПОЛИГРАФИЯ — ДЕСКТОП
@@ -3338,6 +3272,333 @@ html {
     .project-3 .project-title-no-br br {
         display: none;
     }
+
+
+
+    /* ========================================================
+       13. ПРОЕКТ 4 — МОБИЛЬНАЯ ВЕРСИЯ
+       ======================================================== */
+
+    /* Основной экран: сначала текст, затем обложка */
+
+    .project-4 .project-main {
+        display: flex;
+        flex-direction: column-reverse;
+        width: 100%;
+        gap: 64px;
+    }
+
+    .project-4 .project-main > .project-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        gap: 24px;
+    }
+
+    .project-4 .project-main > .project-content > .project-title {
+        width: 100%;
+        height: auto;
+        margin: 0;
+        font-size: 24px;
+        line-height: 1.2;
+    }
+
+    .project-4 .project-main > .project-content > .project-text {
+        width: 100%;
+        height: auto;
+    }
+
+    .project-4 .project-main > .project-content > .project-text p {
+        margin: 0 0 24px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .project-4 .project-main > .project-content > .project-text p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Основное изображение */
+
+    .project-4 .project-cover {
+        position: relative;
+        width: 100%;
+        max-width: 343px;
+        height: 243px;
+        overflow: hidden;
+        border-radius: 16px;
+    }
+
+    .project-4 .project-cover > picture {
+        position: absolute;
+        inset: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    .project-4 .project-cover > picture img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        max-width: none;
+        object-fit: cover;
+        object-position: center;
+        transform: none;
+        left: auto;
+        top: auto;
+        border-radius: 16px;
+    }
+
+    /* Кнопка раскрытия */
+
+    .project-4 > .project-expand-btn {
+        width: 100%;
+        max-width: 343px;
+        margin: 0;
+    }
+
+
+    /* ===== РАСКРЫТЫЙ БЛОК ===== */
+
+    .project-4 .project-hidden-content.is-visible {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 64px;
+    }
+
+    /* Разделители */
+
+    .project-4 .project-hidden-content > .project-delimiter {
+        width: 100%;
+        max-width: 343px;
+        margin: 0;
+    }
+
+
+    /* ===== GOODLINE ГОРОД ===== */
+
+    .project-4-section-app {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 64px;
+    }
+
+    .project-4-section-app > .project-content {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        gap: 24px;
+    }
+
+    .project-4-section-app .project-title {
+        width: 100%;
+        margin: 0;
+        font-size: 24px;
+        line-height: 1.2;
+    }
+
+    .project-4-section-app .project-text {
+        width: 100%;
+    }
+
+    .project-4-section-app .project-text p {
+        margin: 0 0 24px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .project-4-section-app .project-text p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Три изображения друг под другом */
+
+    .project-4-section-app .project-gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 343px;
+        gap: 16px;
+    }
+
+    .project-4-section-app .project-gallery > picture {
+        display: block;
+        width: 100%;
+        max-width: 343px;
+        height: auto;
+        overflow: hidden;
+    }
+
+    .project-4-section-app .project-gallery > picture img {
+        display: block;
+        width: 100%;
+        height: auto;
+        max-width: 343px;
+        object-fit: contain;
+        border-radius: 16px;
+    }
+
+
+    /* ===== АДАПТАЦИЯ ДЛЯ ВЕБ-ПЛАТФОРМ ===== */
+
+    .project-4-web-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 24px;
+    }
+
+    .project-4-web-text .project-title {
+        width: 100%;
+        margin: 0;
+        font-size: 24px;
+        line-height: 1.2;
+    }
+
+    .project-4-web-text .project-text {
+        width: 100%;
+    }
+
+    .project-4-web-text .project-text p {
+        margin: 0 0 24px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .project-4-web-text .project-text p:last-child {
+        margin-bottom: 0;
+    }
+
+    /* Три изображения друг под другом */
+
+    .project-4-web-gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 343px;
+        height: auto;
+        gap: 16px;
+    }
+
+    .project-4-web-gallery > picture {
+        display: block;
+        width: 100%;
+        height: auto;
+        min-width: 0;
+        min-height: 0;
+        border-radius: 16px;
+        overflow: hidden;
+    }
+
+    .project-4-web-gallery > picture img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 16px;
+    }
+
+
+    /* ===== ЗАСТАВКА ДЛЯ ПОДКАСТА ===== */
+
+    .project-4-final-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 0;
+    }
+
+    .project-4-final-text > .project-title {
+        width: 100%;
+        margin: 0 0 24px;
+        font-size: 24px;
+        line-height: 1.2;
+    }
+
+    .project-4-final-text > .project-text {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        width: 100%;
+        margin: 0 0 32px;
+    }
+
+    .project-4-final-text > .project-text p {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    .project-4-final-text > .project-responsibility-title {
+        margin: 0 0 24px;
+        font-size: 18px;
+        line-height: 24px;
+    }
+
+    .project-4-final-text > .project-4-responsibility-list {
+        gap: 16px;
+    }
+    /* Проект 4 — список зоны ответственности на мобильных */
+
+    .project-4-final-text > .project-4-responsibility-list {
+        gap: 0;
+    }
+
+    .project-4-final-text .project-4-responsibility-item {
+        line-height: 24px;
+    }
+
+    .project-4-final-text .project-4-responsibility-item {
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    /* Видео */
+
+    .project-4 .project-4-video {
+        position: relative;
+        width: 100%;
+        max-width: 343px;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        border-radius: 16px;
+    }
+
+    .project-4 .project-4-video-thumbnail {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 16px;
+    }
+
+    .project-4 .project-4-video-play {
+        width: 64px;
+        height: 64px;
+    }
+
+    .project-4 .project-4-video-play svg {
+        width: 24px;
+        height: 26px;
+        margin-left: 3px;
+    }
+
+    /* Кнопка сворачивания */
+
+    .project-4 .project-collapse-btn {
+        width: 100%;
+        max-width: 343px;
+        margin: 0;
+    }
+
 
 
 }

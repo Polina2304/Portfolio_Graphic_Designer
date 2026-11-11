@@ -2927,11 +2927,7 @@ html {
     }
     .project-1 > .project-main {
         flex-direction: column-reverse;
-    }
-
-    .project-1 > .project-main {
-    flex-direction: column-reverse;
-    gap: 64px;
+        gap: 64px;
     }
 
     .project-1 .project-main .project-title {
@@ -3087,106 +3083,6 @@ html {
         object-fit: cover;
         object-position: center;
         border-radius: 16px;
-    }
-    
-    /* ========================================================
-    ОБЩИЕ МОБИЛЬНЫЕ СТИЛИ ПРОЕКТОВ 3 И 4
-    ======================================================== */
-
-    .project-card {
-        width: 100%;
-        max-width: 343px;
-        margin: 0 auto 128px;
-        gap: 64px;
-    }
-
-    .project-card > .project-top,
-    .project-card > .project-main {
-        margin-bottom: 0;
-    }
-
-    .project-card:last-child {
-        margin-bottom: 0;
-    }
-
-    .project-top {
-        justify-content: flex-start;
-    }
-
-    .project-tags {
-        display: none;
-    }
-
-    .project-category {
-        width: 164px;
-        height: 50px;
-        box-sizing: border-box;
-        padding: 12px 24px;
-        font-size: 16px;
-        line-height: 20px;
-    }
-
-    .project-main {
-        flex-direction: column;
-        gap: 24px;
-    }
-
-    .project-cover {
-        width: 100%;
-    }
-
-    .project-cover img {
-        width: 100%;
-        height: auto;
-        border-radius: 16px;
-    }
-
-    .project-title {
-        margin: 0 0 24px;
-        font-size: 24px;
-        line-height: 1.25;
-    }
-
-    .project-text p {
-        margin: 0 0 24px;
-        font-size: 16px;
-        line-height: 1.5;
-    }
-
-    .project-text p:last-child {
-        margin-bottom: 0;
-    }
-
-    .project-delimiter {
-        width: 100%;
-        max-width: 343px;
-        height: 3px;
-    }
-
-    .project-gallery {
-        grid-template-columns: 1fr;
-        gap: 16px;
-    }
-
-    .project-gallery img {
-        width: 100%;
-        max-width: 343px;
-        height: 243px;
-        border-radius: 16px;
-    }
-
-    .project-expand-btn,
-    .project-collapse-btn {
-        width: 100%;
-        max-width: 343px;
-        height: 50px;
-        padding: 12px 24px;
-        font-size: 16px;
-        line-height: 20px;
-    }
-
-    .project-hidden-content {
-        gap: 64px;
     }
 
 

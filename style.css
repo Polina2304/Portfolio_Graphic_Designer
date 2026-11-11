@@ -5112,66 +5112,11 @@ html {
 
 
     /* На мобильных отключаем курсор и кнопку прокрутки наверх */
-
-    .custom-cursor,
     .button-up {
-        display: none !important;
-    }
-
+    display: none !important;
 }
 
-
-/* ============================================================
-   КАСТОМНЫЙ КУРСОР — DESKTOP
-   ============================================================ */
-
-.custom-cursor {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 34px;
-    height: 34px;
-    pointer-events: none;
-    z-index: 99999;
-    opacity: 0;
-    transition: opacity 0.12s ease;
-    mix-blend-mode: normal;
 }
-
-.custom-cursor img {
-    position: absolute;
-    display: block;
-    width: 32px;
-    height: 32px;
-    left: -9.83px;
-    top: -9.79px;
-    object-fit: contain;
-    user-select: none;  
-    -webkit-user-drag: none;
-}
-
-.custom-cursor.is-visible {
-    opacity: 1;
-}
-
-/* Скрываем системный курсор на десктопе */
-
-@media (hover: hover) and (pointer: fine) {
-    body.custom-cursor-active,
-    body.custom-cursor-active * {
-        cursor: none !important;
-    }
-}
-
-/* На сенсорных устройствах курсор отключён */
-
-@media (hover: none), (pointer: coarse) {
-    .custom-cursor {
-        display: none !important;
-    }
-}
-
-
 
 
 

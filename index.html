@@ -2197,18 +2197,16 @@
                             alt="Анимированная открытка к 8 марта"
                         >
 
-                        
                         <button
                             class="motion-play"
                             type="button"
-                            data-video-provider="vimeo"
+                            data-video-id="z_CTT0xoyrY"
                             aria-label="Смотреть открытку к 8 марта"
                         >
                             <svg viewBox="0 0 42 45" fill="white" aria-hidden="true">
                                 <path d="M5 3.5C5 1.1 7.6-.4 9.7.8L37 17.3C39.1 18.6 37 21.6 37 22.9L9.7 39.4C7.6 40.6 5 39.1 5 36.7V3.5Z"/>
                             </svg>
                         </button>
-
 
                     </div>
 
@@ -2972,31 +2970,21 @@
     <!-- ====================================================
             АНИМАЦИЯ ВИДЕО В РАЗДЕЛЕ MOTION DESIGN
     ==================================================== -->
-        
     <script>
         // Воспроизведение видео в разделе Motion Design
         document.querySelectorAll('.motion-play').forEach(button => {
 
             button.addEventListener('click', () => {
+                const videoId = button.dataset.videoId;
                 const cover = button.closest('.motion-cover');
                 const title = button.closest('.motion-item')
-                    .querySelector('.motion-title').textContent.trim();
+                    .querySelector('.motion-title').textContent;
 
                 const iframe = document.createElement('iframe');
 
-                if (button.dataset.videoProvider === 'vimeo') {
-                    iframe.src = 'https://player.vimeo.com/video/1245955433?h=132df8a23e&title=0&byline=0&portrait=0&badge=0&autopause=0&player_id=0&app_id=58479';
-                    iframe.title = 'Анимированная открытка к 8 Марта';
-                    iframe.allow = 'autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share';
-                    iframe.referrerPolicy = 'strict-origin-when-cross-origin';
-                } else {
-                    const videoId = button.dataset.videoId;
-
-                    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
-                    iframe.title = title;
-                    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-                }
-
+                iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+                iframe.title = title;
+                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
                 iframe.allowFullscreen = true;
 
                 cover.replaceChildren(iframe);
@@ -3004,7 +2992,6 @@
 
         });
     </script>
-
 
     <!-- ====================================================
                      СЛАЙДЕРЫ РАЗДЕЛА СОЦСЕТИ
@@ -3450,45 +3437,6 @@
             });
         }
     </script>
-
-
-
-    
-    <script>
-        // Кастомный курсор — только для устройств с мышью
-        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-            const cursor = document.createElement('div');
-            cursor.className = 'custom-cursor';
-            cursor.setAttribute('aria-hidden', 'true');
-
-            const cursorImage = document.createElement('img');
-            cursorImage.src = 'images/0_graphics/Cursor%20white.svg';
-            cursorImage.alt = '';
-            cursorImage.draggable = false;
-
-            cursor.appendChild(cursorImage);
-            document.body.appendChild(cursor);
-            document.body.classList.add('custom-cursor-active');
-
-            document.addEventListener('mousemove', (event) => {
-                cursor.style.left = `${event.clientX}px`;
-                cursor.style.top = `${event.clientY}px`;
-                cursor.classList.add('is-visible');
-            });
-
-            document.addEventListener('mouseleave', () => {
-                cursor.classList.remove('is-visible');
-            });
-
-            document.addEventListener('mouseenter', () => {
-                cursor.classList.add('is-visible');
-            });
-        }
-    </script>
-    
-
-
-
 
 
 

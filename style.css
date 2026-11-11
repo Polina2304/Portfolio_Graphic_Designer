@@ -3807,5 +3807,198 @@ html {
 
 
 
+    /* ========================================================
+    DIGITAL — МОБИЛЬНАЯ ВЕРСИЯ
+    ======================================================== */
+
+    /* Общий контейнер */
+
+    .project-card.digital {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 343px;
+        gap: 64px;
+        margin: 0 auto 128px;
+    }
+
+    /* Основная сетка */
+
+    .digital-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 64px;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Карточки работ */
+
+    .digital-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        max-width: 343px;
+        min-width: 0;
+        gap: 24px;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Широкая карточка первой работы */
+
+    .digital-item-wide {
+        width: 100%;
+        max-width: 343px;
+    }
+
+    /* Одиночные изображения */
+
+    .digital-cover {
+        display: block;
+        width: 100%;
+        max-width: 343px;
+        height: auto;
+        overflow: hidden;
+        border-radius: 16px;
+        flex: none;
+    }
+
+    .digital-cover picture {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .digital-cover img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 16px;
+    }
+
+    /* Галерея первой работы */
+
+    .digital-gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 343px;
+        gap: 16px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .digital-gallery picture {
+        display: block;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        border-radius: 16px;
+    }
+
+    .digital-gallery img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 16px;
+    }
+
+    /* Текстовая часть */
+
+    .digital-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        max-width: 343px;
+        min-width: 0;
+        gap: 24px;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Заголовки */
+
+    .digital-title {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        font-size: 24px;
+        line-height: 1.2;
+        box-sizing: border-box;
+    }
+
+    /* Описание */
+
+    .digital-text {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .digital-text p {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        line-height: 24px;
+        box-sizing: border-box;
+    }
+
+    /* Скрытые работы */
+
+    .digital .project-hidden-content {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 343px;
+        gap: 64px;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Сетка внутри скрытого блока */
+
+    .digital .project-hidden-content .digital-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 343px;
+        gap: 64px;
+    }
+
+    /* Кнопки */
+
+    .digital > .project-expand-btn,
+    .digital .project-collapse-btn {
+        width: 100%;
+        max-width: 343px;
+        height: 50px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    /* Убираем принудительный перенос в заголовке */
+    .digital-hidden-content .digital-item:nth-child(2) .digital-title br {
+        display: none;
+    }
+
+
+
+
 
 }

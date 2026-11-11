@@ -3927,7 +3927,7 @@ html {
         width: 100%;
         max-width: 343px;
         min-width: 0;
-        gap: 24px;
+        gap: 16px;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
@@ -4003,6 +4003,175 @@ html {
     .digital-hidden-content .digital-item:nth-child(2) .digital-title br {
         display: none;
     }
+
+
+    /* ========================================================
+    3D-ГРАФИКА — МОБИЛЬНАЯ ВЕРСИЯ
+    ======================================================== */
+
+    /* Общий контейнер */
+
+    .project-card.three-d {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 343px;
+        gap: 64px;
+        margin: 0 auto 128px;
+    }
+
+    /* Основная сетка */
+
+    .three-d-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 343px;
+        gap: 64px;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Карточки работ */
+
+    .three-d-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        max-width: 343px;
+        min-width: 0;
+        gap: 24px;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Широкие карточки */
+
+    .three-d-item-wide {
+        width: 100%;
+        max-width: 343px;
+    }
+
+    /* Изображения */
+
+    .three-d-cover {
+        display: block;
+        width: 100%;
+        max-width: 343px;
+        height: auto;
+        overflow: hidden;
+        border-radius: 16px;
+        flex: none;
+    }
+
+    .three-d-cover picture {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .three-d-cover img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 16px;
+    }
+
+    /* Текстовая часть */
+
+    .three-d-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        max-width: 343px;
+        min-width: 0;
+        gap: 16px;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Заголовки */
+
+    .three-d-title {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        font-size: 24px;
+        line-height: 1.2;
+        box-sizing: border-box;
+    }
+
+    /* Описание */
+
+    .three-d-text {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .three-d-text p {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        line-height: 24px;
+        box-sizing: border-box;
+    }
+
+    /* Скрытые работы */
+
+    .three-d .project-hidden-content {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 343px;
+        gap: 64px;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Сетка внутри скрытого блока */
+
+    .three-d .project-hidden-content .three-d-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 343px;
+        gap: 64px;
+    }
+
+    /* Кнопки раскрытия и сворачивания */
+
+    .three-d > .project-expand-btn,
+    .three-d .project-collapse-btn {
+        width: 100%;
+        max-width: 343px;
+        height: 50px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    /* Исправляем высоту широких изображений 3D на мобильных */
+
+    .three-d .three-d-grid > .three-d-item-wide:first-child .three-d-cover,
+    .three-d .three-d-hidden-content .three-d-item-wide:first-child .three-d-cover,
+    .three-d .three-d-hidden-content .three-d-item-wide:last-child .three-d-cover {
+        height: auto;
+    }
+
+    
+
 
 
 

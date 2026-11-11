@@ -3600,5 +3600,197 @@ html {
     }
 
 
+    /* ========================================================
+    ПОЛИГРАФИЯ — МОБИЛЬНАЯ ВЕРСИЯ
+    ======================================================== */
+
+    /* Общий контейнер */
+
+    .project-card.printing {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 343px;
+        gap: 64px;
+        margin: 0 auto 128px;
+    }
+
+    /* Первая сетка: четыре работы друг под другом */
+
+    .printing-grid {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 64px;
+    }
+
+    /* Общая карточка работы */
+
+    .printing-item {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        max-width: 343px;
+        min-width: 0;
+        gap: 24px;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Изображения одиночных работ */
+
+    .printing-cover {
+        display: block;
+        width: 100%;
+        max-width: 343px;
+        height: auto;
+        overflow: hidden;
+        border-radius: 16px;
+        flex: none;
+    }
+
+    .printing-cover picture {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .printing-cover img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 16px;
+    }
+
+    /* Исправление ширины текста широких работ */
+
+    .printing .printing-item-wide > .printing-content {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .printing .printing-item-wide .printing-title,
+    .printing .printing-item-wide .printing-text {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    /* Текстовая часть */
+
+    .printing-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        gap: 16px;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Заголовок */
+
+    .printing-title {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        font-size: 24px;
+        line-height: 1.2;
+    }
+
+    /* Описание */
+
+    .printing-text {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .printing-text p {
+        margin: 0;
+        padding: 0;
+        font-size: 16px;
+        line-height: 24px;
+    }
+
+    /* Широкие работы */
+
+    .printing-item-wide {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        max-width: 343px;
+        gap: 24px;
+    }
+
+    /* Галереи из двух изображений */
+
+    .printing-gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        max-width: 343px;
+        gap: 16px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .printing-gallery picture {
+        display: block;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        border-radius: 16px;
+    }
+
+    .printing-gallery img {
+        display: block;
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        border-radius: 16px;
+    }
+
+    /* Кнопки раскрытия и сворачивания */
+
+    .printing > .project-expand-btn,
+    .printing .project-collapse-btn {
+        width: 100%;
+        max-width: 343px;
+        height: 50px;
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    /* Скрытая сетка: также превращаем в вертикальный список */
+
+    .printing .project-hidden-content {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        width: 100%;
+        gap: 64px;
+        grid-template-columns: none;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Кнопка сворачивания */
+
+    .printing .project-collapse-btn {
+        align-self: flex-start;
+        margin: 0;
+    }
+
+
+
 
 }

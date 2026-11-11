@@ -2436,8 +2436,9 @@ body {
 }
 
 
+
 /* ============================================================
-   ПОДВАЛ САЙТА — DESKTOP
+   ПОДВАЛ САЙТА
    ============================================================ */
 
 .portfolio-footer {
@@ -2448,12 +2449,16 @@ body {
     width: 1200px;
     margin: 0 auto;
     padding-bottom: 48px;
+
     box-sizing: border-box;
 }
-/* Подпись слева */
+
+/* Подпись */
 
 .footer-copy {
     justify-self: start;
+
+    margin: 0;
 
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
@@ -2462,7 +2467,7 @@ body {
     color: #FFF5E0;
 }
 
-/* Контакты справа */
+/* Контейнер кнопок */
 
 .footer-contacts {
     display: flex;
@@ -2471,47 +2476,160 @@ body {
     gap: 16px;
 }
 
-/* Кнопки контактов */
+/* Общие стили кнопок */
 
 .footer-contact-btn {
     display: flex;
+    flex: 0 0 auto;
     justify-content: center;
     align-items: center;
     gap: 8px;
 
     height: 48px;
     padding: 0 16px;
-    box-sizing: border-box;
 
-    background: #1F1E1D;
+    box-sizing: border-box;
     border: none;
     border-radius: 36px;
+
+    background: #1F1E1D;
+    color: #FFF5E0;
 
     font-family: 'Montserrat', sans-serif;
     font-size: 16px;
     font-weight: 600;
     line-height: 20px;
-    color: #FFF5E0;
-    text-decoration: none;
 
-    transition: opacity 0.2s ease;
+    text-decoration: none;
+    white-space: nowrap;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        opacity 0.2s ease;
 }
 
 /* Иконки */
 
 .footer-contact-icon {
     display: block;
+    flex: 0 0 18px;
+
     width: 18px;
     height: 18px;
+
     object-fit: contain;
+}
+
+/* Белые иконки в обычном состоянии */
+
+.footer-telegram-btn .footer-contact-icon,
+.footer-email-btn .email-icon {
     filter: brightness(0) invert(1);
 }
 
-/* Наведение */
+/* Иконка копирования скрыта до нажатия */
 
-.footer-contact-btn:hover {
-    opacity: 0.5;
+.footer-email-btn .copied-icon {
+    display: none;
 }
+
+/* Наведение на обычные кнопки */
+
+.footer-telegram-btn:hover,
+.footer-email-btn:not(.is-copied):hover {
+    opacity: 0.6;
+}
+
+/* Состояние после копирования */
+
+.footer-email-btn.is-copied {
+    width: 138px;
+    height: 50px;
+    padding: 12px 24px;
+    gap: 12px;
+
+    background: #FFD685;
+    color: #1F1E1D;
+
+    opacity: 1;
+}
+
+/* Меняем иконки */
+
+.footer-email-btn.is-copied .email-icon {
+    display: none;
+}
+
+.footer-email-btn.is-copied .copied-icon {
+    display: block;
+    color: #1F1E1D;
+}
+
+/* Текст после копирования */
+
+.footer-email-btn.is-copied .email-btn-text {
+    color: #1F1E1D;
+}
+
+
+/* ============================================================
+   МОБИЛЬНАЯ ВЕРСИЯ ПОДВАЛА
+   ============================================================ */
+
+@media (max-width: 768px) {
+
+    .portfolio-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        width: 100%;
+        max-width: 343px;
+
+        margin: 0 auto;
+        padding: 0 0 32px;
+
+        gap: 24px;
+        box-sizing: border-box;
+    }
+
+    .footer-copy {
+        width: 100%;
+        margin: 0;
+
+        text-align: left;
+
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .footer-contacts {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+
+        width: 100%;
+        gap: 16px;
+    }
+
+    .footer-contact-btn {
+        height: 50px;
+        padding: 0 20px;
+    }
+
+    .footer-email-btn.is-copied {
+        width: 138px;
+        height: 50px;
+        padding: 12px 24px;
+        gap: 12px;
+    }
+}
+
 
 
 
@@ -4993,75 +5111,6 @@ html {
     }
 
 
-    
-    /* ========================================================
-       ПОДВАЛ — МОБИЛЬНАЯ ВЕРСИЯ
-       ======================================================== */
-
-    .portfolio-footer {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: flex-start;
-        width: 100%;
-        max-width: 343px;
-        margin: 0 auto;
-        padding: 0 0 32px;
-        gap: 24px;
-        box-sizing: border-box;
-    }
-
-    .footer-copy {
-        width: 100%;
-        margin: 0;
-        padding: 0;
-        text-align: left;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 20px;
-        color: #FFF5E0;
-    }
-
-    .footer-contacts {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-start;
-        align-items: center;
-        width: 100%;
-        gap: 16px;
-    }
-
-    .footer-contact-btn {
-        display: flex;
-        flex: 0 0 auto;
-        justify-content: center;
-        align-items: center;
-        height: 50px;
-        padding: 0 20px;
-        box-sizing: border-box;
-        gap: 8px;
-        background: #1F1E1D;
-        border: 0;
-        border-radius: 36px;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 16px;
-        font-weight: 600;
-        line-height: 20px;
-        color: #FFF5E0;
-        text-decoration: none;
-        white-space: nowrap;
-    }
-
-    .footer-contact-icon {
-        display: block;
-        flex: 0 0 18px;
-        width: 18px;
-        height: 18px;
-        object-fit: contain;
-        filter: brightness(0) invert(1);
-    }
-
     /* На мобильных отключаем курсор и кнопку прокрутки наверх */
 
     .custom-cursor,
@@ -5121,6 +5170,7 @@ html {
         display: none !important;
     }
 }
+
 
 
 

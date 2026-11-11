@@ -2818,6 +2818,7 @@
          ПОДВАЛ САЙТА
          ============================================================ -->
 
+        
     <footer class="portfolio-footer">
 
         <div class="footer-copy">
@@ -2826,9 +2827,10 @@
 
         <div class="footer-contacts">
 
+            <!-- Telegram -->
             <a
                 href="https://t.me/Avokadookan"
-                class="footer-contact-btn"
+                class="footer-contact-btn footer-telegram-btn"
                 target="_blank"
                 rel="noopener noreferrer"
             >
@@ -2837,24 +2839,56 @@
                     alt=""
                     class="footer-contact-icon"
                 >
-                Телеграм
+                <span>Телеграм</span>
             </a>
 
-            <a
-                href="mailto:avokadookan@gmail.com"
-                class="footer-contact-btn"
+            <!-- Копирование почты -->
+            <button
+                type="button"
+                class="footer-contact-btn footer-email-btn"
+                id="copy-email-btn"
+                aria-label="Скопировать адрес электронной почты"
             >
+                <!-- Обычная иконка почты -->
                 <img
                     src="images/0_graphics/icon_email.svg"
                     alt=""
-                    class="footer-contact-icon"
+                    class="footer-contact-icon email-icon"
                 >
-                Почта
-            </a>
+
+                <!-- Иконка копирования -->
+                <svg
+                    class="footer-contact-icon copied-icon"
+                    viewBox="0 0 20 20"
+                    fill="none"
+                    aria-hidden="true"
+                >
+                    <rect
+                        x="7"
+                        y="2"
+                        width="11"
+                        height="12"
+                        rx="2"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    />
+                    <rect
+                        x="2"
+                        y="6"
+                        width="11"
+                        height="12"
+                        rx="2"
+                        fill="currentColor"
+                    />
+                </svg>
+
+                <span class="email-btn-text" aria-live="polite">Почта</span>
+            </button>
 
         </div>
 
     </footer>
+
 
 
 
@@ -3344,6 +3378,66 @@
         });
     </script>
 
+    
+    <script>
+        // ========================================================
+        // КОПИРОВАНИЕ ПОЧТЫ В ПОДВАЛЕ
+        // ========================================================
+
+        const copyEmailButton = document.querySelector('#copy-email-btn');
+
+        if (copyEmailButton) {
+            const emailText = 'avokadookan@gmail.com';
+            const buttonText = copyEmailButton.querySelector('.email-btn-text');
+
+            let copyTimeout;
+
+            // Резервное копирование для браузеров без Clipboard API
+            async function copyToClipboard(text) {
+                if (navigator.clipboard && window.isSecureContext) {
+                    await navigator.clipboard.writeText(text);
+                    return;
+                }
+
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                textarea.style.position = 'fixed';
+                textarea.style.opacity = '0';
+
+                document.body.appendChild(textarea);
+                textarea.select();
+
+                const successful = document.execCommand('copy');
+                textarea.remove();
+
+                if (!successful) {
+                    throw new Error('Не удалось скопировать адрес');
+                }
+            }
+
+            copyEmailButton.addEventListener('click', async () => {
+                try {
+                    await copyToClipboard(emailText);
+
+                    // Показываем успешное копирование
+                    copyEmailButton.classList.add('is-copied');
+                    buttonText.textContent = 'Copied';
+
+                    // Перезапускаем таймер при повторном нажатии
+                    clearTimeout(copyTimeout);
+
+                    copyTimeout = setTimeout(() => {
+                        copyEmailButton.classList.remove('is-copied');
+                        buttonText.textContent = 'Почта';
+                    }, 5000);
+
+                } catch (error) {
+                    console.error('Ошибка копирования почты:', error);
+                }
+            });
+        }
+    </script>
+
 
 
     
@@ -3378,6 +3472,7 @@
             });
         }
     </script>
+    
 
 
 

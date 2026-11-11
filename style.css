@@ -4993,6 +4993,77 @@ html {
     }
 
 
+    
+    /* ========================================================
+       ПОДВАЛ — МОБИЛЬНАЯ ВЕРСИЯ
+       ======================================================== */
+
+    .portfolio-footer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+        width: 100%;
+        max-width: 343px;
+        margin: 0 auto;
+        padding: 0 0 32px;
+        gap: 24px;
+        box-sizing: border-box;
+    }
+
+    .footer-copy {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        text-align: left;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 20px;
+        color: #FFF5E0;
+    }
+
+    .footer-contacts {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        width: 100%;
+        gap: 16px;
+    }
+
+    .footer-contact-btn {
+        display: flex;
+        flex: 0 0 auto;
+        justify-content: center;
+        align-items: center;
+        height: 50px;
+        padding: 0 20px;
+        box-sizing: border-box;
+        gap: 8px;
+        background: #1F1E1D;
+        border: 0;
+        border-radius: 36px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 20px;
+        color: #FFF5E0;
+        text-decoration: none;
+        white-space: nowrap;
+    }
+
+    .footer-contact-icon {
+        display: block;
+        flex: 0 0 18px;
+        width: 18px;
+        height: 18px;
+        object-fit: contain;
+        filter: brightness(0) invert(1);
+    }
+
+
+
 
 
 

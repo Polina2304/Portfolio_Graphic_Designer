@@ -1782,10 +1782,24 @@ body {
     border-radius: inherit;
 }
 
-/* Кнопка воспроизведения */
+/* ============================================================
+   PLAY BUTTON — FIGMA
+   ============================================================ */
 
-.motion-play {
+.motion-cover,
+.project-4-video {
+    position: relative;
+}
+
+.motion-play,
+.video-play-button,
+.project-4-video-play {
     position: absolute;
+    z-index: 10;
+
+    width: 124.23px;
+    height: 124.23px;
+
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -1794,29 +1808,61 @@ body {
     align-items: center;
     justify-content: center;
 
-    width: 112px;
-    height: 112px;
+    box-sizing: border-box;
     padding: 0;
-
     border: none;
     border-radius: 50%;
+
     background: rgba(0, 0, 0, 0.5);
+    background-blend-mode: multiply;
 
     cursor: pointer;
     transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.motion-play svg {
+.motion-play svg,
+.video-play-button svg,
+.project-4-video-play svg {
     display: block;
-    width: 42px;
-    height: 45px;
-    margin-left: 5px;
+    width: 45.78px;
+    height: 49.38px;
+    flex-shrink: 0;
+    margin-left: 2.19px;
+    margin-top: -0.15px;
+    fill: #FFFFFF;
 }
 
-.motion-cover:hover .motion-play {
+.motion-play:hover,
+.video-play-button:hover,
+.project-4-video-play:hover {
     background: rgba(0, 0, 0, 0.7);
     transform: translate(-50%, -50%) scale(1.05);
 }
+
+.motion-play[hidden],
+.video-play-button[hidden],
+.project-4-video-play[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 768px) {
+    .motion-play,
+    .video-play-button,
+    .project-4-video-play {
+        width: 64px;
+        height: 64px;
+    }
+
+    .motion-play svg,
+    .video-play-button svg,
+    .project-4-video-play svg {
+        width: 24px;
+        height: 26px;
+        margin: 0 0 0 1px;
+    }
+}
+
+
 
 /* Встроенный видеоплеер */
 

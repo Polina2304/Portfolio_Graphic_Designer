@@ -1072,23 +1072,33 @@
                 </div>
             </div>
 
-            <div class="project-4-video" id="podcast-video">
-                <img
-                    class="project-4-video-thumbnail"
-                    src="https://img.youtube.com/vi/xxtzmj3kpOI/maxresdefault.jpg"
-                    alt="Стоп-кадр заставки подкаста"
-                >
+            
+            <div
+                class="project-4-video video-player"
+                id="podcast-video"
+                data-kinescope-id="8weBYhFhUfTizngNuR3HVR"
+            >
+                <iframe
+                    class="video-player-frame"
+                    src="https://kinescope.io/embed/8weBYhFhUfTizngNuR3HVR?autoplay=0&controls=0&preload=0&playsinline=1"
+                    title="Заставка для подкаста «О деле»"
+                    loading="lazy"
+                    allow="autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;"
+                    frameborder="0"
+                    allowfullscreen
+                ></iframe>
 
                 <button
-                    class="project-4-video-play"
+                    class="video-play-button"
                     type="button"
                     aria-label="Воспроизвести видео"
                 >
-                    <svg viewBox="0 0 42 45" fill="white" aria-hidden="true">
+                    <svg viewBox="0 0 42 45" aria-hidden="true">
                         <path d="M5 3.5C5 1.1 7.6-.4 9.7.8L37 17.3C39.1 18.6 39.1 21.6 37 22.9L9.7 39.4C7.6 40.6 5 39.1 5 36.7V3.5Z"/>
                     </svg>
                 </button>
             </div>
+
 
             <script>
                 document.querySelectorAll('.project-4-video').forEach(video => {
@@ -2914,66 +2924,160 @@
     
 
     
+    
     <!-- ====================================================
-        ВОСПРОИЗВЕДЕНИЕ ВИДЕО KINESCOPE — MOTION DESIGN
+    ЕДИНЫЕ КНОПКИ ВОСПРОИЗВЕДЕНИЯ KINESCOPE
     ==================================================== -->
 
+    
     <script>
-        document.addEventListener('click', (event) => {
+        (() => {
 
-            const button = event.target.closest('.motion-play');
+            const PLAYER_SELECTOR = '.motion-cover, .project-4-video';
+            const BUTTON_SELECTOR = '.motion-play, .video-play-button, .project-4-video-play';
 
-            if (!button) return;
+            const players = new Map();
 
-            const currentCover = button.closest('.motion-cover');
-            const videoId = button.dataset.kinescopeId;
+            // Подключаем официальный API Kinescope
+            window.onKinescopeIframeAPIReady = function (playerFactory) {
 
-            if (!currentCover || !videoId) return;
+                document.querySelectorAll(PLAYER_SELECTOR).forEach(async (container, index) => {
 
-            // Останавливаем все ранее запущенные видео
-            document.querySelectorAll('.motion-cover.is-playing').forEach(cover => {
+                    const iframe = container.querySelector('iframe');
+                    if (!iframe) return;
 
-                cover.innerHTML = cover.dataset.originalMarkup;
-                cover.classList.remove('is-playing');
+                    const match = iframe.src.match(/kinescope\.io\/embed\/([^?]+)/);
+                    if (!match) return;
+
+                    const videoId = match[1];
+
+                    container.dataset.kinescopeId = videoId;
+
+                    // Даём iframe уникальный ID для API
+                    if (!iframe.id) {
+                        iframe.id = `kinescope-player-${index}`;
+                    }
+
+                    // Получаем или создаём кнопку
+                    let button = container.querySelector(BUTTON_SELECTOR);
+
+                    if (!button && container.classList.contains('motion-cover')) {
+
+                        button = document.createElement('button');
+                        button.className = 'motion-play';
+                        button.type = 'button';
+                        button.setAttribute('aria-label', 'Воспроизвести видео');
+
+                        button.innerHTML = `
+                            <svg viewBox="0 0 42 45" aria-hidden="true">
+                                <path d="M5 3.5C5 1.1 7.6-.4 9.7.8L37 17.3C39.1 18.6 39.1 21.6 37 22.9L9.7 39.4C7.6 40.6 5 39.1 5 36.7V3.5Z"/>
+                            </svg>
+                        `;
+
+                        container.appendChild(button);
+                    }
+
+                    if (!button) return;
+
+                    button.disabled = true;
+
+                    try {
+
+                        // Подключаем API к существующему iframe
+                        const player = await playerFactory.create(iframe.id, {
+
+                            url: `https://kinescope.io/${videoId}`,
+
+                            size: {
+                                width: '100%',
+                                height: '100%'
+                            },
+
+                            behavior: {
+                                preload: 'none',
+                                playsInline: true,
+                                autoPause: true
+                            },
+
+                            ui: {
+                                controls: false,
+                                mainPlayButton: false,
+                                playbackRateButton: false,
+                                playbackRates: false,
+                                language: 'ru'
+                            }
+
+                        });
+
+                        players.set(container, player);
+
+                        button.disabled = false;
+
+                        // Видео действительно начало воспроизводиться
+                        player.on(player.Events.Playing, () => {
+                            container.classList.add('is-playing');
+                            button.hidden = true;
+                        });
+
+                        // Видео остановлено или поставлено на паузу
+                        player.on(player.Events.Pause, () => {
+                            container.classList.remove('is-playing');
+                            button.hidden = false;
+                        });
+
+                        // Видео закончилось
+                        player.on(player.Events.Ended, () => {
+                            container.classList.remove('is-playing');
+                            button.hidden = false;
+                        });
+
+                    } catch (error) {
+                        console.error('Ошибка подключения Kinescope API:', videoId, error);
+                        button.disabled = false;
+                    }
+
+                });
+
+            };
+
+            // Запускаем видео по нажатию собственной кнопки
+            document.addEventListener('click', async (event) => {
+
+                const button = event.target.closest(BUTTON_SELECTOR);
+                if (!button) return;
+
+                const container = button.closest(PLAYER_SELECTOR);
+                if (!container) return;
+
+                const player = players.get(container);
+                if (!player) return;
+
+                button.disabled = true;
+
+                try {
+                    await player.play();
+                } catch (error) {
+                    console.error('Не удалось запустить видео:', error);
+                } finally {
+                    button.disabled = false;
+                }
 
             });
 
-            // Сохраняем исходную обложку и кнопку
-            if (!currentCover.dataset.originalMarkup) {
-                currentCover.dataset.originalMarkup = currentCover.innerHTML;
-            }
+            // Загружаем API после объявления callback
+            const apiScript = document.createElement('script');
+            apiScript.src = 'https://player.kinescope.io/latest/iframe.player.js';
+            apiScript.async = true;
 
-            // Создаём плеер Kinescope
-            const iframe = document.createElement('iframe');
+            document.head.appendChild(apiScript);
 
-            iframe.src =
-                `https://kinescope.io/embed/${videoId}?autoplay=1&controls=0&autopause=1&preload=0&playsinline=1`;
-
-            iframe.title = currentCover
-                .closest('.motion-item')
-                .querySelector('.motion-title')
-                .textContent.trim();
-
-            iframe.allow =
-                'autoplay; fullscreen; picture-in-picture; encrypted-media; gyroscope; accelerometer; clipboard-write; screen-wake-lock;';
-
-            iframe.setAttribute('frameborder', '0');
-            iframe.setAttribute('allowfullscreen', '');
-
-            iframe.style.width = '100%';
-            iframe.style.height = '100%';
-            iframe.style.border = '0';
-
-            // Показываем видео вместо обложки
-            currentCover.replaceChildren(iframe);
-            currentCover.classList.add('is-playing');
-
-        });
+        })();
     </script>
 
 
+
     <!-- ====================================================
-                     СЛАЙДЕРЫ РАЗДЕЛА СОЦСЕТИ
+        СЛАЙДЕРЫ РАЗДЕЛА СОЦСЕТИ
     ==================================================== --> 
     <script>
         document.querySelectorAll('.social-slider').forEach(slider => {

@@ -3005,9 +3005,11 @@
                         }
 
                         resolve(window.YT);
+
                     };
 
                     const script = document.createElement('script');
+
                     script.src = 'https://www.youtube.com/iframe_api';
 
                     document.head.appendChild(script);
@@ -3020,107 +3022,162 @@
         }
 
 
-        // КНОПКИ ВОСПРОИЗВЕДЕНИЯ
-        document.querySelectorAll('.motion-play').forEach(button => {
+        // УДАЛЕНИЕ АКТИВНОГО ПЛЕЕРА И ВОЗВРАТ ОБЛОЖКИ
+        function resetMotionPlayer() {
 
-            button.addEventListener('click', async () => {
+            if (!activeMotionPlayer) {
+                return;
+            }
 
-                const videoId = button.dataset.videoId;
-                const cover = button.closest('.motion-cover');
+            const previous = activeMotionPlayer;
 
-                const title = button.closest('.motion-item')
-                    .querySelector('.motion-title').textContent.trim();
+            // Сначала сбрасываем активный плеер
+            activeMotionPlayer = null;
 
-                if (!videoId) {
-                    console.error('Не указан ID видео YouTube');
-                    return;
+            // Полностью уничтожаем YouTube-плеер
+            if (previous.player) {
+
+                try {
+                    previous.player.destroy();
+                } catch (error) {
+                    console.warn('Ошибка удаления YouTube-плеера:', error);
                 }
 
-                // Создаём уникальный номер текущего запроса
-                const currentRequestId = ++motionRequestId;
+            }
+
+            // Возвращаем исходную обложку и кнопку Play
+            previous.cover.innerHTML = previous.originalHTML;
+
+        }
 
 
-                // УДАЛЯЕМ ПРЕДЫДУЩИЙ ПЛЕЕР
-                if (activeMotionPlayer) {
+        // ОБЩИЙ ОБРАБОТЧИК КНОПОК PLAY
+        // Используем делегирование, чтобы восстановленные кнопки тоже работали
+        document.addEventListener('click', async (event) => {
 
-                    const previous = activeMotionPlayer;
+            const button = event.target.closest('.motion-play');
 
-                    activeMotionPlayer = null;
+            if (!button) {
+                return;
+            }
 
-                    if (previous.player) {
-                        previous.player.destroy();
-                    }
+            const motionSection = button.closest('.motion-design');
 
-                    // Возвращаем исходную обложку и кнопку Play
-                    previous.cover.innerHTML = previous.originalHTML;
+            if (!motionSection) {
+                return;
+            }
 
+            const videoId = button.dataset.videoId;
+
+            const cover = button.closest('.motion-cover');
+
+            const title = button.closest('.motion-item')
+                .querySelector('.motion-title').textContent.trim();
+
+
+            if (!videoId) {
+                console.error('Не указан ID видео YouTube');
+                return;
+            }
+
+
+            // Уникальный номер запроса
+            const currentRequestId = ++motionRequestId;
+
+
+            // УДАЛЯЕМ ПРЕДЫДУЩЕЕ ВИДЕО
+            resetMotionPlayer();
+
+
+            // Сохраняем исходную обложку для последующего восстановления
+            const originalHTML = cover.innerHTML;
+
+
+            // Создаём контейнер нового плеера
+            const playerContainer = document.createElement('div');
+
+            playerContainer.className = 'motion-player-container';
+
+            cover.replaceChildren(playerContainer);
+
+
+            // Сохраняем информацию о новом активном плеере
+            const currentPlayer = {
+                player: null,
+                cover: cover,
+                originalHTML: originalHTML
+            };
+
+            activeMotionPlayer = currentPlayer;
+
+
+            // Загружаем YouTube API
+            let YT;
+
+            try {
+                YT = await loadYouTubeAPI();
+            } catch (error) {
+
+                if (currentRequestId === motionRequestId) {
+                    resetMotionPlayer();
                 }
 
-
-                // Сохраняем исходное содержимое новой карточки
-                const originalHTML = cover.innerHTML;
-
-                // Контейнер для нового плеера
-                const playerContainer = document.createElement('div');
-
-                playerContainer.className = 'motion-player-container';
-
-                cover.replaceChildren(playerContainer);
+                console.error('Не удалось загрузить YouTube API:', error);
+                return;
+            }
 
 
-                // Запоминаем активную карточку
-                const currentPlayer = {
-                    player: null,
-                    cover: cover,
-                    originalHTML: originalHTML
-                };
-
-                activeMotionPlayer = currentPlayer;
+            // Если пользователь уже выбрал другое видео,
+            // не создаём устаревший плеер
+            if (currentRequestId !== motionRequestId) {
+                return;
+            }
 
 
-                // Загружаем YouTube API
-                const YT = await loadYouTubeAPI();
+            // СОЗДАЁМ YOUTUBE-ПЛЕЕР
+            currentPlayer.player = new YT.Player(playerContainer, {
 
-                // Если за время загрузки пользователь выбрал другой ролик,
-                // не создаём устаревший плеер
-                if (currentRequestId !== motionRequestId) {
-                    return;
-                }
+                videoId: videoId,
 
+                playerVars: {
+                    autoplay: 1,
+                    controls: 0,
+                    rel: 0,
+                    playsinline: 1,
+                    enablejsapi: 1,
+                    origin: window.location.origin
+                },
 
-                // СОЗДАЁМ YOUTUBE-ПЛЕЕР
-                currentPlayer.player = new YT.Player(playerContainer, {
+                events: {
 
-                    videoId: videoId,
+                    onReady: function (event) {
 
-                    playerVars: {
-                        autoplay: 1,
-                        controls: 0,
-                        rel: 0,
-                        playsinline: 1,
-                        enablejsapi: 1,
-                        origin: window.location.origin
+                        // Запускаем только актуальный плеер
+                        if (
+                            currentRequestId === motionRequestId &&
+                            activeMotionPlayer === currentPlayer
+                        ) {
+                            event.target.playVideo();
+                        } else {
+                            event.target.destroy();
+                        }
+
                     },
 
-                    events: {
+                    onError: function (event) {
 
-                        onReady: function (event) {
+                        console.error('Ошибка YouTube-плеера:', event.data);
 
-                            if (currentRequestId === motionRequestId) {
-                                event.target.playVideo();
-                            } else {
-                                event.target.destroy();
-                            }
-
-                        },
-
-                        onError: function (event) {
-                            console.error('Ошибка YouTube-плеера:', event.data);
+                        if (
+                            currentRequestId === motionRequestId &&
+                            activeMotionPlayer === currentPlayer
+                        ) {
+                            resetMotionPlayer();
                         }
 
                     }
 
-                });
+                }
 
             });
 

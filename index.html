@@ -2969,6 +2969,7 @@
     </script>
     
 
+    
     <!-- ====================================================
             АНИМАЦИЯ ВИДЕО В РАЗДЕЛЕ MOTION DESIGN
     ==================================================== -->
@@ -2985,12 +2986,45 @@
                 const title = button.closest('.motion-item')
                     .querySelector('.motion-title').textContent.trim();
 
+                // СТАВИМ НА ПАУЗУ ВСЕ РАНЕЕ ЗАПУЩЕННЫЕ РОЛИКИ
+                document.querySelectorAll('.motion-cover iframe').forEach(oldIframe => {
+
+                    const oldSrc = oldIframe.src;
+
+                    // YouTube
+                    if (oldSrc.includes('youtube.com') || oldSrc.includes('youtube-nocookie.com')) {
+
+                        oldIframe.contentWindow.postMessage(
+                            JSON.stringify({
+                                event: 'command',
+                                func: 'pauseVideo',
+                                args: ''
+                            }),
+                            '*'
+                        );
+
+                    }
+
+                    // RUTUBE
+                    else if (oldSrc.includes('rutube.ru')) {
+
+                        oldIframe.contentWindow.postMessage(
+                            JSON.stringify({
+                                type: 'player:pause',
+                                data: {}
+                            }),
+                            '*'
+                        );
+
+                    }
+
+                });
+
                 const iframe = document.createElement('iframe');
 
                 // RUTUBE
                 if (rutubeSrc) {
 
-                    // Просим плеер начать воспроизведение автоматически
                     const separator = rutubeSrc.includes('?') ? '&' : '?';
                     iframe.src = `${rutubeSrc}${separator}autoplay=true`;
 
@@ -2998,7 +3032,6 @@
                     iframe.allow = 'clipboard-write; autoplay; fullscreen; picture-in-picture';
                     iframe.allowFullscreen = true;
 
-                    // Ждём готовности плеера RUTUBE
                     const rutubeHandler = (event) => {
 
                         if (event.source !== iframe.contentWindow) {
@@ -3015,7 +3048,6 @@
                             return;
                         }
 
-                        // Когда плеер готов — запускаем видео и скрываем его элементы управления
                         if (message && message.type === 'player:ready') {
 
                             iframe.contentWindow.postMessage(
@@ -3044,7 +3076,9 @@
                 // YOUTUBE
                 else if (videoId) {
 
-                    iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&controls=0&rel=0&playsinline=1`;
+                    iframe.src =
+                        `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&controls=0&rel=0&playsinline=1&enablejsapi=1&origin=${encodeURIComponent(window.location.origin)}`;
+
                     iframe.title = title;
                     iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
                     iframe.allowFullscreen = true;
@@ -3056,12 +3090,14 @@
                     return;
                 }
 
+                // ЗАМЕНЯЕМ ОБЛОЖКУ НА ВИДЕО
                 cover.replaceChildren(iframe);
 
             });
 
         });
     </script>
+
 
 
 

@@ -2350,7 +2350,7 @@
         <div class="social-project-grid">
 
             <!-- 2. ГУДЛАЙН ГОРОД -->
-            <div class="social-project">
+            <div class="social-project" data-social-id="city">
                 <div class="social-single-cover">
                     <picture>
                         <source media="(max-width: 768px)" srcset="images/10_socail media/mobile/social_media_2/GL_gorods_Post.webp">
@@ -2367,7 +2367,7 @@
             </div>
 
             <!-- 3. ПОИСК ВЕДУЩЕГО ПОДКАСТА -->
-            <div class="social-project">
+            <div class="social-project" data-social-id="podcast">
                 <div class="social-single-cover">
                     <picture>
                         <source media="(max-width: 768px)" srcset="images/10_socail media/mobile/social_media_4/Post_Podkast.webp">
@@ -2393,7 +2393,7 @@
         <div class="project-hidden-content">
 
             <!-- 4. ИСТОРИЯ ПАРТНЕРСТВА -->
-            <div class="social-project social-project-wide">
+            <div class="social-project social-project-wide" data-social-id="history">
                 <div class="social-slider">
                     <button class="social-arrow social-arrow-left" type="button" aria-label="Предыдущие карточки">
                         <svg viewBox="0 0 42 24" aria-hidden="true"><path d="M39 12H3 M3 12L14 2 M3 12L14 22"/></svg>
@@ -2424,7 +2424,7 @@
             </div>
 
             <!-- 5. СЕРВИСЫ ДЛЯ АВТОМАТИЗАЦИИ БИЗНЕСА -->
-            <div class="social-project social-project-wide">
+            <div class="social-project social-project-wide" data-social-id="automation">
                 <div class="social-slider">
                     <button class="social-arrow social-arrow-left" type="button" aria-label="Предыдущие карточки">
                         <svg viewBox="0 0 42 24" aria-hidden="true"><path d="M39 12H3 M3 12L14 2 M3 12L14 22"/></svg>
@@ -2453,7 +2453,7 @@
             </div>
 
             <!-- 6. БИЗНЕС-МАФИЯ -->
-            <div class="social-project social-project-wide">
+            <div class="social-project social-project-wide" data-social-id="mafia">
                 <div class="social-slider">
                     <button class="social-arrow social-arrow-left" type="button" aria-label="Предыдущие карточки">
                         <svg viewBox="0 0 42 24" aria-hidden="true"><path d="M39 12H3 M3 12L14 2 M3 12L14 22"/></svg>
@@ -2482,10 +2482,10 @@
             </div>
 
             <!-- ПРОЕКТЫ 7 И 8 -->
-            <div class="social-project-grid">
+            <div class="social-project-grid" data-social-group="may-ai">
 
                 <!-- 7. ОТКРЫТКА К 1 МАЯ -->
-                <div class="social-project">
+                <div class="social-project" data-social-id="may">
                     <div class="social-single-cover">
                         <picture>
                             <source media="(max-width: 768px)" srcset="images/10_socail media/mobile/social_media_6/1_May.webp">
@@ -2502,7 +2502,7 @@
                 </div>
 
                 <!-- 8. ОБЛОЖКА ДЛЯ ПОСТА О ПРЕЗЕНТАЦИЯХ -->
-                <div class="social-project">
+                <div class="social-project" data-social-id="ai">
                     <div class="social-single-cover">
                         <picture>
                             <source media="(max-width: 768px)" srcset="images/10_socail media/mobile/social_media_8/AI_Preza.webp">
@@ -2521,7 +2521,7 @@
             </div>
 
             <!-- 9. ЭКСПЕРТНЫЙ ПОСТ -->
-            <div class="social-project social-project-wide">
+            <div class="social-project social-project-wide" data-social-id="expert">
                 <div class="social-slider">
                     <button class="social-arrow social-arrow-left" type="button" aria-label="Предыдущие карточки">
                         <svg viewBox="0 0 42 24" aria-hidden="true"><path d="M39 12H3 M3 12L14 2 M3 12L14 22"/></svg>
@@ -3349,7 +3349,6 @@
     <!-- ========================================================
     МОБИЛЬНЫЙ ПОРЯДОК РАБОТ В БЛОКЕ СОЦСЕТЕЙ
     ======================================================== -->
-
     <script>
         (() => {
             const social = document.querySelector('.project-card.social-media');
@@ -3360,51 +3359,36 @@
 
             if (!visibleGrid || !hidden) return;
 
-            // Карточки из исходной HTML-структуры
-            const city = visibleGrid.querySelectorAll(':scope > .social-project')[0];
-            const podcast = visibleGrid.querySelectorAll(':scope > .social-project')[1];
+            // Находим карточки по постоянным идентификаторам.
+            // Теперь поиск не зависит от языка заголовков.
+            const city = social.querySelector('[data-social-id="city"]');
+            const podcast = social.querySelector('[data-social-id="podcast"]');
+            const history = social.querySelector('[data-social-id="history"]');
+            const automation = social.querySelector('[data-social-id="automation"]');
+            const mafia = social.querySelector('[data-social-id="mafia"]');
+            const expert = social.querySelector('[data-social-id="expert"]');
 
-            const hiddenProjects = Array.from(hidden.children);
+            const mayAndAiGrid = social.querySelector('[data-social-group="may-ai"]');
 
-            const history = hiddenProjects.find(el =>
-                el.querySelector('.social-slider') &&
-                el.querySelector('.social-title')?.textContent.includes('История долгосрочного')
-            );
+            const may = mayAndAiGrid?.querySelector('[data-social-id="may"]');
+            const ai = mayAndAiGrid?.querySelector('[data-social-id="ai"]');
 
-            const automation = hiddenProjects.find(el =>
-                el.querySelector('.social-title')?.textContent.includes('автоматизации бизнеса')
-            );
-
-            const mafia = hiddenProjects.find(el =>
-                el.querySelector('.social-title')?.textContent.includes('Бизнес-мафия')
-            );
-
-            const mayAndAiGrid = hiddenProjects.find(el =>
-                el.classList.contains('social-project-grid')
-            );
-
-            const expert = hiddenProjects.find(el =>
-                el.querySelector('.social-title')?.textContent.includes('экспертного поста')
-            );
-
-            if (!city || !podcast || !history || !automation || !mafia || !mayAndAiGrid || !expert) {
+            if (
+                !city || !podcast || !history || !automation ||
+                !mafia || !expert || !mayAndAiGrid || !may || !ai
+            ) {
                 console.warn('Не удалось найти все карточки блока соцсетей');
                 return;
             }
 
-            const may = mayAndAiGrid.querySelectorAll(':scope > .social-project')[0];
-            const ai = mayAndAiGrid.querySelectorAll(':scope > .social-project')[1];
-
-            if (!may || !ai) return;
-
             // Запоминаем первоначальные места карточек,
-            // чтобы восстановить десктопную структуру
+            // чтобы восстановить десктопную структуру.
             const movedItems = [podcast, may, ai];
 
             movedItems.forEach(item => {
                 const placeholder = document.createComment('social-card-position');
+
                 item.parentNode.insertBefore(placeholder, item);
-                item.dataset.socialOriginalPosition = 'saved';
                 item._socialPlaceholder = placeholder;
             });
 
@@ -3413,10 +3397,10 @@
             function applyMobileOrder() {
                 const collapseButton = hidden.querySelector('.project-collapse-btn');
 
-                // Открытая часть — две первые работы
+                // Открытая часть — первая карточка.
                 visibleGrid.appendChild(city);
 
-                // Скрытая часть — работы в нужном порядке
+                // Скрытая часть — сохраняем прежнюю последовательность.
                 hidden.appendChild(history);
                 hidden.appendChild(podcast);
                 hidden.appendChild(automation);
@@ -3425,17 +3409,17 @@
                 hidden.appendChild(ai);
                 hidden.appendChild(expert);
 
-                // Кнопка сворачивания всегда последняя
+                // Кнопка сворачивания всегда последняя.
                 if (collapseButton) {
                     hidden.appendChild(collapseButton);
                 }
 
-                // Пустая исходная сетка больше не нужна
+                // Исходная сетка больше не нужна.
                 mayAndAiGrid.style.display = 'none';
             }
 
             function restoreDesktopOrder() {
-                // Возвращаем карточки на исходные места
+                // Возвращаем карточки на первоначальные места.
                 movedItems.forEach(item => {
                     const placeholder = item._socialPlaceholder;
 
@@ -3445,7 +3429,6 @@
                     }
 
                     delete item._socialPlaceholder;
-                    delete item.dataset.socialOriginalPosition;
                 });
 
                 mayAndAiGrid.style.display = '';

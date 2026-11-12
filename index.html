@@ -3641,6 +3641,152 @@
     </script>
 
 
+    <!-- =========================================================
+     ПЕРЕКЛЮЧЕНИЕ ЯЗЫКОВ
+     ========================================================= -->
+
+    <script>
+        (() => {
+
+            const STORAGE_KEY = 'portfolio-language';
+
+            // Переводы элементов, которые уже подготовлены в HTML
+            const translations = {
+                ru: {
+                    'nav.projects': 'Проекты',
+                    'nav.printing': 'Полиграфия',
+                    'nav.digital': 'Digital',
+                    'nav.3d': '3D-графика',
+                    'nav.motion': 'Motion Design',
+                    'nav.social': 'Соцсети',
+                    'nav.landing': 'Лендинги',
+
+                    'contacts.title': 'Контакты',
+                    'contacts.email': '/ Почта'
+                },
+
+                en: {
+                    'nav.projects': 'Projects',
+                    'nav.printing': 'Print Design',
+                    'nav.digital': 'Digital',
+                    'nav.3d': '3D Graphics',
+                    'nav.motion': 'Motion Design',
+                    'nav.social': 'Social Media',
+                    'nav.landing': 'Landing Pages',
+
+                    'contacts.title': 'Contacts',
+                    'contacts.email': '/ Email'
+                }
+            };
+
+
+            // Определяем язык при первом посещении
+            function getInitialLanguage() {
+
+                const savedLanguage = localStorage.getItem(STORAGE_KEY);
+
+                if (savedLanguage === 'ru' || savedLanguage === 'en') {
+                    return savedLanguage;
+                }
+
+                const browserLanguage = navigator.language.toLowerCase();
+
+                return browserLanguage.startsWith('ru') ? 'ru' : 'en';
+            }
+
+
+            // Обновляем текст элементов с атрибутом data-i18n
+            function updateTranslations(language) {
+
+                const dictionary = translations[language];
+
+                document.querySelectorAll('[data-i18n]').forEach(element => {
+
+                    const key = element.dataset.i18n;
+
+                    if (dictionary[key]) {
+                        element.textContent = dictionary[key];
+                    }
+
+                });
+
+            }
+
+
+            // Обновляем изображение главного заголовка
+            function updateHeroTitle(language) {
+
+                const titleImage = document.querySelector('[data-title-image]');
+                const mobileTitle = document.querySelector('[data-title-mobile]');
+
+                const imagePath = language === 'en'
+                    ? 'images/0_graphics/title_eng.svg'
+                    : 'images/0_graphics/title_rus.svg';
+
+                if (titleImage) {
+                    titleImage.src = imagePath;
+
+                    titleImage.alt = language === 'en'
+                        ? 'Graphic Designer Portfolio'
+                        : 'Портфолио Графический дизайнер';
+                }
+
+                if (mobileTitle) {
+                    mobileTitle.srcset = imagePath;
+                }
+
+            }
+
+
+            // Обновляем активное состояние кнопок
+            function updateLanguageButtons(language) {
+
+                document.querySelectorAll('.lang-btn').forEach(button => {
+                    button.classList.toggle(
+                        'active',
+                        button.id === `lang-${language === 'en' ? 'eng' : 'rus'}`
+                    );
+                });
+
+                document.querySelectorAll('.mobile-lang-btn').forEach(button => {
+                    button.classList.toggle(
+                        'active',
+                        button.id === `mobile-lang-${language === 'en' ? 'eng' : 'rus'}`
+                    );
+                });
+
+            }
+
+
+            // Основная функция переключения
+            function switchLang(language) {
+
+                if (language !== 'ru' && language !== 'en') {
+                    return;
+                }
+
+                document.documentElement.lang = language;
+
+                localStorage.setItem(STORAGE_KEY, language);
+
+                updateTranslations(language);
+                updateHeroTitle(language);
+                updateLanguageButtons(language);
+
+            }
+
+
+            // Делаем функцию доступной для HTML-кнопок
+            window.switchLang = switchLang;
+
+
+            // Устанавливаем язык при загрузке страницы
+            switchLang(getInitialLanguage());
+
+        })();
+    </script>
+
+
 
 
 

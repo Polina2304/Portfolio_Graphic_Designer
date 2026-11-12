@@ -2597,6 +2597,44 @@ body {
     }
 }
 
+/* =========================================================
+   ПЕРЕКЛЮЧЕНИЕ ЯЗЫКОВ — КОНТАКТЫ
+   ========================================================= */
+
+/* По умолчанию показываем только русские контакты */
+[data-lang-only="en"] {
+    display: none !important;
+}
+
+/* При английском языке скрываем русские контакты */
+html[lang="en"] [data-lang-only="ru"] {
+    display: none !important;
+}
+
+/* При английском языке показываем WhatsApp */
+html[lang="en"] [data-lang-only="en"] {
+    display: flex !important;
+}
+
+/* Подписи WhatsApp для разных размеров экрана */
+.desktop-contact-label {
+    display: inline;
+}
+
+.mobile-contact-label {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .desktop-contact-label {
+        display: none;
+    }
+
+    .mobile-contact-label {
+        display: inline;
+    }
+}
+
 
 /* ============================================================
    МОБИЛЬНАЯ ВЕРСИЯ ПОДВАЛА

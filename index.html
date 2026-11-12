@@ -89,13 +89,13 @@
 
         <nav class="main-menu">
 
-            <a href="#projects" class="menu-btn">Проекты</a>
-            <a href="#printing" class="menu-btn">Полиграфия</a>
-            <a href="#digital" class="menu-btn">Digital</a>
-            <a href="#3d" class="menu-btn">3D-графика</a>
-            <a href="#motion" class="menu-btn">Motion Design</a>
-            <a href="#social" class="menu-btn">Соцсети</a>
-            <a href="#landing" class="menu-btn">Лендинги</a>
+            <a href="#projects" class="menu-btn" data-i18n="nav.projects">Проекты</a>
+            <a href="#printing" class="menu-btn" data-i18n="nav.printing">Полиграфия</a>
+            <a href="#digital" class="menu-btn" data-i18n="nav.digital">Digital</a>
+            <a href="#3d" class="menu-btn" data-i18n="nav.3d">3D-графика</a>
+            <a href="#motion" class="menu-btn" data-i18n="nav.motion">Motion Design</a>
+            <a href="#social" class="menu-btn" data-i18n="nav.social">Соцсети</a>
+            <a href="#landing" class="menu-btn" data-i18n="nav.landing">Лендинги</a>
 
         </nav>
 
@@ -108,10 +108,15 @@
 
             <div class="hero-title">
                 <picture>
-                    <source media="(max-width: 768px)" srcset="images/0_graphics/title_rus.svg">
+                    <source
+                        media="(max-width: 768px)"
+                        srcset="images/0_graphics/title_rus.svg"
+                        data-title-mobile
+                    >
                     <img
                         src="images/0_graphics/title_rus.svg"
                         alt="Портфолио Графический дизайнер"
+                        data-title-image
                     >
                 </picture>
             </div>
@@ -142,9 +147,10 @@
 
             <div class="card contacts-card">
 
-                <h2>Контакты</h2>
+                <h2 data-i18n="contacts.title">Контакты</h2>
 
-                <div class="card-item">
+                <!-- РУССКАЯ ВЕРСИЯ -->
+                <div class="card-item" data-lang-only="ru">
 
                     <span class="grey-text">/ Telegram</span>
 
@@ -160,10 +166,28 @@
 
                 </div>
 
+                <!-- АНГЛИЙСКАЯ ВЕРСИЯ -->
+                <div class="card-item" data-lang-only="en">
 
+                    <span class="grey-text desktop-contact-label">/ Whatsapp</span>
+                    <span class="grey-text mobile-contact-label">/ whatsapp</span>
+
+                    <img
+                        class="vector-dash"
+                        src="images/1_main/Desktop/dash.svg"
+                        alt="—"
+                    >
+
+                    <a href="https://wa.me/qr/Q667RHF37QD3O1" target="_blank" rel="noopener noreferrer">
+                        +374 55 797204
+                    </a>
+
+                </div>
+
+                <!-- ПОЧТА -->
                 <div class="card-item">
 
-                    <span class="grey-text">/ Почта</span>
+                    <span class="grey-text" data-i18n="contacts.email">/ Почта</span>
 
                     <img
                         class="vector-dash"

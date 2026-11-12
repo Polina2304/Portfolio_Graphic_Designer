@@ -2976,59 +2976,158 @@
             АНИМАЦИЯ ВИДЕО В РАЗДЕЛЕ MOTION DESIGN
     ==================================================== -->
     <script>
+
+        // Единственный активный видеоплеер
+        let activeMotionPlayer = null;
+
+        // Защита от быстрых повторных нажатий
+        let motionRequestId = 0;
+
+        // Загрузка YouTube IFrame API
+        let youtubeApiPromise = null;
+
+        function loadYouTubeAPI() {
+
+            if (window.YT && window.YT.Player) {
+                return Promise.resolve(window.YT);
+            }
+
+            if (!youtubeApiPromise) {
+
+                youtubeApiPromise = new Promise(resolve => {
+
+                    const previousCallback = window.onYouTubeIframeAPIReady;
+
+                    window.onYouTubeIframeAPIReady = function () {
+
+                        if (typeof previousCallback === 'function') {
+                            previousCallback();
+                        }
+
+                        resolve(window.YT);
+                    };
+
+                    const script = document.createElement('script');
+                    script.src = 'https://www.youtube.com/iframe_api';
+
+                    document.head.appendChild(script);
+
+                });
+
+            }
+
+            return youtubeApiPromise;
+        }
+
+
+        // КНОПКИ ВОСПРОИЗВЕДЕНИЯ
         document.querySelectorAll('.motion-play').forEach(button => {
 
-            button.addEventListener('click', () => {
+            button.addEventListener('click', async () => {
 
                 const videoId = button.dataset.videoId;
-
                 const cover = button.closest('.motion-cover');
 
                 const title = button.closest('.motion-item')
                     .querySelector('.motion-title').textContent.trim();
 
-
-                // СТАВИМ НА ПАУЗУ ВСЕ РАНЕЕ ЗАПУЩЕННЫЕ РОЛИКИ
-                document.querySelectorAll('.motion-cover iframe').forEach(oldIframe => {
-
-                    oldIframe.contentWindow.postMessage(
-                        JSON.stringify({
-                            event: 'command',
-                            func: 'pauseVideo',
-                            args: ''
-                        }),
-                        '*'
-                    );
-
-                });
-
-
-                // СОЗДАЁМ YOUTUBE-ПЛЕЕР
                 if (!videoId) {
                     console.error('Не указан ID видео YouTube');
                     return;
                 }
 
-                const iframe = document.createElement('iframe');
-
-                iframe.src =
-                    `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&controls=0&rel=0&playsinline=1&enablejsapi=1&origin=${encodeURIComponent(window.location.origin)}`;
-
-                iframe.title = title;
-
-                iframe.allow =
-                    'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-
-                iframe.allowFullscreen = true;
+                // Создаём уникальный номер текущего запроса
+                const currentRequestId = ++motionRequestId;
 
 
-                // ЗАМЕНЯЕМ ОБЛОЖКУ НА ВИДЕО
-                cover.replaceChildren(iframe);
+                // УДАЛЯЕМ ПРЕДЫДУЩИЙ ПЛЕЕР
+                if (activeMotionPlayer) {
+
+                    const previous = activeMotionPlayer;
+
+                    activeMotionPlayer = null;
+
+                    if (previous.player) {
+                        previous.player.destroy();
+                    }
+
+                    // Возвращаем исходную обложку и кнопку Play
+                    previous.cover.innerHTML = previous.originalHTML;
+
+                }
+
+
+                // Сохраняем исходное содержимое новой карточки
+                const originalHTML = cover.innerHTML;
+
+                // Контейнер для нового плеера
+                const playerContainer = document.createElement('div');
+
+                playerContainer.className = 'motion-player-container';
+
+                cover.replaceChildren(playerContainer);
+
+
+                // Запоминаем активную карточку
+                const currentPlayer = {
+                    player: null,
+                    cover: cover,
+                    originalHTML: originalHTML
+                };
+
+                activeMotionPlayer = currentPlayer;
+
+
+                // Загружаем YouTube API
+                const YT = await loadYouTubeAPI();
+
+                // Если за время загрузки пользователь выбрал другой ролик,
+                // не создаём устаревший плеер
+                if (currentRequestId !== motionRequestId) {
+                    return;
+                }
+
+
+                // СОЗДАЁМ YOUTUBE-ПЛЕЕР
+                currentPlayer.player = new YT.Player(playerContainer, {
+
+                    videoId: videoId,
+
+                    playerVars: {
+                        autoplay: 1,
+                        controls: 0,
+                        rel: 0,
+                        playsinline: 1,
+                        enablejsapi: 1,
+                        origin: window.location.origin
+                    },
+
+                    events: {
+
+                        onReady: function (event) {
+
+                            if (currentRequestId === motionRequestId) {
+                                event.target.playVideo();
+                            } else {
+                                event.target.destroy();
+                            }
+
+                        },
+
+                        onError: function (event) {
+                            console.error('Ошибка YouTube-плеера:', event.data);
+                        }
+
+                    }
+
+                });
 
             });
 
         });
+
     </script>
+
 
 
 

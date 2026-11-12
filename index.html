@@ -2973,7 +2973,6 @@
             АНИМАЦИЯ ВИДЕО В РАЗДЕЛЕ MOTION DESIGN
     ==================================================== -->
     <script>
-        // Воспроизведение видео в разделе Motion Design
         document.querySelectorAll('.motion-play').forEach(button => {
 
             button.addEventListener('click', () => {
@@ -2988,14 +2987,68 @@
 
                 const iframe = document.createElement('iframe');
 
-                // Если у ролика указан RUTUBE — используем его
+                // RUTUBE
                 if (rutubeSrc) {
-                    iframe.src = rutubeSrc;
+
+                    // Просим плеер начать воспроизведение автоматически
+                    const separator = rutubeSrc.includes('?') ? '&' : '?';
+                    iframe.src = `${rutubeSrc}${separator}autoplay=true`;
+
+                    iframe.title = title;
+                    iframe.allow = 'clipboard-write; autoplay; fullscreen; picture-in-picture';
+                    iframe.allowFullscreen = true;
+
+                    // Ждём готовности плеера RUTUBE
+                    const rutubeHandler = (event) => {
+
+                        if (event.source !== iframe.contentWindow) {
+                            return;
+                        }
+
+                        let message;
+
+                        try {
+                            message = typeof event.data === 'string'
+                                ? JSON.parse(event.data)
+                                : event.data;
+                        } catch (error) {
+                            return;
+                        }
+
+                        // Когда плеер готов — запускаем видео и скрываем его элементы управления
+                        if (message && message.type === 'player:ready') {
+
+                            iframe.contentWindow.postMessage(
+                                JSON.stringify({
+                                    type: 'player:play',
+                                    data: {}
+                                }),
+                                '*'
+                            );
+
+                            iframe.contentWindow.postMessage(
+                                JSON.stringify({
+                                    type: 'player:hideControls'
+                                }),
+                                '*'
+                            );
+
+                            window.removeEventListener('message', rutubeHandler);
+                        }
+                    };
+
+                    window.addEventListener('message', rutubeHandler);
+
                 }
 
-                // Иначе воспроизводим YouTube
+                // YOUTUBE
                 else if (videoId) {
+
                     iframe.src = `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&rel=0`;
+                    iframe.title = title;
+                    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+                    iframe.allowFullscreen = true;
+
                 }
 
                 else {
@@ -3003,16 +3056,13 @@
                     return;
                 }
 
-                iframe.title = title;
-                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-                iframe.allowFullscreen = true;
-
                 cover.replaceChildren(iframe);
 
             });
 
         });
     </script>
+
 
 
     <!-- ====================================================

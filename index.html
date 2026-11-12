@@ -2010,6 +2010,7 @@
 
 
             
+                        
             <!-- 4. 3D-АНИМАЦИЯ ДЛЯ ПРОМОАКЦИИ 3=1 -->
             <div class="motion-item">
 
@@ -2023,7 +2024,7 @@
                     <button
                         class="motion-play"
                         type="button"
-                        data-rutube-src="https://rutube.ru/play/embed/0a6c96675fe4e8c94491fa1f828a93d5/?p=HycJ16dWr_lsik9DQh3H4w"
+                        data-video-id="TX-_DsT0dGU"
                         aria-label="Смотреть анимацию 3=1"
                     >
                         <svg viewBox="0 0 42 45" fill="white" aria-hidden="true">
@@ -2049,6 +2050,7 @@
                 </div>
 
             </div>
+
 
 
         </div>
@@ -2979,116 +2981,46 @@
             button.addEventListener('click', () => {
 
                 const videoId = button.dataset.videoId;
-                const rutubeSrc = button.dataset.rutubeSrc;
 
                 const cover = button.closest('.motion-cover');
 
                 const title = button.closest('.motion-item')
                     .querySelector('.motion-title').textContent.trim();
 
+
                 // СТАВИМ НА ПАУЗУ ВСЕ РАНЕЕ ЗАПУЩЕННЫЕ РОЛИКИ
                 document.querySelectorAll('.motion-cover iframe').forEach(oldIframe => {
 
-                    const oldSrc = oldIframe.src;
-
-                    // YouTube
-                    if (oldSrc.includes('youtube.com') || oldSrc.includes('youtube-nocookie.com')) {
-
-                        oldIframe.contentWindow.postMessage(
-                            JSON.stringify({
-                                event: 'command',
-                                func: 'pauseVideo',
-                                args: ''
-                            }),
-                            '*'
-                        );
-
-                    }
-
-                    // RUTUBE
-                    else if (oldSrc.includes('rutube.ru')) {
-
-                        oldIframe.contentWindow.postMessage(
-                            JSON.stringify({
-                                type: 'player:pause',
-                                data: {}
-                            }),
-                            '*'
-                        );
-
-                    }
+                    oldIframe.contentWindow.postMessage(
+                        JSON.stringify({
+                            event: 'command',
+                            func: 'pauseVideo',
+                            args: ''
+                        }),
+                        '*'
+                    );
 
                 });
 
-                const iframe = document.createElement('iframe');
 
-                // RUTUBE
-                if (rutubeSrc) {
-
-                    const separator = rutubeSrc.includes('?') ? '&' : '?';
-                    iframe.src = `${rutubeSrc}${separator}autoplay=true`;
-
-                    iframe.title = title;
-                    iframe.allow = 'clipboard-write; autoplay; fullscreen; picture-in-picture';
-                    iframe.allowFullscreen = true;
-
-                    const rutubeHandler = (event) => {
-
-                        if (event.source !== iframe.contentWindow) {
-                            return;
-                        }
-
-                        let message;
-
-                        try {
-                            message = typeof event.data === 'string'
-                                ? JSON.parse(event.data)
-                                : event.data;
-                        } catch (error) {
-                            return;
-                        }
-
-                        if (message && message.type === 'player:ready') {
-
-                            iframe.contentWindow.postMessage(
-                                JSON.stringify({
-                                    type: 'player:play',
-                                    data: {}
-                                }),
-                                '*'
-                            );
-
-                            iframe.contentWindow.postMessage(
-                                JSON.stringify({
-                                    type: 'player:hideControls'
-                                }),
-                                '*'
-                            );
-
-                            window.removeEventListener('message', rutubeHandler);
-                        }
-                    };
-
-                    window.addEventListener('message', rutubeHandler);
-
-                }
-
-                // YOUTUBE
-                else if (videoId) {
-
-                    iframe.src =
-                        `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&controls=0&rel=0&playsinline=1&enablejsapi=1&origin=${encodeURIComponent(window.location.origin)}`;
-
-                    iframe.title = title;
-                    iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
-                    iframe.allowFullscreen = true;
-
-                }
-
-                else {
-                    console.error('Не указан источник видео');
+                // СОЗДАЁМ YOUTUBE-ПЛЕЕР
+                if (!videoId) {
+                    console.error('Не указан ID видео YouTube');
                     return;
                 }
+
+                const iframe = document.createElement('iframe');
+
+                iframe.src =
+                    `https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1&controls=0&rel=0&playsinline=1&enablejsapi=1&origin=${encodeURIComponent(window.location.origin)}`;
+
+                iframe.title = title;
+
+                iframe.allow =
+                    'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+
+                iframe.allowFullscreen = true;
+
 
                 // ЗАМЕНЯЕМ ОБЛОЖКУ НА ВИДЕО
                 cover.replaceChildren(iframe);

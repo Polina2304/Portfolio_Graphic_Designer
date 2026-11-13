@@ -2574,6 +2574,21 @@ body {
     color: #1F1E1D;
 }
 
+/* WhatsApp (английская версия): размеры иконки по макету 30.04 × 30 px,
+   цвет #FFF5E0 задан в самом SVG, пропорции сохраняются (viewBox) */
+
+.footer-whatsapp-icon {
+    display: block;
+    flex: 0 0 30.04px;
+
+    width: 30.04px;
+    height: 30px;
+}
+
+.footer-whatsapp-btn:hover {
+    opacity: 0.6;
+}
+
 
 /* =========================================================
    ЯЗЫКОВОЕ ПЕРЕКЛЮЧЕНИЕ — КОНТАКТЫ

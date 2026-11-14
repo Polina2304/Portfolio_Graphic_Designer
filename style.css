@@ -2125,24 +2125,26 @@ html[lang="en"] .contacts-card .card-item:not([data-lang-only="en"]) > .desktop-
     stroke-linejoin: round;
 }
 
-.social-arrow:hover {
-    opacity: 0.5;
-}
-
-/* Неактивные стрелки на ПК остаются видимыми, но менее яркими */
+/* Неактивные стрелки остаются видимыми, но менее яркими */
 
 .social-arrow:disabled {
     opacity: 0.5;
     cursor: default;
 }
 
-.social-arrow:not(:disabled):hover {
-    background: #FFD685;
-    opacity: 1;
-}
+/* Эффект наведения только для устройств с мышью */
 
-.social-arrow:not(:disabled):hover svg path {
-    stroke: #1F1E1D;
+@media (hover: hover) and (pointer: fine) {
+
+    .social-arrow:not(:disabled):hover {
+        background: #FFD685;
+        opacity: 1;
+    }
+
+    .social-arrow:not(:disabled):hover svg path {
+        stroke: #1F1E1D;
+    }
+
 }
 
 /* ============================================================

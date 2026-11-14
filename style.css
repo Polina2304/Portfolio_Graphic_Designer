@@ -207,6 +207,7 @@ body {
     letter-spacing: -0.01em;
 }
 
+
 .card-item > :first-child {
     flex-shrink: 0;
 }
@@ -2579,10 +2580,12 @@ body {
 
 .footer-whatsapp-icon {
     display: block;
-    flex: 0 0 30.04px;
+    flex: 0 0 22px;
 
-    width: 30.04px;
-    height: 30px;
+    width: 22px;
+    height: 22px;
+
+    object-fit: contain;
 }
 
 .footer-whatsapp-btn:hover {

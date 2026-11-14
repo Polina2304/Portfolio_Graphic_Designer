@@ -213,6 +213,14 @@ body {
 }
 
 .contacts-card .card-item > :first-child { width: 106px; }
+/* Ширина подписи WhatsApp определяется самим текстом */
+.contacts-card .card-item[data-lang-only="en"] > .desktop-contact-label {
+    width: max-content;
+}
+/* Выравнивание дефиса Email по дефису WhatsApp */
+html[lang="en"] .contacts-card .card-item:not([data-lang-only="en"]) > .desktop-contact-label {
+    width: 120px;
+}
 .education-card .card-item > :first-child { width: 110px; }
 .experience-card .card-item > :first-child { width: 139px; }
 
